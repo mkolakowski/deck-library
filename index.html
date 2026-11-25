@@ -289,6 +289,7 @@ function renderLibrary(){
       <div class="in"><b>${esc(d.title)}</b>${tagsOf(d).length ? `<div class="tagrow">${tagPills(d)}</div>` : ''}<p>${esc(d.pitch)}</p>
       <div class="ft"><span class="pips">${colorPips(d.colors)}</span><span>${n.main ? `${n.main}${n.side ? ' + ' + n.side : ''} cards · ` : ''}${esc(fmtDate(d.updated))}</span></div></div></a>`; }).join('')}</div>`)
     : '<div class="empty">No decks match. Clear the search or pick another format or tag.</div>'}`;
+  syncUrl();
 }
 
 /* ---------- deck page ---------- */
@@ -389,7 +390,7 @@ async function renderDeck(id){
       <div><b class="pips">${colorPips(s.cols)}</b><span>colors</span></div>
       <div><b>${esc(fmtDate(d.updated))}</b><span>last updated</span></div>
     </div>
-    <div class="acts"><a class="act main" href="decks/${esc(encodeURIComponent(d.file))}" download="${esc(d.title.replace(/[\\/:*?"<>|]/g, '') + '.dck')}">Download .dck</a><button class="act" id="cpd">Copy .dck</button><button class="act" id="cpl">Copy plain list</button></div>
+    <div class="acts"><a class="act main" href="decks/${esc(encodeURIComponent(d.file))}" download="${esc(d.title.replace(/[\\/:*?"<>|]/g, '') + '.dck')}">Download .dck</a><button class="act" id="cpd">Copy .dck</button><button class="act" id="cpl">Copy plain list</button><button class="act" id="cplink" title="Copy a link to this deck with your current view, size, grouping, sort and search">Copy link</button></div>
     <div class="note">Import in Playmat with the .dck option, or paste the plain list.</div>
     <div id="fallback" hidden><textarea rows="6" style="width:100%;font:13px ui-monospace,monospace;margin-top:8px" aria-label="Deck text"></textarea></div>
   </div>
@@ -408,6 +409,7 @@ async function renderDeck(id){
     <input type="search" id="q" placeholder="Search name, type or text" value="${esc(st.q)}" aria-label="Search cards">
   </div>
   <div id="body">${body(d)}</div>`;
+  syncUrl();
 }
 
 /* ---------- zoom ---------- */
@@ -422,11 +424,37 @@ function zoomTo(i){
 function zoomClose(){ const z = $('#zoom'); if (z.hidden) return; z.hidden = true; document.querySelector(`.art[data-z="${ZI}"]`)?.focus(); ZI = -1; }
 
 /* ---------- routing + events ---------- */
-const route = () => { const h = location.hash.slice(1); return INDEX.some(d => d.id === h) ? h : 'library'; };
+/* The address reflects the current choices: #<deck>?view=&size=&group=&section=&sort=&dir=&q= or #library?view=&format=&tag=&sort=&q=.
+   A link with a ?query is applied as-is (missing values mean defaults); a bare #<deck> keeps the viewer's own saved choices. */
+const hashParts = () => { const h = location.hash.slice(1); const i = h.indexOf('?'); let r = i < 0 ? h : h.slice(0, i); try { r = decodeURIComponent(r); } catch(e){} return [r, new URLSearchParams(i < 0 ? '' : h.slice(i + 1)), i >= 0]; };
+const route = () => { const h = hashParts()[0]; return INDEX.some(d => d.id === h) ? h : 'library'; };
+const LIB_SORTS = ['updated', 'added', 'name', 'format'], CARD_SORTS = ['mv', 'name', 'main', 'q', 'printing', 'sec'];
+function applyUrl(r){
+  const [, p, has] = hashParts(); if (!has) return false;
+  const g = (k, ok, dflt) => { const v = p.get(k); return v != null && ok(v) ? v : dflt; };
+  if (r === 'library'){
+    lib.view = g('view', v => ['grid', 'list'].includes(v), 'grid'); lib.fmt = g('format', v => INDEX.some(d => d.format === v), 'All');
+    lib.tag = g('tag', v => INDEX.some(d => tagsOf(d).includes(v)), 'All'); lib.sort = g('sort', v => LIB_SORTS.includes(v), 'updated'); lib.q = g('q', () => true, '');
+  } else {
+    st.view = g('view', v => ['gallery', 'list'].includes(v), 'gallery') === 'list' ? 'table' : 'gallery';
+    st.size = g('size', v => ['S', 'M', 'L', 'XL'].includes(v), 'M'); st.group = g('group', v => Object.hasOwn(GROUPS, v), 'type');
+    st.sec = g('section', v => ['Commander', 'Main', 'Sideboard'].includes(v), 'All'); st.q = g('q', () => true, '');
+    st.sort = {key: g('sort', v => CARD_SORTS.includes(v), 'mv'), dir: p.get('dir') === 'desc' ? -1 : 1};
+  }
+  return true;
+}
+function syncUrl(){
+  const r = route(), p = new URLSearchParams(), put = (k, v, d) => { if (v !== d) p.set(k, v); };
+  if (r === 'library'){ p.set('view', lib.view); put('format', lib.fmt, 'All'); put('tag', lib.tag, 'All'); put('sort', lib.sort, 'updated'); put('q', lib.q.trim(), ''); }
+  else { p.set('view', st.view === 'table' ? 'list' : 'gallery'); if (st.view !== 'table') put('size', st.size, 'M'); put('group', st.group, 'type'); put('section', st.sec, 'All');
+    put('sort', st.sort.key, 'mv'); if (st.sort.dir < 0) p.set('dir', 'desc'); put('q', st.q.trim(), ''); }
+  const h = '#' + r + '?' + p.toString().replace(/\+/g, '%20');
+  if (location.hash !== h) history.replaceState(history.state, '', h);
+}
 let shown = null;
-function show(){ const r = route(); if (r !== shown){ st.sec = 'All'; st.q = ''; } shown = r; if (r === 'library') renderLibrary(); else renderDeck(r); }
+function show(){ const r = route(); const fromUrl = applyUrl(r); if (r !== shown && !fromUrl){ st.sec = 'All'; st.q = ''; } shown = r; if (r === 'library') renderLibrary(); else renderDeck(r); }
 const cur = () => CACHE[route()];
-function rerenderBody(){ const d = cur(); if (d) $('#body').innerHTML = body(d); }
+function rerenderBody(){ const d = cur(); if (d) $('#body').innerHTML = body(d); syncUrl(); }
 async function copy(text, what){
   try { await navigator.clipboard.writeText(text); toast(what + ' copied'); }
   catch(e){ toast('Copy was blocked; the text is in the box below'); const f = $('#fallback'); f.hidden = false; f.querySelector('textarea').value = text; f.querySelector('textarea').select(); }
@@ -437,7 +465,7 @@ document.addEventListener('click', async e => {
   if (t.dataset.z !== undefined){ zoomTo(+t.dataset.z); return; }
   if (t.dataset.card && d){ let i = SHOWN.findIndex(c => c.name === t.dataset.card); if (i < 0){ SHOWN = d.cards.slice(); i = SHOWN.findIndex(c => c.name === t.dataset.card); } if (i >= 0) zoomTo(i); return; }
   if (t.id === 'zprev') return zoomTo(ZI - 1); if (t.id === 'znext') return zoomTo(ZI + 1); if (t.id === 'zx') return zoomClose();
-  if (t.dataset.size){ st.size = t.dataset.size; store.set('size', st.size); document.querySelectorAll('[data-size]').forEach(x => { if (x.tagName === 'BUTTON') x.setAttribute('aria-pressed', x.dataset.size === st.size); else x.dataset.size = st.size; }); return; }
+  if (t.dataset.size){ st.size = t.dataset.size; store.set('size', st.size); document.querySelectorAll('[data-size]').forEach(x => { if (x.tagName === 'BUTTON') x.setAttribute('aria-pressed', x.dataset.size === st.size); else x.dataset.size = st.size; }); syncUrl(); return; }
   if (t.dataset.fmt){ lib.fmt = t.dataset.fmt; store.set('lib', lib); renderLibrary(); }
   else if (t.dataset.lview){ lib.view = t.dataset.lview; store.set('lib', lib); renderLibrary(); }
   else if (t.dataset.tag){ lib.tag = t.dataset.tag; store.set('lib', lib); renderLibrary(); }
@@ -447,6 +475,7 @@ document.addEventListener('click', async e => {
   else if (t.tagName === 'TH'){ const k = t.dataset.k; st.sort = {key: k, dir: st.sort.key === k ? -st.sort.dir : 1}; renderDeck(route()); }
   else if (t.id === 'cpd' && d) copy(d.dck, '.dck file');
   else if (t.id === 'cpl' && d) copy(plainList(d), 'Deck list');
+  else if (t.id === 'cplink') copy(location.href, 'Link');
 });
 document.addEventListener('keydown', e => {
   if (!$('#zoom').hidden){ if (e.key === 'Escape') zoomClose(); else if (e.key === 'ArrowLeft') zoomTo(ZI - 1); else if (e.key === 'ArrowRight') zoomTo(ZI + 1); return; }
