@@ -92,7 +92,12 @@ button,select,input{font:16px Inter,sans-serif}
 .c .q{position:absolute;top:-8px;left:-8px;background:var(--brass);color:#1b1305;font:700 15px "Barlow Condensed",sans-serif;min-width:30px;height:30px;border-radius:15px;display:grid;place-items:center;padding:0 6px;z-index:1}
 .c .meta{display:flex;justify-content:space-between;align-items:center;gap:6px;padding:7px 2px 1px;font-size:13px}
 .c .meta a{color:var(--soft);white-space:nowrap}
-.sec{font-size:22px;font-weight:600;margin:24px 0 10px}
+.sec{font-size:24px;font-weight:700;margin:28px 0 6px}
+.grp{margin:0 0 6px}.grp>summary{font:600 19px "Barlow Condensed",Inter,sans-serif;cursor:pointer;padding:10px 0;list-style:none;display:flex;align-items:center;gap:8px;min-height:44px;border-bottom:1px solid var(--line);margin-bottom:14px}
+.grp>summary::-webkit-details-marker{display:none}.grp>summary::before{content:'▸';transition:transform .15s;color:var(--soft)}.grp[open]>summary::before{transform:rotate(90deg)}
+.grp:not([open])>summary{margin-bottom:0}
+tr.gh td,tr.sh td{font:600 17px "Barlow Condensed",Inter,sans-serif;background:var(--bg);padding:8px 10px}tr.sh td{font-size:20px;background:var(--line)}
+@media(prefers-reduced-motion:reduce){.grp>summary::before{transition:none}}
 table{width:100%;border-collapse:collapse;background:var(--card);border-radius:12px;overflow:hidden}
 th{font-size:16px;font-weight:600;text-align:left;padding:10px;border-bottom:2px solid var(--line);cursor:pointer;user-select:none;white-space:nowrap}
 th[aria-sort=ascending]::after{content:" ▲";font-size:11px}th[aria-sort=descending]::after{content:" ▼";font-size:11px}
@@ -115,7 +120,7 @@ footer{max-width:1240px;margin:0 auto;padding:0 max(5vw,16px) 40px;color:var(--s
 .act[href]{display:inline-flex;align-items:center;text-decoration:none}
 @media(prefers-reduced-motion:reduce){.toast,.box{transition:none}}
 @media(max-width:820px){.head{grid-template-columns:1fr}}
-@media(max-width:600px){table{font-size:13px}.stack thead{display:none}.stack tr{display:grid;padding-block:10px}.stack td{display:flow-root;border:0;padding:3px 0;padding-inline-start:8em;text-align:start}.stack td::before{content:attr(data-l);float:inline-start;width:7.5em;margin-inline-start:-8em;white-space:normal;color:var(--soft)}.stack td:empty{display:none}.grid{gap:12px}.grid[data-size=S]{grid-template-columns:repeat(3,minmax(0,1fr))}.grid[data-size=M]{grid-template-columns:repeat(2,minmax(0,1fr))}.grid[data-size=L]{grid-template-columns:minmax(0,300px);justify-content:center}.grid[data-size=XL]{grid-template-columns:minmax(0,1fr)}.switch{width:100%}.switch select{max-width:none;flex:1}}
+@media(max-width:600px){table{font-size:13px}.stack thead{display:none}.stack tr{display:grid;padding-block:10px}.stack td{display:flow-root;border:0;padding:3px 0;padding-inline-start:8em;text-align:start}.stack td::before{content:attr(data-l);float:inline-start;width:7.5em;margin-inline-start:-8em;white-space:normal;color:var(--soft)}.stack td:empty{display:none}.stack tr.gh,.stack tr.sh{display:block;padding:0}.stack tr.gh td,.stack tr.sh td{padding:8px 10px}.stack tr.gh td::before,.stack tr.sh td::before{content:none}.grid{gap:12px}.grid[data-size=S]{grid-template-columns:repeat(3,minmax(0,1fr))}.grid[data-size=M]{grid-template-columns:repeat(2,minmax(0,1fr))}.grid[data-size=L]{grid-template-columns:minmax(0,300px);justify-content:center}.grid[data-size=XL]{grid-template-columns:minmax(0,1fr)}.switch{width:100%}.switch select{max-width:none;flex:1}}
 </style>
 <script>new MutationObserver(()=>{for(const c of document.querySelectorAll('.stack td:not([data-l])')){let i=0,p=c;while(p=p.previousElementSibling)i+=p.colSpan;c.dataset.l=c.closest('table').rows[0].cells[i]?.textContent.replace(/[▲▼]/g,'').trim()||''}}).observe(document,{childList:true,subtree:true})</script>
 </head>
@@ -140,7 +145,7 @@ const TYPES = ['Creature', 'Planeswalker', 'Battle', 'Instant', 'Sorcery', 'Arti
 const store = {get(k, d){ try { return JSON.parse(localStorage.getItem('decklib.' + k)) ?? d; } catch(e){ return d; } }, set(k, v){ try { localStorage.setItem('decklib.' + k, JSON.stringify(v)); } catch(e){} }};
 let INDEX = [], DCK = {}, CACHE = {}, SHOWN = [], ZI = -1;
 const lib = Object.assign({fmt: 'All', q: '', sort: 'updated'}, store.get('lib', {}));
-const st = {view: store.get('view', 'gallery'), size: store.get('size', 'M'), sec: 'All', q: '', sort: {key: 'mv', dir: 1}};
+const st = {view: store.get('view', 'gallery'), size: store.get('size', 'M'), group: store.get('group', 'type'), sec: 'All', q: '', sort: {key: 'mv', dir: 1}};
 function toast(m){ const t = $('#toast'); t.textContent = m; t.classList.add('on'); clearTimeout(toast.h); toast.h = setTimeout(() => t.classList.remove('on'), 2200); }
 
 /* ---------- Scryfall: card data + image links, cached in the browser for 14 days ---------- */
@@ -270,18 +275,38 @@ function tile(c, i){
       ${c.text ? `<div class="tx">${esc(c.text)}</div>` : '<div></div>'}${c.pt ? `<div class="pr">${esc(c.pt)}</div>` : ''}`}
     </button><div class="meta"><span class="pips">${pips(c.cost)}</span><a href="${esc(scryLink(c))}">${c.set ? `${esc(c.set)} #${esc(c.num)}` : 'Scryfall'}</a></div></article>`;
 }
+const GROUPS = {
+  type: {label: 'Type', key: c => c.main, order: [...TYPES, 'Other'], name: (k, n) => ({Creature: 'Creatures', Planeswalker: 'Planeswalkers', Battle: 'Battles', Instant: 'Instants', Sorcery: 'Sorceries', Artifact: 'Artifacts', Enchantment: 'Enchantments', Land: 'Lands'}[k] || 'Other') + ' · ' + n},
+  mv: {label: 'Mana value', key: c => c.main === 'Land' ? 'Land' : String(Math.min(c.mv, 7)), order: ['0', '1', '2', '3', '4', '5', '6', '7', 'Land'], name: (k, n) => (k === 'Land' ? 'Lands' : k === '7' ? 'Mana value 7+' : 'Mana value ' + k) + ' · ' + n},
+  none: {label: 'None', key: () => '', order: [''], name: () => ''}
+};
+const secName = (g, d) => g === 'Main' ? (d.format === 'Commander' ? 'The deck' : 'Main deck') : g;
+const qty = cs => cs.reduce((a, c) => a + c.q, 0);
+// sections (Commander / Main / Sideboard), each split into groups, in display order
+function layout(d, list){
+  const G = GROUPS[st.group] || GROUPS.type;
+  return (st.sec === 'All' ? ['Commander', 'Main', 'Sideboard'] : [st.sec]).map(sec => {
+    const cs = list.filter(c => c.sec === sec);
+    const groups = G.order.map(k => [k, cs.filter(c => G.key(c) === k)]).filter(g => g[1].length);
+    return {sec, cs, groups: groups.map(([k, gc]) => ({k, title: G.name(k, qty(gc)), cards: gc}))};
+  }).filter(x => x.cs.length);
+}
+const isOpen = (sec, k) => !(store.get('closed', [])).includes(sec + '|' + st.group + '|' + k);
 function body(d){
   const list = visible(d); if (!list.length) return '<div class="empty">No cards match that filter.</div>';
+  const L = layout(d, list); const many = L.length > 1;
+  SHOWN = L.flatMap(x => x.groups.flatMap(g => g.cards));
   if (st.view === 'gallery'){
-    const groups = st.sec === 'All' ? ['Commander', 'Main', 'Sideboard'] : [st.sec];
-    SHOWN = groups.flatMap(g => list.filter(c => c.sec === g));
-    return groups.map(g => { const cs = list.filter(c => c.sec === g); if (!cs.length) return '';
-      return `${groups.length > 1 ? `<h3 class="sec">${g === 'Main' ? (d.format === 'Commander' ? 'The deck' : 'Main deck') : g} · ${cs.reduce((a, c) => a + c.q, 0)}</h3>` : ''}<div class="grid" data-size="${st.size}">${cs.map(c => tile(c, SHOWN.indexOf(c))).join('')}</div>`; }).join('');
+    return L.map(x => `${many ? `<h3 class="sec">${esc(secName(x.sec, d))} · ${qty(x.cs)}</h3>` : ''}${x.groups.map(g => {
+      const grid = `<div class="grid" data-size="${st.size}">${g.cards.map(c => tile(c, SHOWN.indexOf(c))).join('')}</div>`;
+      return g.title ? `<details class="grp" data-g="${esc(x.sec + '|' + st.group + '|' + g.k)}" ${isOpen(x.sec, g.k) ? 'open' : ''}><summary>${esc(g.title)}</summary>${grid}</details>` : grid;
+    }).join('')}`).join('');
   }
-  SHOWN = list;
   const cols = [['q', 'Qty'], ['name', 'Card'], ['mv', 'Cost'], ['main', 'Type'], ['printing', 'Printing'], ['sec', 'Section']];
+  const row = c => `<tr><td class="n">${c.q}</td><td><b>${esc(c.name)}</b><span class="sub">${esc(c.type)}${c.pt ? ' · ' + esc(c.pt) : ''}</span></td><td><span class="pips">${pips(c.cost)}</span><span class="sub">MV ${c.mv}</span></td><td>${esc(c.main)}</td><td><a href="${esc(scryLink(c))}">${c.set ? `${esc(c.set)} #${esc(c.num)}` : 'Scryfall'}</a></td><td>${esc(c.sec)}</td></tr>`;
+  const head = (t, cls) => `<tr class="${cls}"><td colspan="6" data-l="">${esc(t)}</td></tr>`;
   return `<table class="stack"><thead><tr>${cols.map(([k, l]) => `<th tabindex="0" data-k="${k}" aria-sort="${st.sort.key === k ? (st.sort.dir > 0 ? 'ascending' : 'descending') : 'none'}">${l}</th>`).join('')}</tr></thead><tbody>${
-    list.map(c => `<tr><td class="n">${c.q}</td><td><b>${esc(c.name)}</b><span class="sub">${esc(c.type)}${c.pt ? ' · ' + esc(c.pt) : ''}</span></td><td><span class="pips">${pips(c.cost)}</span><span class="sub">MV ${c.mv}</span></td><td>${esc(c.main)}</td><td><a href="${esc(scryLink(c))}">${c.set ? `${esc(c.set)} #${esc(c.num)}` : 'Scryfall'}</a></td><td>${esc(c.sec)}</td></tr>`).join('')}</tbody></table>`;
+    L.map(x => (many ? head(`${secName(x.sec, d)} · ${qty(x.cs)}`, 'sh') : '') + x.groups.map(g => (g.title ? head(g.title, 'gh') : '') + g.cards.map(row).join('')).join('')).join('')}</tbody></table>`;
 }
 async function renderDeck(id){
   fillJump(id); $('#main').innerHTML = '<div class="empty">Opening deck and fetching cards from Scryfall…</div>';
@@ -314,6 +339,7 @@ async function renderDeck(id){
   <div class="bar2">
     <div class="seg" role="group" aria-label="View"><button data-v="gallery" aria-pressed="${st.view === 'gallery'}">Gallery</button><button data-v="table" aria-pressed="${st.view === 'table'}">List</button></div>
     <div class="seg" role="group" aria-label="Card size" ${st.view === 'gallery' ? '' : 'hidden'}>${[['S', 'Small'], ['M', 'Medium'], ['L', 'Large'], ['XL', 'Extra large']].map(([k, l]) => `<button data-size="${k}" aria-pressed="${st.size === k}" title="${l} cards">${k === 'XL' ? 'XL' : l}</button>`).join('')}</div>
+    <select id="grp" aria-label="Group cards by">${Object.entries(GROUPS).map(([k, g]) => `<option value="${k}" ${st.group === k ? 'selected' : ''}>${k === 'none' ? 'No grouping' : 'Group: ' + g.label}</option>`).join('')}</select>
     <select id="sec" aria-label="Section">${secs.map(x => `<option ${x === st.sec ? 'selected' : ''}>${x}</option>`).join('')}</select>
     <select id="sort" aria-label="Sort cards">${[['mv', 'Mana value'], ['name', 'Name'], ['main', 'Type'], ['q', 'Quantity'], ['printing', 'Printing']].map(([k, l]) => `<option value="${k}" ${st.sort.key === k ? 'selected' : ''}>Sort: ${l}</option>`).join('')}</select>
     <button class="act" id="dir">${st.sort.dir > 0 ? '↑ Ascending' : '↓ Descending'}</button>
@@ -365,12 +391,14 @@ document.addEventListener('change', e => {
   if (id === 'jump') location.hash = e.target.value;
   else if (id === 'lsort'){ lib.sort = e.target.value; store.set('lib', lib); renderLibrary(); }
   else if (id === 'sec'){ st.sec = e.target.value; rerenderBody(); }
+  else if (id === 'grp'){ st.group = e.target.value; store.set('group', st.group); rerenderBody(); }
   else if (id === 'sort'){ st.sort = {key: e.target.value, dir: 1}; renderDeck(route()); }
 });
 document.addEventListener('input', e => {
   if (e.target.id === 'q'){ st.q = e.target.value; rerenderBody(); }
   if (e.target.id === 'lq'){ lib.q = e.target.value; store.set('lib', lib); const pos = e.target.selectionStart; renderLibrary(); const i = $('#lq'); i.focus(); i.setSelectionRange(pos, pos); }
 });
+document.addEventListener('toggle', e => { const g = e.target.dataset?.g; if (!g) return; const c = new Set(store.get('closed', [])); e.target.open ? c.delete(g) : c.add(g); store.set('closed', [...c].slice(-200)); }, true);
 addEventListener('hashchange', () => { zoomClose(); show(); window.scrollTo({top: 0}); });
 
 (async () => {
