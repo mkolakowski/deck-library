@@ -32,6 +32,9 @@ a{color:inherit}
 .switch select{background:rgba(255,255,255,.12);color:var(--on-felt);border-color:rgba(255,255,255,.25);max-width:min(78vw,340px)}
 .switch select option,.switch select optgroup{color:#16201a;background:#fffdf7}
 main{padding:24px max(5vw,16px) 56px;max-width:1240px;margin:0 auto}
+#backdrop{position:fixed;inset:0;z-index:-1;pointer-events:none;background:center 25%/cover no-repeat;opacity:0;transition:opacity .5s;-webkit-mask-image:linear-gradient(to bottom,#000 0,rgba(0,0,0,.55) 45%,transparent 90%);mask-image:linear-gradient(to bottom,#000 0,rgba(0,0,0,.55) 45%,transparent 90%)}
+#backdrop.on{opacity:.22}
+@media(prefers-reduced-motion:reduce){#backdrop{transition:none}}
 button,select,input{font:16px Inter,sans-serif}
 .act,.chip,select,input[type=search]{min-height:44px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--ink);padding:0 14px}
 .act,.chip{font-weight:600;font-size:15px;cursor:pointer}
@@ -157,6 +160,7 @@ footer{max-width:1240px;margin:0 auto;padding:0 max(5vw,16px) 40px;color:var(--s
     <label class="switch"><select id="jump" aria-label="Jump to a deck"><option value="library">All decks</option></select></label>
   </div>
 </header>
+<div id="backdrop" aria-hidden="true"></div>
 <main id="main"><div class="empty">Loading decks…</div></main>
 <footer>Card data and images from <a href="https://scryfall.com">Scryfall</a>. Magic: The Gathering cards and art © Wizards of the Coast; this is an unofficial fan page, not endorsed by Wizards or Scryfall.</footer>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
@@ -248,6 +252,8 @@ const frameOf = c => c.main === 'Land' ? FRAME.L : c.colors.length > 1 ? FRAME.M
 const scryLink = c => c.uri || (c.set ? `https://scryfall.com/card/${encodeURIComponent(c.set.toLowerCase())}/${encodeURIComponent(c.num)}` : `https://scryfall.com/search?q=${encodeURIComponent('!"' + c.name + '"')}`);
 const safeImg = u => typeof u === 'string' && u.startsWith('https://cards.scryfall.io/') ? u : '';
 const artCrop = u => u.replace('/normal/', '/art_crop/');
+function setBackdrop(d){ const b = $('#backdrop'); const f = d && d.face && SCRY[key(d.face.set, d.face.num)]; const u = f ? safeImg(f.img) : '';
+  if (!u){ b.classList.remove('on'); return; } const url = `url("${artCrop(u).replace(/"/g, "%22")}")`; if (b.style.backgroundImage !== url) b.style.backgroundImage = url; b.classList.add('on'); }
 const fmtDate = s => new Date(s + 'T12:00:00').toLocaleDateString(undefined, {month: 'short', day: 'numeric', year: 'numeric'});
 const lidBg = cols => { const cs = cols ? [...cols] : ['C']; return cs.length > 1 ? `linear-gradient(110deg,${cs.map((k, i) => `${FRAME[k][0]} ${Math.round(i / (cs.length - 1) * 100)}%`).join(',')})` : `linear-gradient(150deg,${FRAME[cs[0]][0]},${FRAME[cs[0]][1]})`; };
 function fillJump(cur){
@@ -258,7 +264,7 @@ const counts = d => { const c = DCK[d.id] ? parseDck(DCK[d.id], d.format) : []; 
 
 /* ---------- library home ---------- */
 function renderLibrary(){
-  fillJump('library'); document.title = 'Deck Library';
+  fillJump('library'); document.title = 'Deck Library'; setBackdrop(null);
   const fmts = ['All', ...FORMATS.filter(f => INDEX.some(d => d.format === f))];
   const tags = [...new Set(INDEX.flatMap(tagsOf))].sort();
   if (lib.tag !== 'All' && !tags.includes(lib.tag)) lib.tag = 'All';
@@ -367,7 +373,7 @@ async function renderDeck(id){
   fillJump(id); $('#main').innerHTML = '<div class="empty">Opening deck and fetching cards from Scryfall…</div>';
   let d; try { d = await loadDeck(id); } catch(e){ $('#main').innerHTML = '<div class="empty">That deck didn’t load. <a href="#library">Back to all decks</a></div>'; return; }
   if (route() !== id) return;
-  document.title = d.title + ' · Deck Library';
+  document.title = d.title + ' · Deck Library'; setBackdrop(d);
   const s = stats(d); const max = Math.max(...s.curve, 1);
   const secs = ['All', ...['Commander', 'Main', 'Sideboard'].filter(x => d.cards.some(c => c.sec === x))];
   $('#main').innerHTML = `
