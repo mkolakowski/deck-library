@@ -1,0 +1,45 @@
+{
+ "wins": "The Fourth Doctor lets you play a historic card (legendary, artifact or Saga) off the top of your library each turn. Almost the whole deck is historic, so you out-card everyone, then pump your legendary crew and attack.",
+ "plan": [
+  [
+   "Turns 1–3",
+   "Mana rocks and ramp (Cultivate, Three Visits). Sarah Jane on turn 2: a Clue the first time each turn you cast a historic spell."
+  ],
+  [
+   "Turn 4+",
+   "The Fourth Doctor. Check your top card every turn and play it from there if it’s historic (you also get a Food token)."
+  ],
+  [
+   "Build the crew",
+   "The First Doctor fetches the TARDIS, The Eleventh Hour and The Five Doctors find more Doctors, Clara Oswald makes Doctor triggers happen twice."
+  ],
+  [
+   "Win",
+   "Day of Destiny and Heroes’ Podium make legendary creatures huge. Twice Upon a Time takes an extra turn once you control two Doctors."
+  ]
+ ],
+ "keys": [
+  [
+   "The Fourth Doctor",
+   "Free card every turn from the top of your library."
+  ],
+  [
+   "Alistair, the Brigadier",
+   "A 1/1 Soldier for every historic spell you cast."
+  ],
+  [
+   "The Sixth Doctor",
+   "Copies your first historic spell each turn."
+  ],
+  [
+   "The Night of the Doctor",
+   "Wipes the board, then returns a legendary creature of yours."
+  ]
+ ],
+ "tips": [
+  "Look at the top card before you draw, so you don’t miss a free historic play.",
+  "Crack Sarah Jane’s Clues (2 mana each) at the end of an opponent’s turn.",
+  "Removal: Swords, Path, Beast Within, Trial of a Time Lord, Banish to Another Universe, Grasp of Fate."
+ ],
+ "mulligan": "Keep 3–4 lands with ramp or a mana rock. The deck is slow if it misses land drops."
+}

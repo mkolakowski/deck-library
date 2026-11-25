@@ -1,0 +1,42 @@
+{
+ "wins": "Go wide with cheap Starfleet officers, reach 8 total power, and swing every turn while \"power 8\" triggers pile up.",
+ "plan": [
+  [
+   "Turns 1–2",
+   "Play cheap crew: Tactical Officer, Beckett Mariner, Worf, Troi, Picard (Leading by Example) and Munitions Enthusiast. Play Deanna Troi before the others so later creatures enter with a +1/+1 counter."
+  ],
+  [
+   "Turn 3",
+   "Captain Jean-Luc Picard: +1/+1 to your team and a free 1/1 Officer for every creature you cast. Captain Kirk makes an Officer, pumps the team or filters a card each time he enters or attacks."
+  ],
+  [
+   "Turns 4–5",
+   "Add up your creatures’ power before combat. At 8 or more, attacking triggers Tactical Officer, Worf, Una Chin-Riley and Kirk, Commanding Officer all at once. The Enterprise-A brings three Officers immediately."
+  ]
+ ],
+ "keys": [
+  [
+   "Captain Jean-Luc Picard",
+   "Your best card: an anthem plus a token every time you cast a creature. Protect him or recast him."
+  ],
+  [
+   "Kirk, Commanding Officer",
+   "Card advantage on attack once you have 8 power, and he can sacrifice himself to destroy an artifact or enchantment."
+  ],
+  [
+   "U.S.S. Enterprise-A",
+   "Three Officers on arrival. Station it (tap creatures for charge counters) only on turns you are not attacking with them."
+  ],
+  [
+   "Set Phasers to . . .",
+   "One mana: stun a blocker before your attack, or deal 3 to a creature attacking you."
+  ]
+ ],
+ "tips": [
+  "Most of your creatures are legendary: hold the second copy as backup instead of playing it.",
+  "Don’t hold creatures back to block. The deck wins by making the opponent react.",
+  "Sacred Foundry: pay 2 life for an untapped land only if you need the mana that turn.",
+  "Munitions Enthusiast pings 1 damage when it dies, so trade it in combat freely."
+ ],
+ "mulligan": "Keep 2–4 lands with at least two creatures that cost 1–3. Mulligan hands with no plays before turn 3."
+}

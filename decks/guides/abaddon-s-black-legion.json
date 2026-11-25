@@ -1,0 +1,42 @@
+{
+ "wins": "Damage opponents first, then cast spells: Abaddon gives cascade to spells with mana value up to the life opponents lost that turn, so every big spell brings a free one.",
+ "plan": [
+  [
+   "Early",
+   "Mana rocks and Herald of Slaanesh (Daemons cost 2 less and gain haste)."
+  ],
+  [
+   "Each turn",
+   "Attack first, or ping with Knight Paladin or Kill! Maim! Burn!. Cast your big spells in the second main phase, after damage, so they cascade."
+  ],
+  [
+   "Finish",
+   "Bloodthirster for extra combats, Reaver Titan for 5 to each opponent per attack, Blood for the Blood God! for 8 to each opponent and a fresh hand."
+  ]
+ ],
+ "keys": [
+  [
+   "Abaddon the Despoiler",
+   "The engine. Order matters: damage, then spells."
+  ],
+  [
+   "Be’lakor, the Dark Master",
+   "Draws a card for every Daemon you control; the deck has 16."
+  ],
+  [
+   "The Horus Heresy",
+   "Steals creatures and turns them on their owners."
+  ],
+  [
+   "Drach’Nyen",
+   "Exiles a creature and gives the wielder its power."
+  ]
+ ],
+ "tips": [
+  "Kharn the Betrayer prevents damage to himself and switches sides, and you draw two cards when he does.",
+  "Darkness prevents all combat damage for a turn: your emergency fog.",
+  "Blasphemous Act and Let the Galaxy Burn reset the table when you’re behind.",
+  "Cascade is automatic in Playmat: it flips cards and asks if you want to cast the hit. Say yes."
+ ],
+ "mulligan": "Keep hands with 3–4 lands, a mana rock and something to do by turn 3. Abaddon needs all three colors."
+}

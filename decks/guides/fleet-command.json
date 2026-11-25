@@ -1,0 +1,55 @@
+{
+ "wins": "Affinity: flood the board with 0–1 mana artifacts, launch Drone fighters with Pinnacle Emissary, and attack with an unblockable, ever-growing Kappa Cannoneer.",
+ "plan": [
+  [
+   "Turns 1–2",
+   "Mox Opal, Mishra’s Bauble, Tormod’s Crypt, Engineered Explosives. Warp in Pinnacle Emissary for 1 mana on a turn you’ll cast several artifacts."
+  ],
+  [
+   "Turns 2–3",
+   "Improvise out Kappa Cannoneer (tap artifacts to pay). Weapons Manufacturing turns every artifact into a Munitions token."
+  ],
+  [
+   "Win",
+   "Drones peck in the air, Cannoneer grows +1/+1 and can’t be blocked each time an artifact enters, Munitions fire 2 damage each when sacrificed."
+  ]
+ ],
+ "keys": [
+  [
+   "Pinnacle Emissary",
+   "A 1/1 flying Drone for every artifact spell. Warp it for 1, recast it later for keeps."
+  ],
+  [
+   "Kappa Cannoneer",
+   "Ward 4 and unblockable whenever an artifact enters."
+  ],
+  [
+   "Emry, Lurker of the Loch",
+   "Recasts an artifact from your graveyard each turn (Mishra’s Bauble is a free loop)."
+  ],
+  [
+   "Synthesizer Labship",
+   "Turns an artifact into a 2/2 flyer each combat at 2 charge counters."
+  ]
+ ],
+ "tips": [
+  "Sacrifice Munitions tokens first to Arcbound Ravager or Claws of Gix: each one deals 2 damage.",
+  "Against artifact hate (Force of Vigor, Shatterstorm), hold a couple of artifacts back.",
+  "Sink into Stupor can be played as a land when you need one."
+ ],
+ "mulligan": "Keep 1–2 lands with plenty of cheap artifacts and a payoff (Emissary, Cannoneer or Weapons Manufacturing).",
+ "sideboard": [
+  [
+   "Creature decks",
+   "Whipflare (hits only nonartifact creatures), Galvanic Blast"
+  ],
+  [
+   "Combo",
+   "Damping Sphere, Swan Song"
+  ],
+  [
+   "Counterspell decks",
+   "Mystical Dispute, Force of Negation"
+  ]
+ ]
+}

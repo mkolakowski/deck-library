@@ -1,0 +1,43 @@
+{
+ "wins": "Burn and phasers hold the line early, then a wide crew of Starfleet officers reaches 8 total power and counterattacks with stacked attack triggers.",
+ "plan": [
+  [
+   "Turns 1–3",
+   "Use burn on their early creatures (Planetary Bombardment, Transporter Malfunction) while deploying Tactical Officer, Munitions Enthusiast and Worf."
+  ],
+  [
+   "Turns 3–4",
+   "Captain Jean-Luc Picard (anthem and Officer tokens) and Cantankerous Captain. Kira Nerys makes later creatures enter attacking."
+  ],
+  [
+   "Turn 5+",
+   "At 8+ total power every attack triggers Tactical Officer, Worf and La’An (a creature can’t block). Khan clears small blockers and pings everyone; Odo stuns the best blocker."
+  ]
+ ],
+ "keys": [
+  [
+   "Captain Jean-Luc Picard",
+   "+1/+1 to your team and an Officer per creature you cast: the fastest route to 8 power."
+  ],
+  [
+   "Kira Nerys, Firebrand",
+   "While you’re attacking, creatures you cast enter tapped and attacking with +1/+1. Flash-in tricks become extra attackers."
+  ],
+  [
+   "Planetary Bombardment",
+   "2 damage for 1 mana, or 4 if a creature died this turn: cast it after combat trades."
+  ],
+  [
+   "Plasma Cascade",
+   "Instant 3 damage to any target, and you can discard a dead card to draw a new one."
+  ]
+ ],
+ "tips": [
+  "Count power before combat: 8 is the magic number for most of your triggers.",
+  "Munitions Enthusiast deals 1 when it dies, which also turns on the 4-damage Bombardment.",
+  "Test of Conviction: +1/+1 counters on everything to reach 8, or draw two when you’re behind.",
+  "Transporter Malfunction can be cast again late with Beam me up.",
+  "Quark’s Bar enters untapped once you control two other lands: ping each opponent or surveil."
+ ],
+ "mulligan": "Keep 2–4 lands with an early creature and a burn spell."
+}

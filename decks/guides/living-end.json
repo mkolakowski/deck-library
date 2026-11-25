@@ -1,0 +1,59 @@
+{
+ "wins": "Fill your graveyard with big cycling creatures, then cascade into Living End: your creatures return, theirs die. Attack with the new army.",
+ "plan": [
+  [
+   "Turns 1–2",
+   "Cycle creatures (Street Wraith costs 2 life, no mana). Overlord of the Balemurk mills five. Don’t cast your creatures; you want them in the graveyard."
+  ],
+  [
+   "Turn 3",
+   "Cast Shardless Agent or Violent Outburst. Cascade always finds Living End, the deck’s only cheaper spell."
+  ],
+  [
+   "After",
+   "Living End swaps the boards. Attack with 5–8 big creatures; games usually end in a turn or two."
+  ]
+ ],
+ "keys": [
+  [
+   "Violent Outburst",
+   "Instant-speed cascade. Best during the opponent’s turn after they declare attackers: their attackers die, your army is ready."
+  ],
+  [
+   "Shardless Agent",
+   "Sorcery-speed cascade on a body."
+  ],
+  [
+   "Force of Negation",
+   "Free counterspell on the opponent’s turn (exile a blue card) to protect the combo."
+  ],
+  [
+   "Subtlety, Endurance, Wistfulness",
+   "Cast free by exiling a card of the same color; they go straight to the graveyard as fuel."
+  ]
+ ],
+ "tips": [
+  "You can’t hard-cast Living End (no mana cost). Let cascade find it.",
+  "Playmat handles cascade automatically: always say yes to casting the hit.",
+  "Watch for graveyard hate (Endurance, Consign to Memory, Rest in Peace) and cascade before it lands."
+ ],
+ "mulligan": "Keep 2–3 lands, a couple of cyclers, and Shardless Agent or Violent Outburst.",
+ "sideboard": [
+  [
+   "Blue decks",
+   "Mystical Dispute"
+  ],
+  [
+   "Creature decks",
+   "Dismember"
+  ],
+  [
+   "Artifact or enchantment decks",
+   "Force of Vigor"
+  ],
+  [
+   "Big single threats",
+   "Inevitable Betrayal (it can also be a cascade hit, so only when worth it)"
+  ]
+ ]
+}

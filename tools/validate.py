@@ -102,6 +102,8 @@ def main():
             if ns > 15:
                 errors.append(f'{tag}: sideboard has {ns} cards (max 15)')
             errors += [f'{tag}: {n} x{q} (max 4)' for n, q in copies.items() if q > 4 and n not in BASICS]
+        if not os.path.isfile(os.path.join(ROOT, 'decks', 'guides', d.get('id', '') + '.json')):
+            warnings.append(f'{tag}: no play guide at decks/guides/{d.get("id")}.json')
         if 'face' in d and not any(c['set'] == d['face']['set'] and c['num'] == d['face']['num'] for c in cards):
             warnings.append(f'{tag}: face card {d["face"]} is not a printing in the deck')
         if live is not None:

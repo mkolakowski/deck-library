@@ -93,6 +93,19 @@ button,select,input{font:16px Inter,sans-serif}
 .c .meta{display:flex;justify-content:space-between;align-items:center;gap:6px;padding:7px 2px 1px;font-size:13px}
 .c .meta a{color:var(--soft);white-space:nowrap}
 .sec{font-size:24px;font-weight:700;margin:28px 0 6px}
+.guide{margin:22px 0 0;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:0 18px}
+.guide>summary{font:700 22px "Barlow Condensed",Inter,sans-serif;cursor:pointer;min-height:52px;display:flex;align-items:center;gap:8px;list-style:none}
+.guide>summary::-webkit-details-marker{display:none}.guide>summary::before{content:'▸';color:var(--brass)}.guide[open]>summary::before{content:'▾'}
+.gwrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:8px 32px;padding:0 0 18px}
+.guide .wins{font-size:17px;margin:0 0 12px}
+.guide h4{font:600 18px "Barlow Condensed",Inter,sans-serif;margin:14px 0 6px}
+.guide p{margin:0}
+.plan{margin:0;padding:0;list-style:none;counter-reset:s}.plan li{counter-increment:s;display:grid;grid-template-columns:28px minmax(0,1fr);column-gap:10px;margin:0 0 10px}
+.plan li::before{content:counter(s);grid-row:span 2;width:26px;height:26px;border-radius:50%;background:var(--felt);color:var(--on-felt);display:grid;place-items:center;font:700 14px Inter,sans-serif}
+.plan b,.keys b{display:block}.plan span,.keys span{color:var(--soft)}
+.keys,.tips{margin:0;padding-left:18px}.keys li,.tips li{margin:0 0 8px}.keys span{display:block}
+.cardlink{all:unset;font-weight:700;cursor:zoom-in;border-bottom:1px dashed var(--brass)}.cardlink:focus-visible{outline:3px solid var(--brass)}
+@media(max-width:820px){.gwrap{grid-template-columns:minmax(0,1fr)}}
 .grp{margin:0 0 6px}.grp>summary{font:600 19px "Barlow Condensed",Inter,sans-serif;cursor:pointer;padding:10px 0;list-style:none;display:flex;align-items:center;gap:8px;min-height:44px;border-bottom:1px solid var(--line);margin-bottom:14px}
 .grp>summary::-webkit-details-marker{display:none}.grp>summary::before{content:'▸';transition:transform .15s;color:var(--soft)}.grp[open]>summary::before{transform:rotate(90deg)}
 .grp:not([open])>summary{margin-bottom:0}
@@ -206,7 +219,8 @@ async function loadDeck(id){
   const cards = parseDck(text, d.format);
   try { await scryfall(cards.filter(c => c.set)); } catch(e){ toast('Scryfall didn’t answer; showing names only'); }
   for (const c of cards) Object.assign(c, {type: '', cost: '', mv: 0, colors: '', text: '', pt: '', main: /^(Plains|Island|Swamp|Mountain|Forest|Wastes)$/.test(c.name) ? 'Land' : 'Other', img: '', big: ''}, SCRY[key(c.set, c.num)] || {}, {name: c.name});
-  return CACHE[id] = Object.assign({}, d, {dck: text, cards});
+  let guide = null; try { const r = await fetch('decks/guides/' + encodeURIComponent(id) + '.json'); if (r.ok) guide = await r.json(); } catch(e){}
+  return CACHE[id] = Object.assign({}, d, {dck: text, cards, guide});
 }
 
 /* ---------- helpers ---------- */
@@ -308,6 +322,23 @@ function body(d){
   return `<table class="stack"><thead><tr>${cols.map(([k, l]) => `<th tabindex="0" data-k="${k}" aria-sort="${st.sort.key === k ? (st.sort.dir > 0 ? 'ascending' : 'descending') : 'none'}">${l}</th>`).join('')}</tr></thead><tbody>${
     L.map(x => (many ? head(`${secName(x.sec, d)} · ${qty(x.cs)}`, 'sh') : '') + x.groups.map(g => (g.title ? head(g.title, 'gh') : '') + g.cards.map(row).join('')).join('')).join('')}</tbody></table>`;
 }
+function guideHtml(d){
+  const g = d.guide; if (!g) return '';
+  const T = v => esc(v);
+  const nm = v => v.replace(/[’‘]/g, "'").toLowerCase(); const same = (c, n) => { const a = nm(c.name), b = nm(n); return a === b || a.startsWith(b + ' //') || a.startsWith(b + ','); };
+  const card = n => { const hit = d.cards.find(c => same(c, n)); return hit ? `<button class="cardlink" data-card="${esc(hit.name)}">${esc(n)}</button>` : `<b>${esc(n)}</b>`; };
+  const has = n => d.cards.some(c => same(c, n));
+  const cards = s => has(s) ? card(s) : s.split(/,\s*(?=[A-Z])/).map(card).join(', ');
+  return `<details class="guide" id="guide" ${store.get('guideOpen', false) ? 'open' : ''}><summary>How to play</summary>
+    <div class="gwrap">
+      <div><p class="wins">${T(g.wins)}</p>
+        ${g.plan?.length ? `<ol class="plan">${g.plan.map(([w, t]) => `<li><b>${T(w)}</b><span>${T(t)}</span></li>`).join('')}</ol>` : ''}
+        ${g.mulligan ? `<h4>Mulligan</h4><p>${T(g.mulligan)}</p>` : ''}</div>
+      <div>${g.keys?.length ? `<h4>Key cards</h4><ul class="keys">${g.keys.map(([n, t]) => `<li>${cards(n)}<span>${T(t)}</span></li>`).join('')}</ul>` : ''}
+        ${g.tips?.length ? `<h4>Tips</h4><ul class="tips">${g.tips.map(t => `<li>${T(t)}</li>`).join('')}</ul>` : ''}
+        ${g.sideboard?.length ? `<h4>Sideboard</h4><ul class="keys">${g.sideboard.map(([vs, c]) => `<li><b>Against ${T(vs.charAt(0).toLowerCase() + vs.slice(1))}</b><span>${T(c)}</span></li>`).join('')}</ul>` : ''}</div>
+    </div></details>`;
+}
 async function renderDeck(id){
   fillJump(id); $('#main').innerHTML = '<div class="empty">Opening deck and fetching cards from Scryfall…</div>';
   let d; try { d = await loadDeck(id); } catch(e){ $('#main').innerHTML = '<div class="empty">That deck didn’t load. <a href="#library">Back to all decks</a></div>'; return; }
@@ -336,6 +367,7 @@ async function renderDeck(id){
     <div class="bars">${s.curve.map((n, i) => `<div class="bar"><em>${n || ''}</em><i style="height:${(n / max) * 80}%"></i>${i === 7 ? '7+' : i}</div>`).join('')}</div>
     <div class="types">${Object.entries(s.types).sort((a, b) => b[1] - a[1]).map(([k, v]) => `<span>${esc(k)} ${v}</span>`).join('')}</div></div>
   </section>
+  ${guideHtml(d)}
   <div class="bar2">
     <div class="seg" role="group" aria-label="View"><button data-v="gallery" aria-pressed="${st.view === 'gallery'}">Gallery</button><button data-v="table" aria-pressed="${st.view === 'table'}">List</button></div>
     <div class="seg" role="group" aria-label="Card size" ${st.view === 'gallery' ? '' : 'hidden'}>${[['S', 'Small'], ['M', 'Medium'], ['L', 'Large'], ['XL', 'Extra large']].map(([k, l]) => `<button data-size="${k}" aria-pressed="${st.size === k}" title="${l} cards">${k === 'XL' ? 'XL' : l}</button>`).join('')}</div>
@@ -373,6 +405,7 @@ document.addEventListener('click', async e => {
   if (e.target.id === 'zoom'){ zoomClose(); return; }
   const t = e.target.closest('button, th'); if (!t) return; const d = cur();
   if (t.dataset.z !== undefined){ zoomTo(+t.dataset.z); return; }
+  if (t.dataset.card && d){ let i = SHOWN.findIndex(c => c.name === t.dataset.card); if (i < 0){ SHOWN = d.cards.slice(); i = SHOWN.findIndex(c => c.name === t.dataset.card); } if (i >= 0) zoomTo(i); return; }
   if (t.id === 'zprev') return zoomTo(ZI - 1); if (t.id === 'znext') return zoomTo(ZI + 1); if (t.id === 'zx') return zoomClose();
   if (t.dataset.size){ st.size = t.dataset.size; store.set('size', st.size); document.querySelectorAll('[data-size]').forEach(x => { if (x.tagName === 'BUTTON') x.setAttribute('aria-pressed', x.dataset.size === st.size); else x.dataset.size = st.size; }); return; }
   if (t.dataset.fmt){ lib.fmt = t.dataset.fmt; store.set('lib', lib); renderLibrary(); }
@@ -398,7 +431,7 @@ document.addEventListener('input', e => {
   if (e.target.id === 'q'){ st.q = e.target.value; rerenderBody(); }
   if (e.target.id === 'lq'){ lib.q = e.target.value; store.set('lib', lib); const pos = e.target.selectionStart; renderLibrary(); const i = $('#lq'); i.focus(); i.setSelectionRange(pos, pos); }
 });
-document.addEventListener('toggle', e => { const g = e.target.dataset?.g; if (!g) return; const c = new Set(store.get('closed', [])); e.target.open ? c.delete(g) : c.add(g); store.set('closed', [...c].slice(-200)); }, true);
+document.addEventListener('toggle', e => { if (e.target.id === 'guide'){ store.set('guideOpen', e.target.open); return; } const g = e.target.dataset?.g; if (!g) return; const c = new Set(store.get('closed', [])); e.target.open ? c.delete(g) : c.add(g); store.set('closed', [...c].slice(-200)); }, true);
 addEventListener('hashchange', () => { zoomClose(); show(); window.scrollTo({top: 0}); });
 
 (async () => {

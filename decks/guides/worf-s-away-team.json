@@ -1,0 +1,42 @@
+{
+ "wins": "Worf pumps every Officer and makes a new one each time you draw a second card in a turn (\"seek out\"). Flood the board with Officers, then swing with anthems.",
+ "plan": [
+  [
+   "Turns 1–3",
+   "Land drops, mana rocks (Sol Ring, Arcane Signet, Talisman) and cheap Officers. Cast Worf on turn 3 if you can."
+  ],
+  [
+   "Every turn after",
+   "Draw a second card each turn to trigger seek out: Commander William Riker, Loran, Howling Mine, Test of Conviction, Operations Officer, Skullclamp on a token."
+  ],
+  [
+   "Win",
+   "Warleader’s Call, Door of Destinies and Shared Animosity turn the swarm lethal. Grand Crescendo makes the team indestructible for the big swing."
+  ]
+ ],
+ "keys": [
+  [
+   "Worf, Son of Mogh",
+   "Menace, +1/+1 to other Officers, and an Officer token on your second draw each turn."
+  ],
+  [
+   "Captain Jean-Luc Picard",
+   "Another anthem and an Officer every time you cast a creature."
+  ],
+  [
+   "M’Ress, Crew Coordinator",
+   "Two Officers for every land you play."
+  ],
+  [
+   "Skullclamp",
+   "Equip a 1/1 token: when it dies you draw two cards, which also triggers seek out."
+  ]
+ ],
+ "tips": [
+  "Choose \"Officer\" when you cast Door of Destinies or Herald’s Horn.",
+  "Commander games start at 40 life with several opponents: attack whoever has no blockers.",
+  "Protect Worf with Lightning Greaves or Swiftfoot Boots. Each recast from the command zone costs 2 more.",
+  "Howling Mine helps everyone, but your second draw each turn is worth more than theirs."
+ ],
+ "mulligan": "Keep 3–4 lands plus a mana rock or a cheap Officer. Seven-card hands with Worf’s colors and a 2-drop are ideal."
+}

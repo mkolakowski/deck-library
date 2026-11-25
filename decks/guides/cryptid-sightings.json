@@ -1,0 +1,59 @@
+{
+ "wins": "Sultai midrange: cheap cryptids that keep growing, backed by discard, removal and counterspells. Grind the opponent out, then finish with Troll or the Loch Ness serpent.",
+ "plan": [
+  [
+   "Turns 1–2",
+   "Thoughtseize their best card, Fatal Push their first creature, and land a Goyf or Psychic Frog."
+  ],
+  [
+   "Midgame",
+   "Fill the graveyard with different card types (fetchlands, Bauble, Consider) to grow Tarmogoyf and Nethergoyf. Exiling cards to Frog grows Cosmogoyf."
+  ],
+  [
+   "Late",
+   "Flash in Lochmere Serpent at the end of their turn; Troll of Khazad-dûm needs three blockers."
+  ]
+ ],
+ "keys": [
+  [
+   "Psychic Frog",
+   "Discard to grow it, exile three graveyard cards for flying, draw when it connects."
+  ],
+  [
+   "Tarmogoyf, Nethergoyf",
+   "Power equals the number of card types in the graveyard."
+  ],
+  [
+   "Ravenous Chupacabra",
+   "Destroys an opponent’s creature when it enters."
+  ],
+  [
+   "Drown in the Loch",
+   "Counter or destroy, scaling with their graveyard."
+  ]
+ ],
+ "tips": [
+  "Card types: artifact, creature, enchantment, instant, sorcery, land, planeswalker, battle, kindred.",
+  "Discarding to Psychic Frog is a cost: do it at instant speed to save the Frog from damage.",
+  "Cycle Troll for 1 to fetch a Swamp when you need lands early."
+ ],
+ "mulligan": "Keep 2–3 lands with a cheap threat and an interaction spell.",
+ "sideboard": [
+  [
+   "Combo and control",
+   "Mystical Dispute, Duress"
+  ],
+  [
+   "Graveyard decks",
+   "Consign to Memory, Endurance"
+  ],
+  [
+   "Artifact decks",
+   "Force of Vigor"
+  ],
+  [
+   "Creature decks",
+   "Dismember, third Chupacabra"
+  ]
+ ]
+}

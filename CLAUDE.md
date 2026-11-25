@@ -9,6 +9,7 @@ card data and images live from the Scryfall API, so there is no build step and n
 - `index.html`: the whole site (one file: styles, markup, script).
 - `decks/manifest.json`: one entry per deck, in the order they were added.
 - `decks/<id>.dck`: the deck itself, in XMage's .dck format.
+- `decks/guides/<id>.json`: the deck's "How to play" notes.
 - `tools/validate.py`: deck-rule and printing checks. Run it before every commit.
 
 ## Adding a deck
@@ -41,8 +42,22 @@ card data and images live from the Scryfall API, so there is no build step and n
    ```
    `colors` is the deck's color identity in WUBRG order. `face` is the printing whose art shows on the deck's box:
    the commander, or the deck's signature card. When a deck changes, update its `.dck` and its `updated` date.
-5. **Validate:** `python tools/validate.py --playmat <path to playmat checkout>` must report 0 errors.
-6. **Commit and push to `main`.** GitHub Pages publishes within a minute or two.
+5. **Write the play guide** at `decks/guides/<id>.json`, shown on the deck page under "How to play":
+   ```json
+   {
+     "wins": "One or two sentences on how the deck wins.",
+     "plan": [["Turns 1–2", "What to do"], ["Turn 3", "..."], ["Win", "..."]],
+     "keys": [["Exact Card Name", "Why it matters"]],
+     "tips": ["Rules reminders and play tips"],
+     "mulligan": "What a keepable hand looks like.",
+     "sideboard": [["Opponent type", "Cards to bring in"]]
+   }
+   ```
+   Names in `keys` become click-to-zoom links when they match a card in the deck (a short name before a comma,
+   like "Captain Jean-Luc Picard", is fine). `sideboard` only for decks that have one. Update the guide when the
+   list changes.
+6. **Validate:** `python tools/validate.py --playmat <path to playmat checkout>` must report 0 errors.
+7. **Commit and push to `main`.** GitHub Pages publishes within a minute or two.
 
 ## Things to keep
 

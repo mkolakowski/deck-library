@@ -1,0 +1,65 @@
+{
+ "wins": "Midrange: trade your removal for their best threats, then win the long game with Captain Picard, his Officer tokens and your ships.",
+ "plan": [
+  [
+   "Turns 2–3",
+   "Develop Vexing Drone, Picard (Leading by Example) or Troi. Zero, Incorporeal Sensate looks at their hand and exiles their best card."
+  ],
+  [
+   "Turns 3–4",
+   "Answer whatever matters with the right tool (see key cards). Land Captain Picard when the board is safe."
+  ],
+  [
+   "Turns 4–6",
+   "U.S.S. Excelsior kills a tapped creature on arrival, Enterprise-A adds three Officers, Constable Odo stuns their best attacker. Big creatures can instead cycle for a land early."
+  ]
+ ],
+ "keys": [
+  [
+   "D’Ghor Bloodletter",
+   "Answers hexproof and ward (edict) or swarms of tokens (-1/-1 to all others). Pick the mode the board needs."
+  ],
+  [
+   "70,000 Light-Years from Home",
+   "Exiles any creature or Spacecraft, including artifact creatures that Resistance Is Futile can’t hit."
+  ],
+  [
+   "In the Pale Moonlight",
+   "A three-chapter edict, card and token engine. Great against a single big threat."
+  ],
+  [
+   "Malfunctioning Holodeck",
+   "Exiles any nonland permanent: enchantments, ships, planeswalkers."
+  ]
+ ],
+ "tips": [
+  "Don’t spend removal on every 1/1. Save it for creatures that actually threaten you.",
+  "Impossible Choice gives the opponent two 1/1 Officers when it destroys. Use it on something big, or take the draw-two mode.",
+  "Resistance Is Futile can’t target artifact creatures.",
+  "Set Phasers’ 3-damage mode only hits attackers; the stun mode hits anything.",
+  "Free Borg Revolutionaries and Rogue Artificial Intelligence cycle for 2 to find a basic land when you’re short."
+ ],
+ "mulligan": "Keep 3–4 lands with a mix of creatures and removal. Two-landers need cheap plays.",
+ "sideboard": [
+  [
+   "Big creatures",
+   "Command Decision, Eject the Warp Core"
+  ],
+  [
+   "Hexproof threats",
+   "Second In the Pale Moonlight"
+  ],
+  [
+   "Graveyard decks",
+   "Test of Loyalty"
+  ],
+  [
+   "Aggro",
+   "Saavik, Emergency Medical Hologram"
+  ],
+  [
+   "Control",
+   "Fugitive Listener, Armus"
+  ]
+ ]
+}

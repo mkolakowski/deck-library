@@ -1,0 +1,55 @@
+{
+ "wins": "Put Colossus Hammer (+10/+10) on a cheap creature without paying its 8-mana equip cost, and win in one or two swings.",
+ "plan": [
+  [
+   "Turns 1–2",
+   "Ornithopter (free), Esper Sentinel, Stoneforge Mystic or Puresteel Paladin, plus Mox Opal and Springleaf Drum."
+  ],
+  [
+   "Cheat the equip",
+   "Puresteel Paladin with 3+ artifacts makes equip cost 0. Battlefield Improvisation attaches every Equipment to an attacker for free. Stoneforge puts the Hammer straight in."
+  ],
+  [
+   "Swing",
+   "An Ornithopter with Hammer is an 11/11. Add Leyline Axe for double strike and trample: 24 damage."
+  ]
+ ],
+ "keys": [
+  [
+   "Colossus Hammer",
+   "+10/+10, but the creature loses flying."
+  ],
+  [
+   "Battlefield Improvisation",
+   "Attach after attackers are declared, so the Hammer’s flying loss doesn’t matter."
+  ],
+  [
+   "Urza’s Saga",
+   "A land that makes Constructs and fetches cheap artifacts."
+  ],
+  [
+   "Surge of Salvation, Voice of Victory",
+   "Protect the big turn: hexproof for your team, or no spells for them on your turn."
+  ]
+ ],
+ "tips": [
+  "Leyline Axe in your opening hand can start the game on the battlefield for free.",
+  "Esper Sentinel taxes the opponent’s first spell each turn or draws you a card.",
+  "Metallic Rebuke can be paid for by tapping your artifacts."
+ ],
+ "mulligan": "Keep a creature, an Equipment or Stoneforge, and a way to cheat the equip cost.",
+ "sideboard": [
+  [
+   "Blue counterspell decks",
+   "Mystical Dispute"
+  ],
+  [
+   "Graveyard decks",
+   "Consign to Memory, Suncleanser"
+  ],
+  [
+   "Removal-heavy decks",
+   "Second set of Surge of Salvation"
+  ]
+ ]
+}

@@ -1,0 +1,43 @@
+{
+ "wins": "Boros cavalry: cheap Knights and Humans attack in waves, Théoden hands out double strike, and Éomer turns a lost legend into an extra combat.",
+ "plan": [
+  [
+   "Turns 1–2",
+   "Ranger’s Firebrand clears a blocker. East-Mark Cavalier, Westfold Rider and Merry come down early."
+  ],
+  [
+   "Turn 3",
+   "Théoden: every Human you cast after him gives a creature double strike that turn. Flowering of the White Tree pumps the team (+2/+1 for legends)."
+  ],
+  [
+   "Turns 4–5",
+   "Éowyn exiles their biggest creature with haste; Éomer (haste) untaps your team for a second combat whenever another attacking legend dies. Rally at the Hornburg adds hasty Soldiers."
+  ]
+ ],
+ "keys": [
+  [
+   "Theoden, King of Rohan",
+   "Double strike on demand: cast a Human precombat and pick your biggest attacker."
+  ],
+  [
+   "Eowyn, Fearless Knight",
+   "Haste plus exile their best bigger creature, and protection for your legends."
+  ],
+  [
+   "Eomer, Marshal of Rohan",
+   "Extra combat step when an attacking legend dies. Attack aggressively with legends."
+  ],
+  [
+   "Boromir, Warden of the Tower",
+   "Counters free spells, and sacrifices to make your team indestructible."
+  ]
+ ],
+ "tips": [
+  "Merry draws a card when he attacks alongside another legend.",
+  "Ranger’s Firebrand and Boromir make \"the Ring tempt you\": pick a legend as Ring-bearer; it becomes legendary and can’t be blocked by bigger creatures.",
+  "Westfold Rider sacrifices to destroy an artifact or enchantment.",
+  "Minas Tirith draws a card after you attack with two or more creatures.",
+  "Gandalf the White has flash and lets you flash in legends: hold him for the opponent’s end step."
+ ],
+ "mulligan": "Keep 2–4 lands with two or more 2-drops."
+}
