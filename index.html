@@ -121,6 +121,30 @@ button.tag{cursor:pointer;min-height:0}button.tag:hover{color:var(--ink);border-
 .guide>summary::-webkit-details-marker{display:none}.guide>summary::before{content:'▸';color:var(--brass)}.guide[open]>summary::before{content:'▾'}
 .gwrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:8px 32px;padding:0 0 18px}
 .guide .wins{font-size:17px;margin:0 0 12px}
+.mull{margin-top:12px}.mull #mullbody{padding:0 0 18px}.mull .soft{color:var(--soft);font-size:14px}
+.mtop{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:0 0 12px}.mtop .act[disabled]{opacity:.45;cursor:not-allowed}
+.mtip{font-size:14px;color:var(--soft);margin:0 0 12px!important}.mtip b{color:var(--ink)}
+.mrow{margin:0 0 14px}.ml{display:block;font:600 17px "Barlow Condensed",Inter,sans-serif;margin:0 0 6px}
+.hand{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:8px;max-width:1000px}
+.hc{aspect-ratio:488/680;border-radius:5%/3.6%;overflow:hidden;position:relative;border:0;padding:0;cursor:zoom-in;display:flex;align-items:flex-start;color:#fff;font:inherit;text-align:left;box-shadow:0 2px 6px rgba(0,0,0,.25);transition:transform .12s,opacity .12s;width:100%}
+.hc img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}.hc .nm{position:relative;padding:8px;font:700 15px/1.1 "Barlow Condensed",sans-serif}
+.choosing .hc{cursor:pointer}.choosing .hc:hover{transform:translateY(-3px)}
+.hc.sel{opacity:.5;transform:translateY(8px);outline:3px solid var(--brass);outline-offset:2px}
+.hc.sel::after{content:'Bottom';position:absolute;left:50%;top:45%;transform:translate(-50%,-50%);background:var(--brass);color:#1b1305;font:700 15px Inter,sans-serif;padding:3px 10px;border-radius:99px}
+.dw span{display:block;font-size:12px;color:var(--soft);margin-bottom:3px}
+.mrate{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:16px 22px;align-items:start;border-top:1px solid var(--line);padding-top:14px}
+.verdict{display:flex;flex-direction:column;gap:2px;min-width:150px}.verdict b{font:700 24px "Barlow Condensed",Inter,sans-serif;line-height:1.1}
+.verdict>span{font-weight:700;font-size:14px;align-self:flex-start;padding:2px 10px;border-radius:99px;margin-top:4px}
+.verdict.keep>span{background:var(--felt2);color:var(--on-felt)}.verdict.mull>span{background:light-dark(#b9412f,#d8664f);color:#fff}
+.stars{font-size:26px;letter-spacing:2px;color:var(--brass);line-height:1}.stars span{color:var(--line)}
+.why{margin:0;padding:0;list-style:none;font-size:14.5px;display:flex;flex-direction:column;gap:4px}
+.why li{padding-left:22px;position:relative}.why li::before{position:absolute;left:0;font-weight:700}.why .g::before{content:'✓';color:var(--felt2)}.why .b::before{content:'✗';color:light-dark(#b9412f,#e07a63)}
+.you{display:flex;flex-direction:column;gap:4px;min-width:190px}.you>span{font:600 17px "Barlow Condensed",Inter,sans-serif}.you small{color:var(--soft);font-size:13px;max-width:220px}
+.mystars{display:flex}.mystars button{border:0;background:none;font-size:30px;line-height:1;padding:2px 3px;cursor:pointer;color:var(--line);min-height:40px;min-width:36px}
+.mystars button[aria-pressed=true]{color:var(--brass)}.mystars:hover button{color:var(--brass)}.mystars button:hover~button{color:var(--line)}
+.mstats{display:flex;flex-wrap:wrap;gap:6px 18px;margin-top:14px;font-size:13.5px;color:var(--soft);border-top:1px solid var(--line);padding-top:10px;align-items:center}.mstats b{color:var(--ink)}
+.linkish{border:0;background:none;color:var(--soft);text-decoration:underline;cursor:pointer;font:inherit;padding:0}
+@media(max-width:800px){.hand{grid-template-columns:repeat(4,minmax(0,1fr))}.mrate{grid-template-columns:minmax(0,1fr)}}
 .guide h4{font:600 18px "Barlow Condensed",Inter,sans-serif;margin:14px 0 6px}
 .guide p{margin:0}
 .plan{margin:0;padding:0;list-style:none;counter-reset:s}.plan li{counter-increment:s;display:grid;grid-template-columns:28px minmax(0,1fr);column-gap:10px;margin:0 0 10px}
@@ -180,7 +204,7 @@ const FRAME = {W:['#e9dfb8','#b9a774'],U:['#3b78b5','#1d3f66'],B:['#4a403f','#1d
 const FORMATS = ['Standard', 'Pioneer', 'Modern', 'Legacy', 'Vintage', 'Commander', 'Pauper', 'Other'];
 const TYPES = ['Creature', 'Planeswalker', 'Battle', 'Instant', 'Sorcery', 'Artifact', 'Enchantment', 'Land'];
 const store = {get(k, d){ try { return JSON.parse(localStorage.getItem('decklib.' + k)) ?? d; } catch(e){ return d; } }, set(k, v){ try { localStorage.setItem('decklib.' + k, JSON.stringify(v)); } catch(e){} }};
-let INDEX = [], DCK = {}, CACHE = {}, SHOWN = [], ZI = -1;
+let INDEX = [], DCK = {}, CACHE = {}, SHOWN = [], ZI = -1, ZL = null;
 const lib = Object.assign({fmt: 'All', tag: 'All', q: '', sort: 'updated', view: 'grid'}, store.get('lib', {}));
 const tagsOf = d => Array.isArray(d.tags) ? d.tags : [];
 const tagPills = d => tagsOf(d).map(t => `<span class="tag">#${esc(t)}</span>`).join('');
@@ -360,6 +384,129 @@ function body(d){
   return `<table class="stack"><thead><tr>${cols.map(([k, l]) => `<th tabindex="0" data-k="${k}" aria-sort="${st.sort.key === k ? (st.sort.dir > 0 ? 'ascending' : 'descending') : 'none'}">${l}</th>`).join('')}</tr></thead><tbody>${
     L.map(x => (many ? head(`${secName(x.sec, d)} · ${qty(x.cs)}`, 'sh') : '') + x.groups.map(g => (g.title ? head(g.title, 'gh') : '') + g.cards.map(row).join('')).join('')).join('')}</tbody></table>`;
 }
+/* ---------- mulligan practice ----------
+   London mulligan (the first one is free in Commander), a heuristic hand rating, the viewer's own star rating,
+   and per-deck stats kept in localStorage under decklib.mull.<id>. */
+const MULL = {};
+const isLand = c => c.main === 'Land';
+const BASIC = {Plains: 'W', Island: 'U', Swamp: 'B', Mountain: 'R', Forest: 'G'};
+function makes(c){
+  const out = new Set(); Object.entries(BASIC).forEach(([t, k]) => { if (new RegExp('\\b' + t + '\\b').test(c.type)) out.add(k); });
+  if (/\bany (one )?colou?r\b/i.test(c.text)) 'WUBRG'.split('').forEach(k => out.add(k));
+  (c.text.match(/\bAdd [^.·]*/g) || []).forEach(s => (s.match(/\{([WUBRG])\}/g) || []).forEach(m => out.add(m[1])));
+  return out;
+}
+const needs = c => [...new Set((c.cost.match(/\{([WUBRG])\}/g) || []).map(m => m[1]))];
+const isRamp = c => !isLand(c) && c.mv <= 2 && /\bAdd (\{|one mana|two mana|mana)/.test(c.text);
+const shuffle = a => { const r = a.slice(); for (let i = r.length - 1; i > 0; i--){ const j = Math.floor(Math.random() * (i + 1)); [r[i], r[j]] = [r[j], r[i]]; } return r; };
+function mullCtx(d){
+  const pool = d.cards.filter(c => c.sec === 'Main').flatMap(c => Array(c.q).fill(c));
+  const lands = pool.filter(isLand).length, spells = pool.filter(c => !isLand(c));
+  const nm = v => v.replace(/[’‘]/g, "'").toLowerCase();
+  const keys = (d.guide?.keys || []).flatMap(k => d.cards.some(c => nm(c.name) === nm(k[0])) ? [k[0]] : k[0].split(/,\s*/)).map(nm);
+  return {pool, ratio: lands / (pool.length || 1), avg: spells.reduce((a, c) => a + c.mv, 0) / (spells.length || 1), keys, nm,
+    cmdr: d.cards.filter(c => c.sec === 'Commander'), edh: d.format === 'Commander'};
+}
+function rateHand(hand, X){
+  const n = hand.length, lands = hand.filter(isLand), L = lands.length, spells = hand.filter(c => !isLand(c));
+  const avail = new Set(); lands.forEach(c => makes(c).forEach(k => avail.add(k))); hand.filter(isRamp).forEach(c => makes(c).forEach(k => avail.add(k)));
+  const ramp = hand.filter(isRamp), mana = L + ramp.length;
+  const ok = c => needs(c).every(k => avail.has(k));
+  const R = []; let p = 0; const add = (v, t) => { p += v; R.push([v >= 0, t]); };
+  const exp = Math.round(X.ratio * n), lo = Math.max(n <= 5 ? 1 : 2, exp - 1), hi = exp + 1;
+  if (!L) add(-4, 'No lands');
+  else if (L < lo) add(-1.6 * (lo - L), `Only ${L} land${L > 1 ? 's' : ''}; this deck wants ${lo}–${hi} in ${n} cards`);
+  else if (L > hi) add(-1.2 * (L - hi) - (spells.length <= 1 ? 1.5 : 0), `${L} lands and ${spells.length} spell${spells.length === 1 ? '' : 's'}: flood risk`);
+  else add(1.5, `${L} lands: right for this deck`);
+  if (ramp.length && L) add(0.6, `Mana help: ${[...new Set(ramp.map(c => c.name))].join(', ')}`);
+  const early = spells.filter(c => c.mv <= 2 && c.mv <= Math.max(mana, 1) && ok(c) && !isRamp(c)).length;
+  if (L){
+    if (early >= 2) add(1, `${early} plays by turn 2`);
+    else if (early === 1) add(0.4, 'One play by turn 2');
+    else if (X.avg < 3.2) add(-1, 'Nothing to cast on turns 1–2');
+  }
+  const off = spells.filter(c => c.mv <= Math.max(L, 1) + 1 && !ok(c));
+  if (L && off.length){ const miss = [...new Set(off.flatMap(c => needs(c).filter(k => !avail.has(k))))].map(k => ({W: 'white', U: 'blue', B: 'black', R: 'red', G: 'green'})[k]);
+    add(-0.5 * Math.min(2, off.length), `No ${miss.join(' or ')} mana yet for ${[...new Set(off.map(c => c.name))].slice(0, 2).join(', ')}`); }
+  const big = spells.filter(c => c.mv >= 5).length; if (big >= 3 || (big >= 2 && n <= 6)) add(-0.6, `${big} cards costing 5 or more: slow`);
+  const keyHits = [...new Set(spells.filter(c => X.keys.some(k => { const a = X.nm(c.name); return a === k || a.startsWith(k + ' //') || a.startsWith(k + ','); })).map(c => c.name))];
+  if (keyHits.length) add(Math.min(1.2, 0.6 * keyHits.length), `Key card${keyHits.length > 1 ? 's' : ''}: ${keyHits.join(', ')}`);
+  const stars = Math.max(1, Math.min(5, Math.round(1.8 + p * 0.8)));
+  const need = n >= 7 ? 3 : n >= 5 ? 2 : 1;
+  return {p, stars, label: ['', 'Mulligan', 'Risky', 'Keepable', 'Good keep', 'Snap keep'][stars], keep: (stars >= need && L > 0) || n <= 3, reasons: R};
+}
+function deal(d, mulls){
+  const X = mullCtx(d); const lib = shuffle(X.pool);
+  MULL[d.id] = {X, lib: lib.slice(7), hand: lib.slice(0, 7), mulls, sel: new Set(), draws: [], mine: 0, onPlay: store.get('onPlay', true)};
+}
+const toBottom = (d, M) => d.format === 'Commander' ? Math.max(0, M.mulls - 1) : M.mulls;
+const pending = (d, M) => toBottom(d, M) - M.done;
+function suggestBottom(M, k){
+  const keep = M.hand.map((c, i) => i); const out = [];
+  for (let s = 0; s < k; s++){ let best = -1, bp = -1e9;
+    keep.forEach((i, j) => { const h = keep.filter((_, x) => x !== j).map(x => M.hand[x]); const v = rateHand(h, M.X).p - (M.hand[i].mv * 0.01); if (v > bp){ bp = v; best = j; } });
+    out.push(keep[best]); keep.splice(best, 1); }
+  return new Set(out);
+}
+function mullTile(c, attr, extra){
+  const [a, b] = frameOf(c); const img = safeImg(c.img);
+  return `<button class="hc${extra || ''}" ${attr} style="background:linear-gradient(160deg,${a},${b})" aria-label="${esc(c.name)}">${img ? `<img src="${esc(img)}" alt="${esc(c.name)}" loading="lazy">` : `<span class="nm">${esc(c.name)}</span>`}</button>`;
+}
+function mullHtml(d){
+  const M = MULL[d.id]; if (!M) return '<p class="soft">Open this to deal a hand.</p>';
+  if (M.done === undefined) M.done = 0;
+  const k = pending(d, M), choosing = k > 0;
+  const final = choosing ? null : M.hand;
+  const r = final ? rateHand(final, M.X) : null;
+  const hist = store.get('mull.' + d.id, []);
+  const avg = f => hist.length ? (hist.reduce((a, h) => a + f(h), 0) / hist.length).toFixed(1) : '–';
+  const agree = hist.length ? Math.round(100 * hist.filter(h => Math.abs(h.u - h.a) <= 1).length / hist.length) + '%' : '–';
+  const cmd = M.X.cmdr;
+  return `<div class="mtop">
+      <div class="seg" role="group" aria-label="Play or draw"><button data-m="play" aria-pressed="${M.onPlay}">On the play</button><button data-m="draw-first" aria-pressed="${!M.onPlay}">On the draw</button></div>
+      <button class="act" data-m="new">New hand</button>
+      <button class="act" data-m="mull" ${7 - toBottom(d, {mulls: M.mulls + 1}) < 1 ? 'disabled' : ''}>${toBottom(d, {mulls: M.mulls + 1}) ? `Mulligan to ${7 - toBottom(d, {mulls: M.mulls + 1})}` : 'Free mulligan'}</button>
+      ${choosing ? '' : `<button class="act" data-m="drawcard" ${M.lib.length ? '' : 'disabled'}>Draw a card</button>`}
+      <span class="soft">${M.mulls ? `Mulligan ${M.mulls}${d.format === 'Commander' && M.mulls === 1 ? ' (free in Commander)' : ''} · ` : ''}${M.lib.length} cards in library</span>
+    </div>
+    ${d.guide?.mulligan ? `<p class="mtip"><b>This deck keeps:</b> ${esc(d.guide.mulligan)}</p>` : ''}
+    ${cmd.length ? `<div class="mrow"><span class="ml">Command zone</span><div class="hand">${cmd.map(c => mullTile(c, `data-cz="${esc(c.name)}"`)).join('')}</div></div>` : ''}
+    <div class="mrow"><span class="ml">${choosing ? `Choose ${k} card${k > 1 ? 's' : ''} to put on the bottom` : `Opening hand · ${M.hand.length} cards`}</span>
+      <div class="hand${choosing ? ' choosing' : ''}">${M.hand.map((c, i) => mullTile(c, `data-hz="${i}" ${choosing ? `aria-pressed="${M.sel.has(i)}"` : ''}`, M.sel.has(i) ? ' sel' : '')).join('')}</div>
+      ${choosing ? `<div class="mtop"><button class="act main" data-m="bottom" ${M.sel.size === k ? '' : 'disabled'}>Put ${M.sel.size}/${k} on the bottom</button><button class="act" data-m="suggest">Suggest</button></div>` : ''}
+    </div>
+    ${M.draws.length ? `<div class="mrow"><span class="ml">Draws</span><div class="hand">${M.draws.map((c, i) => `<div class="dw"><span>Turn ${M.onPlay ? i + 2 : i + 1}</span>${mullTile(c, `data-dz="${i}"`)}</div>`).join('')}</div></div>` : ''}
+    ${r ? `<div class="mrate">
+      <div class="verdict ${r.keep ? 'keep' : 'mull'}"><div class="stars" aria-label="${r.stars} of 5">${'★'.repeat(r.stars)}<span>${'★'.repeat(5 - r.stars)}</span></div><b>${r.label}</b><span>${r.keep ? 'Keep' : 'Mulligan'}${M.hand.length < 7 ? ` at ${M.hand.length}` : ''}</span></div>
+      <ul class="why">${r.reasons.map(([g, t]) => `<li class="${g ? 'g' : 'b'}">${esc(t)}</li>`).join('')}</ul>
+      <div class="you"><span>Your rating</span><div class="mystars" role="group" aria-label="Rate this hand">${[1, 2, 3, 4, 5].map(s => `<button data-star="${s}" aria-pressed="${M.mine >= s}" aria-label="${s} star${s > 1 ? 's' : ''}">★</button>`).join('')}</div>
+        ${M.mine ? `<small>${M.mine === r.stars ? 'Same as the tool' : M.mine > r.stars ? `You rated it higher than the tool (${r.stars}★)` : `You rated it lower than the tool (${r.stars}★)`}</small>` : '<small>Rate it before the next hand to track your calls</small>'}
+      </div></div>` : ''}
+    <div class="mstats"><span>Hands you rated: <b>${hist.length}</b></span><span>Your average: <b>${avg(h => h.u)}★</b></span><span>Tool average: <b>${avg(h => h.a)}★</b></span><span>Within 1★ of the tool: <b>${agree}</b></span>${hist.length ? '<button class="linkish" data-m="reset">Reset</button>' : ''}</div>`;
+}
+function renderMull(){ const d = cur(); const b = $('#mullbody'); if (d && b) b.innerHTML = mullHtml(d); }
+function mullAction(a){
+  const d = cur(); if (!d) return; let M = MULL[d.id];
+  if (a === 'new' || !M){ deal(d, 0); return renderMull(); }
+  if (a === 'mull'){ const onPlay = M.onPlay; deal(d, M.mulls + 1); MULL[d.id].onPlay = onPlay; MULL[d.id].done = 0; return renderMull(); }
+  if (a === 'play' || a === 'draw-first'){ M.onPlay = a === 'play'; store.set('onPlay', M.onPlay); return renderMull(); }
+  if (a === 'suggest'){ M.sel = suggestBottom(M, pending(d, M)); return renderMull(); }
+  if (a === 'bottom'){ const idx = [...M.sel].sort((x, y) => y - x); idx.forEach(i => M.lib.push(M.hand.splice(i, 1)[0])); M.done = (M.done || 0) + idx.length; M.sel = new Set(); return renderMull(); }
+  if (a === 'drawcard'){ if (M.lib.length) M.draws.push(M.lib.shift()); return renderMull(); }
+  if (a === 'reset'){ store.set('mull.' + d.id, []); return renderMull(); }
+}
+function mullStar(s){
+  const d = cur(), M = d && MULL[d.id]; if (!M || pending(d, M) > 0) return;
+  const r = rateHand(M.hand, M.X); const hist = store.get('mull.' + d.id, []);
+  if (M.mine) hist.pop(); M.mine = s;
+  hist.push({u: s, a: r.stars, n: M.hand.length, h: M.hand.map(c => c.name)}); store.set('mull.' + d.id, hist.slice(-200)); renderMull();
+}
+function mullPick(i){
+  const d = cur(), M = d && MULL[d.id]; if (!M) return;
+  const k = pending(d, M);
+  if (k > 0){ if (M.sel.has(i)) M.sel.delete(i); else if (M.sel.size < k) M.sel.add(i); return renderMull(); }
+  ZL = M.hand; zoomTo(i);
+}
 function guideHtml(d){
   const g = d.guide; if (!g) return '';
   const T = v => esc(v);
@@ -407,6 +554,7 @@ async function renderDeck(id){
     <div class="types">${Object.entries(s.types).sort((a, b) => b[1] - a[1]).map(([k, v]) => `<span>${esc(k)} ${v}</span>`).join('')}</div></div>
   </section>
   ${guideHtml(d)}
+  <details class="guide mull" id="mull" ${store.get('mullOpen', false) ? 'open' : ''}><summary>Mulligan practice</summary><div id="mullbody">${store.get('mullOpen', false) ? (MULL[d.id] || deal(d, 0), mullHtml(d)) : mullHtml(d)}</div></details>
   <div class="bar2">
     <div class="seg" role="group" aria-label="View"><button data-v="gallery" aria-pressed="${st.view === 'gallery'}">Gallery</button><button data-v="table" aria-pressed="${st.view === 'table'}">List</button></div>
     <div class="seg" role="group" aria-label="Card size" ${st.view === 'gallery' ? '' : 'hidden'}>${[['S', 'Small'], ['M', 'Medium'], ['L', 'Large'], ['XL', 'Extra large']].map(([k, l]) => `<button data-size="${k}" aria-pressed="${st.size === k}" title="${l} cards">${k === 'XL' ? 'XL' : l}</button>`).join('')}</div>
@@ -422,14 +570,14 @@ async function renderDeck(id){
 
 /* ---------- zoom ---------- */
 function zoomTo(i){
-  if (!SHOWN.length) return; ZI = (i + SHOWN.length) % SHOWN.length; const c = SHOWN[ZI];
+  const LST = ZL || SHOWN; if (!LST.length) return; ZI = (i + LST.length) % LST.length; const c = LST[ZI];
   const [a, b] = frameOf(c); const img = safeImg(c.big || c.img); const p = $('#zpic');
   p.style.background = `linear-gradient(160deg,${a},${b})`;
   p.innerHTML = img ? `<img src="${esc(img)}" alt="${esc(c.name)}">` : `<div><div class="nm">${esc(c.name)}</div><div class="ty">${esc(c.type)}</div></div>${c.text ? `<div class="tx">${esc(c.text)}</div>` : '<div></div>'}<div class="ty" style="align-self:flex-end;font-weight:700">${esc(c.pt)}</div>`;
-  $('#zt').textContent = `${c.q} × ${c.name}${c.set ? ` · ${c.set} #${c.num}` : ''} · ${ZI + 1} of ${SHOWN.length}`;
+  $('#zt').textContent = ZL ? `${c.name} · ${ZI + 1} of ${LST.length}` : `${c.q} × ${c.name}${c.set ? ` · ${c.set} #${c.num}` : ''} · ${ZI + 1} of ${LST.length}`;
   $('#zs').href = scryLink(c); const z = $('#zoom'); if (z.hidden){ z.hidden = false; $('#zx').focus(); }
 }
-function zoomClose(){ const z = $('#zoom'); if (z.hidden) return; z.hidden = true; document.querySelector(`.art[data-z="${ZI}"]`)?.focus(); ZI = -1; }
+function zoomClose(){ const z = $('#zoom'); if (z.hidden) return; z.hidden = true; (ZL ? null : document.querySelector(`.art[data-z="${ZI}"]`))?.focus(); ZI = -1; ZL = null; }
 
 /* ---------- routing + events ---------- */
 /* The address reflects the current choices: #<deck>?view=&size=&group=&section=&sort=&dir=&q= or #library?view=&format=&tag=&sort=&q=.
@@ -471,8 +619,13 @@ async function copy(text, what){
 document.addEventListener('click', async e => {
   if (e.target.id === 'zoom'){ zoomClose(); return; }
   const t = e.target.closest('button, th'); if (!t) return; const d = cur();
-  if (t.dataset.z !== undefined){ zoomTo(+t.dataset.z); return; }
-  if (t.dataset.card && d){ let i = SHOWN.findIndex(c => c.name === t.dataset.card); if (i < 0){ SHOWN = d.cards.slice(); i = SHOWN.findIndex(c => c.name === t.dataset.card); } if (i >= 0) zoomTo(i); return; }
+  if (t.dataset.z !== undefined){ ZL = null; zoomTo(+t.dataset.z); return; }
+  if (t.dataset.m){ mullAction(t.dataset.m); return; }
+  if (t.dataset.hz !== undefined){ mullPick(+t.dataset.hz); return; }
+  if (t.dataset.dz !== undefined && d){ ZL = MULL[d.id].draws; zoomTo(+t.dataset.dz); return; }
+  if (t.dataset.cz && d){ ZL = MULL[d.id].X.cmdr; zoomTo(ZL.findIndex(c => c.name === t.dataset.cz)); return; }
+  if (t.dataset.star){ mullStar(+t.dataset.star); return; }
+  if (t.dataset.card && d){ ZL = null; let i = SHOWN.findIndex(c => c.name === t.dataset.card); if (i < 0){ SHOWN = d.cards.slice(); i = SHOWN.findIndex(c => c.name === t.dataset.card); } if (i >= 0) zoomTo(i); return; }
   if (t.id === 'zprev') return zoomTo(ZI - 1); if (t.id === 'znext') return zoomTo(ZI + 1); if (t.id === 'zx') return zoomClose();
   if (t.dataset.size){ st.size = t.dataset.size; store.set('size', st.size); document.querySelectorAll('[data-size]').forEach(x => { if (x.tagName === 'BUTTON') x.setAttribute('aria-pressed', x.dataset.size === st.size); else x.dataset.size = st.size; }); syncUrl(); return; }
   if (t.dataset.sec){ selectTab(t.dataset.sec); return; }
@@ -507,7 +660,8 @@ document.addEventListener('input', e => {
   if (e.target.id === 'q'){ st.q = e.target.value; rerenderBody(); }
   if (e.target.id === 'lq'){ lib.q = e.target.value; store.set('lib', lib); const pos = e.target.selectionStart; renderLibrary(); const i = $('#lq'); i.focus(); i.setSelectionRange(pos, pos); }
 });
-document.addEventListener('toggle', e => { if (e.target.id === 'guide'){ store.set('guideOpen', e.target.open); return; } const g = e.target.dataset?.g; if (!g) return; const c = new Set(store.get('closed', [])); e.target.open ? c.delete(g) : c.add(g); store.set('closed', [...c].slice(-200)); }, true);
+document.addEventListener('toggle', e => { if (e.target.id === 'guide'){ store.set('guideOpen', e.target.open); return; }
+  if (e.target.id === 'mull'){ store.set('mullOpen', e.target.open); const d = cur(); if (e.target.open && d && !MULL[d.id]){ deal(d, 0); renderMull(); } return; } const g = e.target.dataset?.g; if (!g) return; const c = new Set(store.get('closed', [])); e.target.open ? c.delete(g) : c.add(g); store.set('closed', [...c].slice(-200)); }, true);
 addEventListener('hashchange', () => { zoomClose(); show(); window.scrollTo({top: 0}); });
 
 (async () => {
