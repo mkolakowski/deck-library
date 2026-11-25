@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Deck Library</title>
+<meta name="description" content="Magic: The Gathering decks built for a Playmat server, with card art and .dck downloads.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22%3E%3Crect x=%226%22 y=%223%22 width=%2220%22 height=%2226%22 rx=%223%22 fill=%22%231f4a33%22/%3E%3Crect x=%229%22 y=%226%22 width=%2214%22 height=%2210%22 rx=%221%22 fill=%22%23e0b04f%22/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* VOICE: a collector's own deck box, practical and proud, built to play from.
+   IDEA: a deck box shelf on playmat felt: the library is a shelf of boxes; a deck opens onto the mat.
+   PICTURE: the cards themselves: deck boxes on the shelf, then a gallery of sleeved cards with their printing's art.
+   COLOUR and TYPE: playmat felt green field, ivory card stock, brass accent; Barlow Condensed labels, Inter body.
+   LAYOUT: library home (filters, search, sort, deck box grid) and deck page (header, curve, actions, gallery/list). */
+:root{color-scheme:light dark;
+  --bg:light-dark(#e9efe8,#0f1a14);--felt:light-dark(#1f4a33,#163826);--felt2:light-dark(#2b5e42,#1d4630);
+  --card:light-dark(#fffdf7,#1b2620);--ink:light-dark(#16201a,#e8eee9);--soft:light-dark(#566559,#9fb0a5);
+  --line:light-dark(#d6ddd5,#2c3b32);--brass:light-dark(#a8741a,#e0b04f);--on-felt:#f3efe2}
+:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 Inter,system-ui,sans-serif;overflow-x:clip}
+h1,h2,h3,.lab,th,.box b{font-family:"Barlow Condensed",Inter,sans-serif}
+a{color:inherit}
+.top{background:radial-gradient(120% 140% at 20% 0%,var(--felt2),var(--felt));color:var(--on-felt);padding:22px max(5vw,16px)}
+.top .row{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;justify-content:space-between;max-width:1240px;margin:0 auto}
+.top h1{margin:0;font-size:clamp(30px,5vw,46px);line-height:1.05;font-weight:700}
+.top h1 a{text-decoration:none}
+.top p{margin:4px 0 0;opacity:.85;max-width:62ch;font-size:15px}
+.switch{display:flex;gap:8px;align-items:center}
+.switch select{background:rgba(255,255,255,.12);color:var(--on-felt);border-color:rgba(255,255,255,.25);max-width:min(78vw,340px)}
+.switch select option,.switch select optgroup{color:#16201a;background:#fffdf7}
+main{padding:24px max(5vw,16px) 56px;max-width:1240px;margin:0 auto}
+button,select,input{font:16px Inter,sans-serif}
+.act,.chip,select,input[type=search]{min-height:44px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--ink);padding:0 14px}
+.act,.chip{font-weight:600;font-size:15px;cursor:pointer}
+.act.main{background:var(--brass);border-color:var(--brass);color:#1b1305}
+.chip[aria-pressed=true]{background:var(--felt);border-color:var(--felt);color:var(--on-felt)}
+:focus-visible{outline:3px solid var(--brass);outline-offset:2px}
+.tools{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:0 0 18px}
+.tools input[type=search]{flex:1 1 200px}
+.count{color:var(--soft);font-size:14px;margin:-6px 0 14px}
+.shelf{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px}
+.box{display:flex;flex-direction:column;text-decoration:none;background:var(--card);border-radius:14px;overflow:hidden;box-shadow:0 1px 0 var(--line),0 8px 20px rgba(0,0,0,.10);transition:transform .15s}
+.box:hover{transform:translateY(-2px)}
+.box .lid{height:84px;position:relative;display:flex;align-items:flex-end;padding:10px 12px;color:#fff}
+.box .lid{overflow:hidden}.box .lid img{position:absolute;left:-12%;top:0;width:124%;height:auto;transform:translateY(-24%);opacity:.95}
+.box .lid .fmt{position:relative}
+.box .in{padding:12px 14px 14px;display:flex;flex-direction:column;gap:6px;flex:1}
+.box b{font-size:23px;line-height:1.05;font-weight:700}
+.box p{margin:0;color:var(--soft);font-size:14px;line-height:1.4}
+.box .ft{display:flex;gap:8px;flex-wrap:wrap;justify-content:space-between;align-items:center;margin-top:auto;padding-top:6px;font-size:13px;color:var(--soft)}
+.fmt{display:inline-block;font:600 14px "Barlow Condensed",sans-serif;background:var(--felt);color:var(--on-felt);padding:2px 10px;border-radius:99px}
+.lid .fmt{background:rgba(0,0,0,.55)}.box .lid::after{content:'';position:absolute;inset:0;background:linear-gradient(transparent 40%,rgba(0,0,0,.35))}.box .lid .fmt{z-index:1}
+.back{display:inline-flex;align-items:center;gap:6px;text-decoration:none;font-weight:600;font-size:15px;margin-bottom:14px;min-height:44px}
+.head{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:24px;align-items:start}
+.head h2{margin:8px 0 0;font-size:clamp(30px,4vw,44px);line-height:1.05;font-weight:700}
+.pitch{margin:8px 0 14px;color:var(--soft);max-width:60ch}
+.stats{display:flex;flex-wrap:wrap;gap:8px 22px;margin:0 0 14px}
+.stats div{display:flex;flex-direction:column}
+.stats b{font:700 26px/1 "Barlow Condensed",sans-serif}
+.stats span{font-size:13px;color:var(--soft)}
+.pips{display:inline-flex;gap:3px;vertical-align:middle}
+.pip{width:18px;height:18px;border-radius:50%;display:inline-grid;place-items:center;font:700 11px Inter,sans-serif;color:#1a1a1a;box-shadow:inset 0 -1px 0 rgba(0,0,0,.25)}
+.pW{background:#f6eecb}.pU{background:#9fcbe8}.pB{background:#b8aeaa}.pR{background:#ef9f7f}.pG{background:#9cc79a}.pC{background:#d3d3cf}
+.curve{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+.curve .lab{font-size:16px;font-weight:600;margin-bottom:8px;display:flex;justify-content:space-between;gap:8px}
+.bars{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:6px;align-items:end;height:110px}
+.bar{display:flex;flex-direction:column;justify-content:flex-end;align-items:center;height:100%;font-size:12px;color:var(--soft)}
+.bar i{display:block;width:100%;background:var(--felt2);border-radius:4px 4px 0 0;min-height:2px}
+.bar em{font-style:normal;font-weight:600;color:var(--ink)}
+.types{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px;font-size:13px}
+.types span{background:var(--bg);border-radius:6px;padding:2px 8px}
+.acts{display:flex;flex-wrap:wrap;gap:8px}
+.note{font-size:13px;color:var(--soft);min-height:20px;margin-top:6px}
+.bar2{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:26px 0 14px;border-top:1px solid var(--line);padding-top:18px}
+.bar2 input[type=search]{flex:1 1 180px}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.seg button{border:0;background:var(--card);color:var(--ink);min-height:42px;padding:0 14px;cursor:pointer;font-weight:500}
+.seg button[aria-pressed=true]{background:var(--felt);color:var(--on-felt)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(var(--tile,180px),1fr));gap:16px}
+.grid[data-size=S]{--tile:140px}.grid[data-size=M]{--tile:180px}.grid[data-size=L]{--tile:250px}.grid[data-size=XL]{--tile:340px}
+.grid[data-size=L] .c .art .tx,.grid[data-size=XL] .c .art .tx{font-size:13px}.grid[data-size=L] .c .art .nm,.grid[data-size=XL] .c .art .nm{font-size:21px}
+.c{background:var(--card);border-radius:12px;padding:7px;box-shadow:0 1px 0 var(--line),0 6px 16px rgba(0,0,0,.12);display:flex;flex-direction:column;position:relative}
+.c .art{aspect-ratio:488/680;border-radius:8px;overflow:hidden;position:relative;display:flex;flex-direction:column;justify-content:space-between;padding:10px;color:#fff;text-decoration:none;border:0;width:100%;text-align:left;font:inherit;cursor:zoom-in}
+.c .art img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.c .art .nm{position:relative;font:700 17px/1.1 "Barlow Condensed",sans-serif;text-shadow:0 1px 2px rgba(0,0,0,.5)}
+.c .art .ty{position:relative;font-size:12px;opacity:.9;text-shadow:0 1px 2px rgba(0,0,0,.5)}
+.c .art .tx{position:relative;font-size:11.5px;line-height:1.35;background:rgba(0,0,0,.28);border-radius:6px;padding:6px;max-height:42%;overflow:hidden}
+.c .art .pr{position:relative;align-self:flex-end;font:700 13px Inter,sans-serif;background:rgba(0,0,0,.35);padding:1px 7px;border-radius:6px}
+.c .q{position:absolute;top:-8px;left:-8px;background:var(--brass);color:#1b1305;font:700 15px "Barlow Condensed",sans-serif;min-width:30px;height:30px;border-radius:15px;display:grid;place-items:center;padding:0 6px;z-index:1}
+.c .meta{display:flex;justify-content:space-between;align-items:center;gap:6px;padding:7px 2px 1px;font-size:13px}
+.c .meta a{color:var(--soft);white-space:nowrap}
+.sec{font-size:22px;font-weight:600;margin:24px 0 10px}
+table{width:100%;border-collapse:collapse;background:var(--card);border-radius:12px;overflow:hidden}
+th{font-size:16px;font-weight:600;text-align:left;padding:10px;border-bottom:2px solid var(--line);cursor:pointer;user-select:none;white-space:nowrap}
+th[aria-sort=ascending]::after{content:" ▲";font-size:11px}th[aria-sort=descending]::after{content:" ▼";font-size:11px}
+td{padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+td.n{text-align:right;font-variant-numeric:tabular-nums}
+td .sub{display:block;font-size:12.5px;color:var(--soft)}
+td a{white-space:nowrap}
+.empty{padding:28px;text-align:center;color:var(--soft)}
+.zoom{position:fixed;inset:0;z-index:8;background:rgba(6,12,9,.86);display:grid;grid-template-rows:minmax(0,1fr) auto;align-items:center;justify-items:center;padding:16px;gap:10px}
+.zoom[hidden]{display:none}
+.zoom .pic{width:min(94vw,560px,calc((100vh - 140px) * 488 / 680));height:auto;aspect-ratio:488/680;border-radius:16px;overflow:hidden;position:relative;display:flex;flex-direction:column;justify-content:space-between;padding:20px;color:#fff;box-shadow:0 20px 60px rgba(0,0,0,.5)}
+.zoom .pic img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.zoom .pic .nm{font:700 30px/1.05 "Barlow Condensed",sans-serif}.zoom .pic .ty{font-size:15px;opacity:.9}.zoom .pic .tx{font-size:16px;line-height:1.45;background:rgba(0,0,0,.3);border-radius:8px;padding:10px}
+.zoom .zb{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:center;color:#f3efe2;font-size:15px}
+.zoom .zb button,.zoom .zb a{min-height:44px;padding:0 16px;border-radius:10px;border:1px solid rgba(255,255,255,.3);background:rgba(255,255,255,.1);color:#f3efe2;font:600 15px Inter,sans-serif;cursor:pointer;display:inline-flex;align-items:center;text-decoration:none}
+.zoom .zb .zt{padding:0 6px;text-align:center}
+.toast{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:10px 16px;border-radius:10px;font-size:15px;opacity:0;transition:opacity .2s;pointer-events:none;z-index:9}
+.toast.on{opacity:1}
+footer{max-width:1240px;margin:0 auto;padding:0 max(5vw,16px) 40px;color:var(--soft);font-size:13px}
+.act[href]{display:inline-flex;align-items:center;text-decoration:none}
+@media(prefers-reduced-motion:reduce){.toast,.box{transition:none}}
+@media(max-width:820px){.head{grid-template-columns:1fr}}
+@media(max-width:600px){table{font-size:13px}.stack thead{display:none}.stack tr{display:grid;padding-block:10px}.stack td{display:flow-root;border:0;padding:3px 0;padding-inline-start:8em;text-align:start}.stack td::before{content:attr(data-l);float:inline-start;width:7.5em;margin-inline-start:-8em;white-space:normal;color:var(--soft)}.stack td:empty{display:none}.grid{gap:12px}.grid[data-size=S]{grid-template-columns:repeat(3,minmax(0,1fr))}.grid[data-size=M]{grid-template-columns:repeat(2,minmax(0,1fr))}.grid[data-size=L]{grid-template-columns:minmax(0,300px);justify-content:center}.grid[data-size=XL]{grid-template-columns:minmax(0,1fr)}.switch{width:100%}.switch select{max-width:none;flex:1}}
+</style>
+<script>new MutationObserver(()=>{for(const c of document.querySelectorAll('.stack td:not([data-l])')){let i=0,p=c;while(p=p.previousElementSibling)i+=p.colSpan;c.dataset.l=c.closest('table').rows[0].cells[i]?.textContent.replace(/[▲▼]/g,'').trim()||''}}).observe(document,{childList:true,subtree:true})</script>
+</head>
+<body>
+<header class="top">
+  <div class="row">
+    <div><h1><a href="#library">Deck Library</a></h1><p id="intro">Magic: The Gathering decks built for a Playmat server.</p></div>
+    <label class="switch"><select id="jump" aria-label="Jump to a deck"><option value="library">All decks</option></select></label>
+  </div>
+</header>
+<main id="main"><div class="empty">Loading decks…</div></main>
+<footer>Card data and images from <a href="https://scryfall.com">Scryfall</a>. Magic: The Gathering cards and art © Wizards of the Coast; this is an unofficial fan page, not endorsed by Wizards or Scryfall.</footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<div class="zoom" id="zoom" hidden role="dialog" aria-modal="true" aria-label="Card"><div class="pic" id="zpic"></div><div class="zb"><button id="zprev" aria-label="Previous card">←</button><span class="zt" id="zt"></span><button id="znext" aria-label="Next card">→</button><a id="zs" href="#">Scryfall</a><button id="zx">Close</button></div></div>
+<script>
+{
+const $ = s => document.querySelector(s);
+const esc = v => String(v ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const FRAME = {W:['#e9dfb8','#b9a774'],U:['#3b78b5','#1d3f66'],B:['#4a403f','#1d1918'],R:['#c4502e','#6e2414'],G:['#3f8a4c','#1c4a26'],C:['#8e8f8c','#4c4d4a'],M:['#caa04a','#7a5a1c'],L:['#8a6b46','#4a3622']};
+const FORMATS = ['Standard', 'Pioneer', 'Modern', 'Legacy', 'Vintage', 'Commander', 'Pauper', 'Other'];
+const TYPES = ['Creature', 'Planeswalker', 'Battle', 'Instant', 'Sorcery', 'Artifact', 'Enchantment', 'Land'];
+const store = {get(k, d){ try { return JSON.parse(localStorage.getItem('decklib.' + k)) ?? d; } catch(e){ return d; } }, set(k, v){ try { localStorage.setItem('decklib.' + k, JSON.stringify(v)); } catch(e){} }};
+let INDEX = [], DCK = {}, CACHE = {}, SHOWN = [], ZI = -1;
+const lib = Object.assign({fmt: 'All', q: '', sort: 'updated'}, store.get('lib', {}));
+const st = {view: store.get('view', 'gallery'), size: store.get('size', 'M'), sec: 'All', q: '', sort: {key: 'mv', dir: 1}};
+function toast(m){ const t = $('#toast'); t.textContent = m; t.classList.add('on'); clearTimeout(toast.h); toast.h = setTimeout(() => t.classList.remove('on'), 2200); }
+
+/* ---------- Scryfall: card data + image links, cached in the browser for 14 days ---------- */
+const SCRY = {}; const TTL = 14 * 864e5;
+const key = (set, num) => `${set}-${num}`.toLowerCase();
+function cached(k){ const v = store.get('c.' + k, null); return v && Date.now() - v.t < TTL ? v.c : null; }
+function trim(card){
+  const f = card.card_faces?.[0] || {};
+  const img = card.image_uris || f.image_uris || {};
+  const type = card.type_line || f.type_line || '';
+  const front = type.split(' // ')[0];
+  const isLand = /\bLand\b/.test(front);
+  return {name: card.name, type, cost: card.mana_cost || f.mana_cost || '', mv: Math.round(card.cmc || 0),
+    colors: (card.colors || f.colors || []).join(''), text: (card.oracle_text || f.oracle_text || '').replace(/\n/g, ' · '),
+    pt: card.power != null ? `${card.power}/${card.toughness}` : (f.power != null ? `${f.power}/${f.toughness}` : ''),
+    main: isLand ? 'Land' : (TYPES.find(t => front.includes(t)) || 'Other'),
+    img: img.normal || '', big: img.large || img.normal || '', uri: card.scryfall_uri || ''};
+}
+async function scryfall(ids){
+  // ids: [{set, num, name}] -> fills SCRY[key]; batches of 75, falls back to name lookup
+  const need = ids.filter(i => !SCRY[key(i.set, i.num)] && !(SCRY[key(i.set, i.num)] = cached(key(i.set, i.num))));
+  const post = async body => { const r = await fetch('https://api.scryfall.com/cards/collection', {method: 'POST', headers: {'Content-Type': 'application/json', 'Accept': 'application/json'}, body: JSON.stringify({identifiers: body})}); if (!r.ok) throw new Error(r.status); return r.json(); };
+  for (let i = 0; i < need.length; i += 75){
+    const chunk = need.slice(i, i + 75);
+    const res = await post(chunk.map(c => ({set: c.set.toLowerCase(), collector_number: c.num})));
+    for (const card of res.data){
+      const c = chunk.find(x => x.set.toLowerCase() === card.set && x.num.toLowerCase() === String(card.collector_number).toLowerCase());
+      if (c){ const t = trim(card); SCRY[key(c.set, c.num)] = t; store.set('c.' + key(c.set, c.num), {t: Date.now(), c: t}); }
+    }
+    const missing = chunk.filter(c => !SCRY[key(c.set, c.num)] && c.name);
+    if (missing.length){
+      await new Promise(r => setTimeout(r, 120));
+      const res2 = await post(missing.map(c => ({name: c.name})));
+      for (const card of res2.data) for (const c of missing.filter(x => x.name.toLowerCase() === card.name.toLowerCase() || card.name.toLowerCase().startsWith(x.name.toLowerCase() + ' //'))){
+        const t = trim(card); SCRY[key(c.set, c.num)] = t; store.set('c.' + key(c.set, c.num), {t: Date.now(), c: t});
+      }
+    }
+    if (i + 75 < need.length) await new Promise(r => setTimeout(r, 120));
+  }
+}
+
+/* ---------- .dck files ---------- */
+function parseDck(text, format){
+  const cards = [];
+  for (let line of text.split(/\r?\n/)){
+    line = line.trim(); if (!line || line.startsWith('NAME:')) continue;
+    const side = line.startsWith('SB:'); if (side) line = line.slice(3).trim();
+    const m = line.match(/^(\d+)\s+\[([^:\]]+):([^\]]+)\]\s+(.+)$/) || line.match(/^(\d+)\s+()()(.+)$/);
+    if (!m) continue;
+    cards.push({q: +m[1], set: m[2], num: m[3], name: m[4], sec: side ? (format === 'Commander' ? 'Commander' : 'Sideboard') : 'Main'});
+  }
+  return cards;
+}
+async function getDck(d){ if (!DCK[d.id]){ const r = await fetch('decks/' + encodeURIComponent(d.file)); if (!r.ok) throw new Error(r.status); DCK[d.id] = await r.text(); } return DCK[d.id]; }
+async function loadDeck(id){
+  if (CACHE[id]) return CACHE[id];
+  const d = INDEX.find(x => x.id === id); const text = await getDck(d);
+  const cards = parseDck(text, d.format);
+  try { await scryfall(cards.filter(c => c.set)); } catch(e){ toast('Scryfall didn’t answer; showing names only'); }
+  for (const c of cards) Object.assign(c, {type: '', cost: '', mv: 0, colors: '', text: '', pt: '', main: /^(Plains|Island|Swamp|Mountain|Forest|Wastes)$/.test(c.name) ? 'Land' : 'Other', img: '', big: ''}, SCRY[key(c.set, c.num)] || {}, {name: c.name});
+  return CACHE[id] = Object.assign({}, d, {dck: text, cards});
+}
+
+/* ---------- helpers ---------- */
+const pips = cost => (cost.match(/\{[^}]+\}/g) || []).map(s => {
+  const t = s.slice(1, -1); const col = /^[WUBRG]$/.test(t) ? t : (t.includes('/') ? t.split('/').find(x => /[WUBRG]/.test(x)) || 'C' : 'C');
+  return `<span class="pip p${col}" title="${esc(s)}">${esc(/^[WUBRG]$/.test(t) ? '' : t.replace('/', ''))}</span>`;
+}).join('');
+const colorPips = cols => (cols ? [...cols] : ['C']).map(k => `<span class="pip p${k}"></span>`).join('');
+const frameOf = c => c.main === 'Land' ? FRAME.L : c.colors.length > 1 ? FRAME.M : FRAME[c.colors || 'C'];
+const scryLink = c => c.uri || (c.set ? `https://scryfall.com/card/${encodeURIComponent(c.set.toLowerCase())}/${encodeURIComponent(c.num)}` : `https://scryfall.com/search?q=${encodeURIComponent('!"' + c.name + '"')}`);
+const safeImg = u => typeof u === 'string' && u.startsWith('https://cards.scryfall.io/') ? u : '';
+const fmtDate = s => new Date(s + 'T12:00:00').toLocaleDateString(undefined, {month: 'short', day: 'numeric', year: 'numeric'});
+const lidBg = cols => { const cs = cols ? [...cols] : ['C']; return cs.length > 1 ? `linear-gradient(110deg,${cs.map((k, i) => `${FRAME[k][0]} ${Math.round(i / (cs.length - 1) * 100)}%`).join(',')})` : `linear-gradient(150deg,${FRAME[cs[0]][0]},${FRAME[cs[0]][1]})`; };
+function fillJump(cur){
+  const groups = FORMATS.map(f => [f, INDEX.filter(d => (FORMATS.includes(d.format) ? d.format : 'Other') === f).sort((a, b) => a.title.localeCompare(b.title))]).filter(g => g[1].length);
+  $('#jump').innerHTML = `<option value="library">All decks (${INDEX.length})</option>` + groups.map(([f, ds]) => `<optgroup label="${esc(f)}">${ds.map(d => `<option value="${esc(d.id)}" ${d.id === cur ? 'selected' : ''}>${esc(d.title)}</option>`).join('')}</optgroup>`).join('');
+}
+const counts = d => { const c = DCK[d.id] ? parseDck(DCK[d.id], d.format) : []; return {main: c.filter(x => x.sec !== 'Sideboard').reduce((a, x) => a + x.q, 0), side: c.filter(x => x.sec === 'Sideboard').reduce((a, x) => a + x.q, 0)}; };
+
+/* ---------- library home ---------- */
+function renderLibrary(){
+  fillJump('library'); document.title = 'Deck Library';
+  const fmts = ['All', ...FORMATS.filter(f => INDEX.some(d => d.format === f))];
+  const q = lib.q.trim().toLowerCase();
+  const list = INDEX.filter(d => (lib.fmt === 'All' || d.format === lib.fmt) && (!q || (d.title + ' ' + d.pitch).toLowerCase().includes(q)))
+    .sort(lib.sort === 'name' ? (a, b) => a.title.localeCompare(b.title) : lib.sort === 'format' ? (a, b) => a.format.localeCompare(b.format) || a.title.localeCompare(b.title) : (a, b) => b[lib.sort].localeCompare(a[lib.sort]) || a.title.localeCompare(b.title));
+  $('#main').innerHTML = `
+  <div class="tools">${fmts.map(f => `<button class="chip" data-fmt="${esc(f)}" aria-pressed="${lib.fmt === f}">${esc(f)} ${f === 'All' ? INDEX.length : INDEX.filter(d => d.format === f).length}</button>`).join('')}</div>
+  <div class="tools">
+    <input type="search" id="lq" placeholder="Search decks and themes" value="${esc(lib.q)}" aria-label="Search decks">
+    <select id="lsort" aria-label="Sort decks">${[['updated', 'Recently updated'], ['added', 'Newest'], ['name', 'Name'], ['format', 'Format']].map(([k, l]) => `<option value="${k}" ${lib.sort === k ? 'selected' : ''}>${l}</option>`).join('')}</select>
+  </div>
+  <div class="count">${list.length} of ${INDEX.length} decks</div>
+  ${list.length ? `<div class="shelf">${list.map(d => { const n = counts(d); const f = d.face && SCRY[key(d.face.set, d.face.num)]; const img = f ? safeImg(f.img) : '';
+    return `<a class="box" href="#${esc(d.id)}"><div class="lid" style="background:${lidBg(d.colors)}">${img ? `<img src="${esc(img)}" alt="" loading="lazy">` : ''}<span class="fmt">${esc(d.format)}</span></div>
+      <div class="in"><b>${esc(d.title)}</b><p>${esc(d.pitch)}</p>
+      <div class="ft"><span class="pips">${colorPips(d.colors)}</span><span>${n.main ? `${n.main}${n.side ? ' + ' + n.side : ''} cards · ` : ''}${esc(fmtDate(d.updated))}</span></div></div></a>`; }).join('')}</div>`
+    : '<div class="empty">No decks match. Clear the search or pick another format.</div>'}`;
+}
+
+/* ---------- deck page ---------- */
+function stats(d){
+  const main = d.cards.filter(c => c.sec !== 'Sideboard'); const spells = main.filter(c => c.main !== 'Land');
+  const nsp = spells.reduce((a, c) => a + c.q, 0); const curve = Array(8).fill(0); spells.forEach(c => curve[Math.min(c.mv, 7)] += c.q);
+  const types = {}; main.forEach(c => types[c.main] = (types[c.main] || 0) + c.q);
+  return {total: main.reduce((a, c) => a + c.q, 0), avg: nsp ? spells.reduce((a, c) => a + c.q * c.mv, 0) / nsp : 0, lands: types.Land || 0,
+    cols: [...'WUBRG'].filter(k => main.some(c => c.colors.includes(k))).join('') || d.colors, curve, types,
+    side: d.cards.filter(c => c.sec === 'Sideboard').reduce((a, c) => a + c.q, 0)};
+}
+function plainList(d){
+  const sec = s => d.cards.filter(c => c.sec === s).map(c => `${c.q} ${c.name}`).join('\n');
+  const out = d.format === 'Commander' ? 'Commander\n' + sec('Commander') + '\n\nDeck\n' + sec('Main') : 'Deck\n' + sec('Main');
+  const sb = sec('Sideboard'); return out + (sb ? '\n\nSideboard\n' + sb : '') + '\n';
+}
+function cmp(a, b){
+  const {key: k, dir} = st.sort; let x = a[k], y = b[k];
+  if (k === 'printing'){ x = a.set + ' ' + a.num.padStart(4, '0'); y = b.set + ' ' + b.num.padStart(4, '0'); }
+  return (typeof x === 'string' ? dir * x.localeCompare(y) : dir * (x - y)) || a.name.localeCompare(b.name);
+}
+const visible = d => { const q = st.q.trim().toLowerCase(); return d.cards.filter(c => (st.sec === 'All' || c.sec === st.sec) && (!q || (c.name + ' ' + c.type + ' ' + c.text).toLowerCase().includes(q))).sort(cmp); };
+function tile(c, i){
+  const [a, b] = frameOf(c); const img = safeImg(c.img);
+  return `<article class="c"><span class="q" aria-label="${c.q} copies">×${c.q}</span>
+    <button class="art" data-z="${i}" style="background:linear-gradient(160deg,${a},${b})" aria-label="Enlarge ${esc(c.name)}">
+      ${img ? `<img src="${esc(img)}" alt="${esc(c.name)}" loading="lazy">` : `<div><div class="nm">${esc(c.name)}</div><div class="ty">${esc(c.type)}</div></div>
+      ${c.text ? `<div class="tx">${esc(c.text)}</div>` : '<div></div>'}${c.pt ? `<div class="pr">${esc(c.pt)}</div>` : ''}`}
+    </button><div class="meta"><span class="pips">${pips(c.cost)}</span><a href="${esc(scryLink(c))}">${c.set ? `${esc(c.set)} #${esc(c.num)}` : 'Scryfall'}</a></div></article>`;
+}
+function body(d){
+  const list = visible(d); if (!list.length) return '<div class="empty">No cards match that filter.</div>';
+  if (st.view === 'gallery'){
+    const groups = st.sec === 'All' ? ['Commander', 'Main', 'Sideboard'] : [st.sec];
+    SHOWN = groups.flatMap(g => list.filter(c => c.sec === g));
+    return groups.map(g => { const cs = list.filter(c => c.sec === g); if (!cs.length) return '';
+      return `${groups.length > 1 ? `<h3 class="sec">${g === 'Main' ? (d.format === 'Commander' ? 'The deck' : 'Main deck') : g} · ${cs.reduce((a, c) => a + c.q, 0)}</h3>` : ''}<div class="grid" data-size="${st.size}">${cs.map(c => tile(c, SHOWN.indexOf(c))).join('')}</div>`; }).join('');
+  }
+  SHOWN = list;
+  const cols = [['q', 'Qty'], ['name', 'Card'], ['mv', 'Cost'], ['main', 'Type'], ['printing', 'Printing'], ['sec', 'Section']];
+  return `<table class="stack"><thead><tr>${cols.map(([k, l]) => `<th tabindex="0" data-k="${k}" aria-sort="${st.sort.key === k ? (st.sort.dir > 0 ? 'ascending' : 'descending') : 'none'}">${l}</th>`).join('')}</tr></thead><tbody>${
+    list.map(c => `<tr><td class="n">${c.q}</td><td><b>${esc(c.name)}</b><span class="sub">${esc(c.type)}${c.pt ? ' · ' + esc(c.pt) : ''}</span></td><td><span class="pips">${pips(c.cost)}</span><span class="sub">MV ${c.mv}</span></td><td>${esc(c.main)}</td><td><a href="${esc(scryLink(c))}">${c.set ? `${esc(c.set)} #${esc(c.num)}` : 'Scryfall'}</a></td><td>${esc(c.sec)}</td></tr>`).join('')}</tbody></table>`;
+}
+async function renderDeck(id){
+  fillJump(id); $('#main').innerHTML = '<div class="empty">Opening deck and fetching cards from Scryfall…</div>';
+  let d; try { d = await loadDeck(id); } catch(e){ $('#main').innerHTML = '<div class="empty">That deck didn’t load. <a href="#library">Back to all decks</a></div>'; return; }
+  if (route() !== id) return;
+  document.title = d.title + ' · Deck Library';
+  const s = stats(d); const max = Math.max(...s.curve, 1);
+  const secs = ['All', ...['Commander', 'Main', 'Sideboard'].filter(x => d.cards.some(c => c.sec === x))];
+  $('#main').innerHTML = `
+  <a class="back" href="#library">← All decks</a>
+  <section class="head"><div>
+    <span class="fmt">${esc(d.format)}</span>
+    <h2>${esc(d.title)}</h2><p class="pitch">${esc(d.pitch)}</p>
+    <div class="stats">
+      <div><b>${s.total}</b><span>${d.format === 'Commander' ? 'cards incl. commander' : 'main deck'}</span></div>
+      ${s.side ? `<div><b>${s.side}</b><span>sideboard</span></div>` : ''}
+      <div><b>${s.lands}</b><span>lands</span></div>
+      <div><b>${s.avg.toFixed(2)}</b><span>avg mana value</span></div>
+      <div><b class="pips">${colorPips(s.cols)}</b><span>colors</span></div>
+      <div><b>${esc(fmtDate(d.updated))}</b><span>last updated</span></div>
+    </div>
+    <div class="acts"><a class="act main" href="decks/${esc(encodeURIComponent(d.file))}" download="${esc(d.title.replace(/[\\/:*?"<>|]/g, '') + '.dck')}">Download .dck</a><button class="act" id="cpd">Copy .dck</button><button class="act" id="cpl">Copy plain list</button></div>
+    <div class="note">Import in Playmat with the .dck option, or paste the plain list.</div>
+    <div id="fallback" hidden><textarea rows="6" style="width:100%;font:13px ui-monospace,monospace;margin-top:8px" aria-label="Deck text"></textarea></div>
+  </div>
+  <div class="curve"><div class="lab"><span>Mana curve</span><span style="color:var(--soft);font-weight:500">nonland, ${d.format === 'Commander' ? 'deck + commander' : 'main deck'}</span></div>
+    <div class="bars">${s.curve.map((n, i) => `<div class="bar"><em>${n || ''}</em><i style="height:${(n / max) * 80}%"></i>${i === 7 ? '7+' : i}</div>`).join('')}</div>
+    <div class="types">${Object.entries(s.types).sort((a, b) => b[1] - a[1]).map(([k, v]) => `<span>${esc(k)} ${v}</span>`).join('')}</div></div>
+  </section>
+  <div class="bar2">
+    <div class="seg" role="group" aria-label="View"><button data-v="gallery" aria-pressed="${st.view === 'gallery'}">Gallery</button><button data-v="table" aria-pressed="${st.view === 'table'}">List</button></div>
+    <div class="seg" role="group" aria-label="Card size" ${st.view === 'gallery' ? '' : 'hidden'}>${[['S', 'Small'], ['M', 'Medium'], ['L', 'Large'], ['XL', 'Extra large']].map(([k, l]) => `<button data-size="${k}" aria-pressed="${st.size === k}" title="${l} cards">${k === 'XL' ? 'XL' : l}</button>`).join('')}</div>
+    <select id="sec" aria-label="Section">${secs.map(x => `<option ${x === st.sec ? 'selected' : ''}>${x}</option>`).join('')}</select>
+    <select id="sort" aria-label="Sort cards">${[['mv', 'Mana value'], ['name', 'Name'], ['main', 'Type'], ['q', 'Quantity'], ['printing', 'Printing']].map(([k, l]) => `<option value="${k}" ${st.sort.key === k ? 'selected' : ''}>Sort: ${l}</option>`).join('')}</select>
+    <button class="act" id="dir">${st.sort.dir > 0 ? '↑ Ascending' : '↓ Descending'}</button>
+    <input type="search" id="q" placeholder="Search name, type or text" value="${esc(st.q)}" aria-label="Search cards">
+  </div>
+  <div id="body">${body(d)}</div>`;
+}
+
+/* ---------- zoom ---------- */
+function zoomTo(i){
+  if (!SHOWN.length) return; ZI = (i + SHOWN.length) % SHOWN.length; const c = SHOWN[ZI];
+  const [a, b] = frameOf(c); const img = safeImg(c.big || c.img); const p = $('#zpic');
+  p.style.background = `linear-gradient(160deg,${a},${b})`;
+  p.innerHTML = img ? `<img src="${esc(img)}" alt="${esc(c.name)}">` : `<div><div class="nm">${esc(c.name)}</div><div class="ty">${esc(c.type)}</div></div>${c.text ? `<div class="tx">${esc(c.text)}</div>` : '<div></div>'}<div class="ty" style="align-self:flex-end;font-weight:700">${esc(c.pt)}</div>`;
+  $('#zt').textContent = `${c.q} × ${c.name}${c.set ? ` · ${c.set} #${c.num}` : ''} · ${ZI + 1} of ${SHOWN.length}`;
+  $('#zs').href = scryLink(c); const z = $('#zoom'); if (z.hidden){ z.hidden = false; $('#zx').focus(); }
+}
+function zoomClose(){ const z = $('#zoom'); if (z.hidden) return; z.hidden = true; document.querySelector(`.art[data-z="${ZI}"]`)?.focus(); ZI = -1; }
+
+/* ---------- routing + events ---------- */
+const route = () => { const h = location.hash.slice(1); return INDEX.some(d => d.id === h) ? h : 'library'; };
+let shown = null;
+function show(){ const r = route(); if (r !== shown){ st.sec = 'All'; st.q = ''; } shown = r; if (r === 'library') renderLibrary(); else renderDeck(r); }
+const cur = () => CACHE[route()];
+function rerenderBody(){ const d = cur(); if (d) $('#body').innerHTML = body(d); }
+async function copy(text, what){
+  try { await navigator.clipboard.writeText(text); toast(what + ' copied'); }
+  catch(e){ toast('Copy was blocked; the text is in the box below'); const f = $('#fallback'); f.hidden = false; f.querySelector('textarea').value = text; f.querySelector('textarea').select(); }
+}
+document.addEventListener('click', async e => {
+  if (e.target.id === 'zoom'){ zoomClose(); return; }
+  const t = e.target.closest('button, th'); if (!t) return; const d = cur();
+  if (t.dataset.z !== undefined){ zoomTo(+t.dataset.z); return; }
+  if (t.id === 'zprev') return zoomTo(ZI - 1); if (t.id === 'znext') return zoomTo(ZI + 1); if (t.id === 'zx') return zoomClose();
+  if (t.dataset.size){ st.size = t.dataset.size; store.set('size', st.size); document.querySelectorAll('[data-size]').forEach(x => { if (x.tagName === 'BUTTON') x.setAttribute('aria-pressed', x.dataset.size === st.size); else x.dataset.size = st.size; }); return; }
+  if (t.dataset.fmt){ lib.fmt = t.dataset.fmt; store.set('lib', lib); renderLibrary(); }
+  else if (t.dataset.v){ st.view = t.dataset.v; store.set('view', st.view); renderDeck(route()); }
+  else if (t.id === 'dir'){ st.sort.dir *= -1; renderDeck(route()); }
+  else if (t.tagName === 'TH'){ const k = t.dataset.k; st.sort = {key: k, dir: st.sort.key === k ? -st.sort.dir : 1}; renderDeck(route()); }
+  else if (t.id === 'cpd' && d) copy(d.dck, '.dck file');
+  else if (t.id === 'cpl' && d) copy(plainList(d), 'Deck list');
+});
+document.addEventListener('keydown', e => {
+  if (!$('#zoom').hidden){ if (e.key === 'Escape') zoomClose(); else if (e.key === 'ArrowLeft') zoomTo(ZI - 1); else if (e.key === 'ArrowRight') zoomTo(ZI + 1); return; }
+  if (e.key === 'Enter' && e.target.tagName === 'TH') e.target.click();
+});
+document.addEventListener('change', e => {
+  const id = e.target.id;
+  if (id === 'jump') location.hash = e.target.value;
+  else if (id === 'lsort'){ lib.sort = e.target.value; store.set('lib', lib); renderLibrary(); }
+  else if (id === 'sec'){ st.sec = e.target.value; rerenderBody(); }
+  else if (id === 'sort'){ st.sort = {key: e.target.value, dir: 1}; renderDeck(route()); }
+});
+document.addEventListener('input', e => {
+  if (e.target.id === 'q'){ st.q = e.target.value; rerenderBody(); }
+  if (e.target.id === 'lq'){ lib.q = e.target.value; store.set('lib', lib); const pos = e.target.selectionStart; renderLibrary(); const i = $('#lq'); i.focus(); i.setSelectionRange(pos, pos); }
+});
+addEventListener('hashchange', () => { zoomClose(); show(); window.scrollTo({top: 0}); });
+
+(async () => {
+  try {
+    INDEX = await (await fetch('decks/manifest.json', {cache: 'no-cache'})).json();
+    $('#intro').textContent = `${INDEX.length} Magic: The Gathering decks built for a Playmat server, each at its latest version.`;
+    show();
+    await Promise.all(INDEX.map(d => getDck(d).catch(() => {})));
+    try { await scryfall(INDEX.filter(d => d.face).map(d => ({set: d.face.set, num: d.face.num, name: ''}))); } catch(e){}
+    if (route() === 'library') renderLibrary();
+  } catch(e){ $('#main').innerHTML = '<div class="empty">The deck list didn’t load. Reload the page to try again.</div>'; }
+})();
+}
+</script>
+</body>
+</html>

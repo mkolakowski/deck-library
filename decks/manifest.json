@@ -1,0 +1,156 @@
+[
+  {
+    "id": "starfleet-bridge-crew",
+    "title": "Starfleet Bridge Crew",
+    "format": "Standard",
+    "pitch": "Boros Starfleet officers: go wide, hit total power 8, swing.",
+    "file": "starfleet-bridge-crew.dck",
+    "colors": "WR",
+    "face": {
+      "set": "TRK",
+      "num": "42"
+    },
+    "added": "2026-11-18",
+    "updated": "2026-11-18"
+  },
+  {
+    "id": "section-31-tactical-command",
+    "title": "Section 31 Tactical Command",
+    "format": "Standard",
+    "pitch": "Orzhov midrange: answers for every kind of threat, Picard and ships to close.",
+    "file": "section-31-tactical-command.dck",
+    "colors": "WUB",
+    "face": {
+      "set": "TRK",
+      "num": "126"
+    },
+    "added": "2026-11-23",
+    "updated": "2026-11-23"
+  },
+  {
+    "id": "worf-s-away-team",
+    "title": "Worf's Away Team",
+    "format": "Commander",
+    "pitch": "Worf, Son of Mogh pumps Officers; draw a second card each turn to make more.",
+    "file": "worf-s-away-team.dck",
+    "colors": "WR",
+    "face": {
+      "set": "TRC",
+      "num": "109"
+    },
+    "added": "2026-11-18",
+    "updated": "2026-11-18"
+  },
+  {
+    "id": "abaddon-s-black-legion",
+    "title": "Abaddon's Black Legion",
+    "format": "Commander",
+    "pitch": "Chaos Space Marines: hit first, then cascade into Daemon Primarchs.",
+    "file": "abaddon-s-black-legion.dck",
+    "colors": "UBR",
+    "face": {
+      "set": "40K",
+      "num": "2"
+    },
+    "added": "2026-11-21",
+    "updated": "2026-11-21"
+  },
+  {
+    "id": "the-doctor-s-tardis-crew",
+    "title": "The Doctor's TARDIS Crew",
+    "format": "Commander",
+    "pitch": "The Fourth Doctor and Sarah Jane: cast historic spells off the top, ten Doctors aboard.",
+    "file": "the-doctor-s-tardis-crew.dck",
+    "colors": "WUG",
+    "face": {
+      "set": "WHO",
+      "num": "2"
+    },
+    "added": "2026-11-24",
+    "updated": "2026-11-24"
+  },
+  {
+    "id": "living-end",
+    "title": "Living End",
+    "format": "Modern",
+    "pitch": "Cycle creatures into the graveyard, cascade into Living End, swap boards.",
+    "file": "living-end.dck",
+    "colors": "UBRG",
+    "face": {
+      "set": "NEO",
+      "num": "216"
+    },
+    "added": "2026-11-21",
+    "updated": "2026-11-21"
+  },
+  {
+    "id": "hammer-time",
+    "title": "Hammer Time",
+    "format": "Modern",
+    "pitch": "Cheat Colossus Hammer onto a tiny creature and win in one swing.",
+    "file": "hammer-time.dck",
+    "colors": "WU",
+    "face": {
+      "set": "MH3",
+      "num": "270"
+    },
+    "added": "2026-11-21",
+    "updated": "2026-11-21"
+  },
+  {
+    "id": "fleet-command",
+    "title": "Fleet Command",
+    "format": "Modern",
+    "pitch": "Affinity: cheap artifacts launch drones, arm the Cannoneer and fire munitions.",
+    "file": "fleet-command.dck",
+    "colors": "UR",
+    "face": {
+      "set": "TMT",
+      "num": "43"
+    },
+    "added": "2026-11-23",
+    "updated": "2026-11-23"
+  },
+  {
+    "id": "cryptid-sightings",
+    "title": "Cryptid Sightings",
+    "format": "Modern",
+    "pitch": "Sultai midrange: Psychic Frog, Lhurgoyfs, a Chupacabra and the Loch Ness serpent.",
+    "file": "cryptid-sightings.dck",
+    "colors": "UBG",
+    "face": {
+      "set": "LTR",
+      "num": "111"
+    },
+    "added": "2026-11-24",
+    "updated": "2026-11-24"
+  },
+  {
+    "id": "ds9-defend-the-station",
+    "title": "DS9: Defend the Station",
+    "format": "Modern",
+    "pitch": "Boros station defense: burn and phasers hold the line while Picard, Worf and Kira lead the counterattack.",
+    "file": "ds9-defend-the-station.dck",
+    "colors": "WUR",
+    "face": {
+      "set": "TRK",
+      "num": "497"
+    },
+    "added": "2026-11-25",
+    "updated": "2026-11-25"
+  },
+  {
+    "id": "lotr-ride-of-the-rohirrim",
+    "title": "LOTR: Ride of the Rohirrim",
+    "format": "Modern",
+    "pitch": "Boros cavalry: Rohan's riders charge in waves while Théoden, Éomer and Éowyn lead the charge.",
+    "file": "lotr-ride-of-the-rohirrim.dck",
+    "colors": "WR",
+    "face": {
+      "set": "LTR",
+      "num": "684"
+    },
+    "added": "2026-11-25",
+    "updated": "2026-11-25"
+  }
+]
