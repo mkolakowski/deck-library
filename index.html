@@ -41,11 +41,20 @@ button,select,input{font:16px Inter,sans-serif}
 .tools{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:0 0 18px}
 .tools input[type=search]{flex:1 1 200px}
 .count{color:var(--soft);font-size:14px;margin:-6px 0 14px}
-.shelf{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px}
+.shelf{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:18px}
 .box{display:flex;flex-direction:column;text-decoration:none;background:var(--card);border-radius:14px;overflow:hidden;box-shadow:0 1px 0 var(--line),0 8px 20px rgba(0,0,0,.10);transition:transform .15s}
 .box:hover{transform:translateY(-2px)}
-.box .lid{height:84px;position:relative;display:flex;align-items:flex-end;padding:10px 12px;color:#fff}
-.box .lid{overflow:hidden}.box .lid img{position:absolute;left:-12%;top:0;width:124%;height:auto;transform:translateY(-24%);opacity:.95}
+.box .lid{height:190px;position:relative;display:flex;align-items:flex-end;padding:10px 12px;color:#fff}
+.box .lid{overflow:hidden}.box .lid img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 30%}
+.rows{display:flex;flex-direction:column;gap:8px}
+.drow{display:grid;grid-template-columns:132px minmax(0,1fr) auto;gap:14px;align-items:center;text-decoration:none;background:var(--card);border-radius:12px;overflow:hidden;box-shadow:0 1px 0 var(--line),0 4px 12px rgba(0,0,0,.08);padding-right:14px;min-height:96px}
+.drow:hover{box-shadow:0 1px 0 var(--line),0 6px 16px rgba(0,0,0,.14)}
+.drow .th{align-self:stretch;position:relative;overflow:hidden}.drow .th img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 30%}
+.drow .mid{padding:10px 0;display:flex;flex-direction:column;gap:4px;min-width:0}.drow b{font-size:20px;line-height:1.1}
+.drow .mid p{margin:0;color:var(--soft);font-size:14px;line-height:1.35;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.drow .meta{display:flex;flex-direction:column;align-items:flex-end;gap:6px;font-size:13px;color:var(--soft);white-space:nowrap}
+.drow .tagrow .tag{margin:0 6px 0 0}.drow .mid .ln{display:flex;flex-wrap:wrap;gap:6px;align-items:center}.drow .mid .ln .tag{margin:0}
+@media(max-width:600px){.drow{grid-template-columns:88px minmax(0,1fr)}.drow .meta{grid-column:2;flex-direction:row;align-items:center;justify-content:space-between;padding-bottom:10px}}
 .box .lid .fmt{position:relative}
 .box .in{padding:12px 14px 14px;display:flex;flex-direction:column;gap:6px;flex:1}
 .box b{font-size:23px;line-height:1.05;font-weight:700}
@@ -161,7 +170,7 @@ const FORMATS = ['Standard', 'Pioneer', 'Modern', 'Legacy', 'Vintage', 'Commande
 const TYPES = ['Creature', 'Planeswalker', 'Battle', 'Instant', 'Sorcery', 'Artifact', 'Enchantment', 'Land'];
 const store = {get(k, d){ try { return JSON.parse(localStorage.getItem('decklib.' + k)) ?? d; } catch(e){ return d; } }, set(k, v){ try { localStorage.setItem('decklib.' + k, JSON.stringify(v)); } catch(e){} }};
 let INDEX = [], DCK = {}, CACHE = {}, SHOWN = [], ZI = -1;
-const lib = Object.assign({fmt: 'All', tag: 'All', q: '', sort: 'updated'}, store.get('lib', {}));
+const lib = Object.assign({fmt: 'All', tag: 'All', q: '', sort: 'updated', view: 'grid'}, store.get('lib', {}));
 const tagsOf = d => Array.isArray(d.tags) ? d.tags : [];
 const tagPills = d => tagsOf(d).map(t => `<span class="tag">#${esc(t)}</span>`).join('');
 const st = {view: store.get('view', 'gallery'), size: store.get('size', 'M'), group: store.get('group', 'type'), sec: 'All', q: '', sort: {key: 'mv', dir: 1}};
@@ -238,6 +247,7 @@ const colorPips = cols => (cols ? [...cols] : ['C']).map(k => `<span class="pip 
 const frameOf = c => c.main === 'Land' ? FRAME.L : c.colors.length > 1 ? FRAME.M : FRAME[c.colors || 'C'];
 const scryLink = c => c.uri || (c.set ? `https://scryfall.com/card/${encodeURIComponent(c.set.toLowerCase())}/${encodeURIComponent(c.num)}` : `https://scryfall.com/search?q=${encodeURIComponent('!"' + c.name + '"')}`);
 const safeImg = u => typeof u === 'string' && u.startsWith('https://cards.scryfall.io/') ? u : '';
+const artCrop = u => u.replace('/normal/', '/art_crop/');
 const fmtDate = s => new Date(s + 'T12:00:00').toLocaleDateString(undefined, {month: 'short', day: 'numeric', year: 'numeric'});
 const lidBg = cols => { const cs = cols ? [...cols] : ['C']; return cs.length > 1 ? `linear-gradient(110deg,${cs.map((k, i) => `${FRAME[k][0]} ${Math.round(i / (cs.length - 1) * 100)}%`).join(',')})` : `linear-gradient(150deg,${FRAME[cs[0]][0]},${FRAME[cs[0]][1]})`; };
 function fillJump(cur){
@@ -260,13 +270,18 @@ function renderLibrary(){
   ${tags.length ? `<div class="tools tags">${['All', ...tags].map(t => `<button class="chip" data-tag="${esc(t)}" aria-pressed="${lib.tag === t}">${t === 'All' ? 'All tags' : '#' + esc(t)} ${t === 'All' ? INDEX.length : INDEX.filter(d => tagsOf(d).includes(t)).length}</button>`).join('')}</div>` : ''}
   <div class="tools">
     <input type="search" id="lq" placeholder="Search decks and themes" value="${esc(lib.q)}" aria-label="Search decks">
+    <span class="seg" role="group" aria-label="Deck view">${[['grid', 'Grid'], ['list', 'List']].map(([k, l]) => `<button data-lview="${k}" aria-pressed="${lib.view === k}">${l}</button>`).join('')}</span>
     <select id="lsort" aria-label="Sort decks">${[['updated', 'Recently updated'], ['added', 'Newest'], ['name', 'Name'], ['format', 'Format']].map(([k, l]) => `<option value="${k}" ${lib.sort === k ? 'selected' : ''}>${l}</option>`).join('')}</select>
   </div>
   <div class="count">${list.length} of ${INDEX.length} decks</div>
-  ${list.length ? `<div class="shelf">${list.map(d => { const n = counts(d); const f = d.face && SCRY[key(d.face.set, d.face.num)]; const img = f ? safeImg(f.img) : '';
-    return `<a class="box" href="#${esc(d.id)}"><div class="lid" style="background:${lidBg(d.colors)}">${img ? `<img src="${esc(img)}" alt="" loading="lazy">` : ''}<span class="fmt">${esc(d.format)}</span></div>
+  ${list.length ? (lib.view === 'list' ? `<div class="rows">${list.map(d => { const n = counts(d); const f = d.face && SCRY[key(d.face.set, d.face.num)]; const img = f ? safeImg(f.img) : '';
+    return `<a class="drow" href="#${esc(d.id)}"><div class="th" style="background:${lidBg(d.colors)}">${img ? `<img src="${esc(artCrop(img))}" alt="" loading="lazy">` : ''}</div>
+      <div class="mid"><div class="ln"><b>${esc(d.title)}</b></div><div class="ln"><span class="fmt">${esc(d.format)}</span>${tagPills(d)}</div><p>${esc(d.pitch)}</p></div>
+      <div class="meta"><span class="pips">${colorPips(d.colors)}</span><span>${n.main ? `${n.main}${n.side ? ' + ' + n.side : ''} cards` : ''}</span><span>${esc(fmtDate(d.updated))}</span></div></a>`; }).join('')}</div>`
+    : `<div class="shelf">${list.map(d => { const n = counts(d); const f = d.face && SCRY[key(d.face.set, d.face.num)]; const img = f ? safeImg(f.img) : '';
+    return `<a class="box" href="#${esc(d.id)}"><div class="lid" style="background:${lidBg(d.colors)}">${img ? `<img src="${esc(artCrop(img))}" alt="" loading="lazy">` : ''}<span class="fmt">${esc(d.format)}</span></div>
       <div class="in"><b>${esc(d.title)}</b>${tagsOf(d).length ? `<div class="tagrow">${tagPills(d)}</div>` : ''}<p>${esc(d.pitch)}</p>
-      <div class="ft"><span class="pips">${colorPips(d.colors)}</span><span>${n.main ? `${n.main}${n.side ? ' + ' + n.side : ''} cards · ` : ''}${esc(fmtDate(d.updated))}</span></div></div></a>`; }).join('')}</div>`
+      <div class="ft"><span class="pips">${colorPips(d.colors)}</span><span>${n.main ? `${n.main}${n.side ? ' + ' + n.side : ''} cards · ` : ''}${esc(fmtDate(d.updated))}</span></div></div></a>`; }).join('')}</div>`)
     : '<div class="empty">No decks match. Clear the search or pick another format or tag.</div>'}`;
 }
 
@@ -418,6 +433,7 @@ document.addEventListener('click', async e => {
   if (t.id === 'zprev') return zoomTo(ZI - 1); if (t.id === 'znext') return zoomTo(ZI + 1); if (t.id === 'zx') return zoomClose();
   if (t.dataset.size){ st.size = t.dataset.size; store.set('size', st.size); document.querySelectorAll('[data-size]').forEach(x => { if (x.tagName === 'BUTTON') x.setAttribute('aria-pressed', x.dataset.size === st.size); else x.dataset.size = st.size; }); return; }
   if (t.dataset.fmt){ lib.fmt = t.dataset.fmt; store.set('lib', lib); renderLibrary(); }
+  else if (t.dataset.lview){ lib.view = t.dataset.lview; store.set('lib', lib); renderLibrary(); }
   else if (t.dataset.tag){ lib.tag = t.dataset.tag; store.set('lib', lib); renderLibrary(); }
   else if (t.dataset.gotag){ lib.tag = t.dataset.gotag; lib.fmt = 'All'; store.set('lib', lib); location.hash = '#library'; }
   else if (t.dataset.v){ st.view = t.dataset.v; store.set('view', st.view); renderDeck(route()); }
