@@ -92,6 +92,13 @@ button.tag{cursor:pointer;min-height:0}button.tag:hover{color:var(--ink);border-
 .note{font-size:13px;color:var(--soft);min-height:20px;margin-top:6px}
 .bar2{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:26px 0 14px;border-top:1px solid var(--line);padding-top:18px}
 .bar2 input[type=search]{flex:1 1 180px}
+.tabs{display:flex;gap:4px;overflow-x:auto;border-bottom:2px solid var(--line);margin:4px 0 10px;scrollbar-width:thin}
+.tabs button{flex:none;border:0;background:none;color:var(--soft);font:600 22px "Barlow Condensed",Inter,sans-serif;padding:8px 16px 10px;min-height:48px;cursor:pointer;border-bottom:3px solid transparent;margin-bottom:-2px;display:flex;align-items:center;gap:8px;border-radius:8px 8px 0 0}
+.tabs button:hover{color:var(--ink);background:color-mix(in srgb,var(--card) 60%,transparent)}
+.tabs button[aria-selected=true]{color:var(--ink);border-bottom-color:var(--felt2);background:var(--card)}
+.tabs .n{font:600 13px Inter,sans-serif;background:var(--line);color:var(--ink);border-radius:99px;padding:1px 8px}
+.tabs button[aria-selected=true] .n{background:var(--felt);color:var(--on-felt)}
+@media(max-width:600px){.tabs{gap:0}.tabs button{font-size:18px;padding:6px 9px 8px;gap:5px}.tabs .n{font-size:11px;padding:1px 6px}.tabs .w{display:none}.tabs button{flex:1 1 auto;justify-content:center}}
 .seg{display:inline-flex;border:1px solid var(--line);border-radius:10px;overflow:hidden}
 .seg button{border:0;background:var(--card);color:var(--ink);min-height:42px;padding:0 14px;cursor:pointer;font-weight:500}
 .seg button[aria-pressed=true]{background:var(--felt);color:var(--on-felt)}
@@ -377,6 +384,7 @@ async function renderDeck(id){
   document.title = d.title + ' · Deck Library'; setBackdrop(d);
   const s = stats(d); const max = Math.max(...s.curve, 1);
   const secs = ['All', ...['Commander', 'Main', 'Sideboard'].filter(x => d.cards.some(c => c.sec === x))];
+  if (!secs.includes(st.sec)) st.sec = 'All';
   $('#main').innerHTML = `
   <a class="back" href="#library">← All decks</a>
   <section class="head"><div>
@@ -403,12 +411,12 @@ async function renderDeck(id){
     <div class="seg" role="group" aria-label="View"><button data-v="gallery" aria-pressed="${st.view === 'gallery'}">Gallery</button><button data-v="table" aria-pressed="${st.view === 'table'}">List</button></div>
     <div class="seg" role="group" aria-label="Card size" ${st.view === 'gallery' ? '' : 'hidden'}>${[['S', 'Small'], ['M', 'Medium'], ['L', 'Large'], ['XL', 'Extra large']].map(([k, l]) => `<button data-size="${k}" aria-pressed="${st.size === k}" title="${l} cards">${k === 'XL' ? 'XL' : l}</button>`).join('')}</div>
     <select id="grp" aria-label="Group cards by">${Object.entries(GROUPS).map(([k, g]) => `<option value="${k}" ${st.group === k ? 'selected' : ''}>${k === 'none' ? 'No grouping' : 'Group: ' + g.label}</option>`).join('')}</select>
-    <select id="sec" aria-label="Section">${secs.map(x => `<option ${x === st.sec ? 'selected' : ''}>${x}</option>`).join('')}</select>
     <select id="sort" aria-label="Sort cards">${[['mv', 'Mana value'], ['name', 'Name'], ['main', 'Type'], ['q', 'Quantity'], ['printing', 'Printing']].map(([k, l]) => `<option value="${k}" ${st.sort.key === k ? 'selected' : ''}>Sort: ${l}</option>`).join('')}</select>
     <button class="act" id="dir">${st.sort.dir > 0 ? '↑ Ascending' : '↓ Descending'}</button>
     <input type="search" id="q" placeholder="Search name, type or text" value="${esc(st.q)}" aria-label="Search cards">
   </div>
-  <div id="body">${body(d)}</div>`;
+  ${secs.length > 2 ? `<div class="tabs" role="tablist" aria-label="Deck sections">${secs.map(x => `<button role="tab" id="tab-${x}" data-sec="${x}" aria-selected="${st.sec === x}" aria-controls="body" tabindex="${st.sec === x ? 0 : -1}">${x === 'All' ? 'All<span class="w">&nbsp;cards</span>' : esc(secName(x, d))}<span class="n">${qty(x === 'All' ? d.cards : d.cards.filter(c => c.sec === x))}</span></button>`).join('')}</div>` : ''}
+  <div id="body" ${secs.length > 2 ? `role="tabpanel" aria-labelledby="tab-${st.sec}"` : ''}>${body(d)}</div>`;
   syncUrl();
 }
 
@@ -454,6 +462,7 @@ function syncUrl(){
 let shown = null;
 function show(){ const r = route(); const fromUrl = applyUrl(r); if (r !== shown && !fromUrl){ st.sec = 'All'; st.q = ''; } shown = r; if (r === 'library') renderLibrary(); else renderDeck(r); }
 const cur = () => CACHE[route()];
+function selectTab(x, focus){ st.sec = x; document.querySelectorAll('.tabs [role=tab]').forEach(b => { const on = b.dataset.sec === x; b.setAttribute('aria-selected', on); b.tabIndex = on ? 0 : -1; if (on && focus) b.focus(); }); const p = $('#body'); if (p.hasAttribute('role')) p.setAttribute('aria-labelledby', 'tab-' + x); rerenderBody(); }
 function rerenderBody(){ const d = cur(); if (d) $('#body').innerHTML = body(d); syncUrl(); }
 async function copy(text, what){
   try { await navigator.clipboard.writeText(text); toast(what + ' copied'); }
@@ -466,6 +475,7 @@ document.addEventListener('click', async e => {
   if (t.dataset.card && d){ let i = SHOWN.findIndex(c => c.name === t.dataset.card); if (i < 0){ SHOWN = d.cards.slice(); i = SHOWN.findIndex(c => c.name === t.dataset.card); } if (i >= 0) zoomTo(i); return; }
   if (t.id === 'zprev') return zoomTo(ZI - 1); if (t.id === 'znext') return zoomTo(ZI + 1); if (t.id === 'zx') return zoomClose();
   if (t.dataset.size){ st.size = t.dataset.size; store.set('size', st.size); document.querySelectorAll('[data-size]').forEach(x => { if (x.tagName === 'BUTTON') x.setAttribute('aria-pressed', x.dataset.size === st.size); else x.dataset.size = st.size; }); syncUrl(); return; }
+  if (t.dataset.sec){ selectTab(t.dataset.sec); return; }
   if (t.dataset.fmt){ lib.fmt = t.dataset.fmt; store.set('lib', lib); renderLibrary(); }
   else if (t.dataset.lview){ lib.view = t.dataset.lview; store.set('lib', lib); renderLibrary(); }
   else if (t.dataset.tag){ lib.tag = t.dataset.tag; store.set('lib', lib); renderLibrary(); }
@@ -480,12 +490,16 @@ document.addEventListener('click', async e => {
 document.addEventListener('keydown', e => {
   if (!$('#zoom').hidden){ if (e.key === 'Escape') zoomClose(); else if (e.key === 'ArrowLeft') zoomTo(ZI - 1); else if (e.key === 'ArrowRight') zoomTo(ZI + 1); return; }
   if (e.key === 'Enter' && e.target.tagName === 'TH') e.target.click();
+  if (e.target.getAttribute?.('role') === 'tab' && ['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(e.key)){
+    const tabs = [...document.querySelectorAll('.tabs [role=tab]')], i = tabs.indexOf(e.target);
+    const j = e.key === 'Home' ? 0 : e.key === 'End' ? tabs.length - 1 : (i + (e.key === 'ArrowRight' ? 1 : -1) + tabs.length) % tabs.length;
+    e.preventDefault(); selectTab(tabs[j].dataset.sec, true);
+  }
 });
 document.addEventListener('change', e => {
   const id = e.target.id;
   if (id === 'jump') location.hash = e.target.value;
   else if (id === 'lsort'){ lib.sort = e.target.value; store.set('lib', lib); renderLibrary(); }
-  else if (id === 'sec'){ st.sec = e.target.value; rerenderBody(); }
   else if (id === 'grp'){ st.group = e.target.value; store.set('group', st.group); rerenderBody(); }
   else if (id === 'sort'){ st.sort = {key: e.target.value, dir: 1}; renderDeck(route()); }
 });
