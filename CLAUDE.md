@@ -62,8 +62,10 @@ card data and images live from the Scryfall API, so there is no build step and n
    Names in `keys` become click-to-zoom links when they match a card in the deck (a short name before a comma,
    like "Captain Jean-Luc Picard", is fine). `sideboard` only for decks that have one. Update the guide when the
    list changes.
-6. **Validate:** `python tools/validate.py --playmat <path to playmat checkout>` must report 0 errors.
-7. **Commit and push to `main`.** GitHub Pages publishes within a minute or two.
+6. **Add the deck to the README table:** a row linking the title to `https://mkolakowski.github.io/deck-library/#<id>`,
+   with its format, tags and a link to the `.dck`.
+7. **Validate:** `python tools/validate.py --playmat <path to playmat checkout>` must report 0 errors.
+8. **Commit and push to `main`.** GitHub Pages publishes within a minute or two.
 
 ## Things to keep
 
