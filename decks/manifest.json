@@ -8,7 +8,7 @@
     "colors": "WR",
     "face": {
       "set": "TRK",
-      "num": "42"
+      "num": "7"
     },
     "added": "2026-11-18",
     "updated": "2026-11-18",
@@ -92,8 +92,8 @@
     "file": "living-end.dck",
     "colors": "UBRG",
     "face": {
-      "set": "NEO",
-      "num": "216"
+      "set": "TSP",
+      "num": "115"
     },
     "added": "2026-11-21",
     "updated": "2026-11-21",
@@ -109,8 +109,8 @@
     "file": "hammer-time.dck",
     "colors": "WU",
     "face": {
-      "set": "MH3",
-      "num": "270"
+      "set": "M20",
+      "num": "223"
     },
     "added": "2026-11-21",
     "updated": "2026-11-21",
@@ -126,8 +126,8 @@
     "file": "fleet-command.dck",
     "colors": "UR",
     "face": {
-      "set": "TMT",
-      "num": "43"
+      "set": "EOE",
+      "num": "349"
     },
     "added": "2026-11-23",
     "updated": "2026-11-23",
@@ -143,8 +143,8 @@
     "file": "cryptid-sightings.dck",
     "colors": "UBG",
     "face": {
-      "set": "LTR",
-      "num": "111"
+      "set": "ELD",
+      "num": "195"
     },
     "added": "2026-11-24",
     "updated": "2026-11-24",
@@ -161,7 +161,7 @@
     "colors": "WUR",
     "face": {
       "set": "TRK",
-      "num": "497"
+      "num": "477"
     },
     "added": "2026-11-25",
     "updated": "2026-11-25",
