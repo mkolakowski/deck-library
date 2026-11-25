@@ -435,9 +435,13 @@ function rateHand(hand, X){
   const need = n >= 7 ? 3 : n >= 5 ? 2 : 1;
   return {p, stars, label: ['', 'Mulligan', 'Risky', 'Keepable', 'Good keep', 'Snap keep'][stars], keep: (stars >= need && L > 0) || n <= 3, reasons: R};
 }
+/* Hand order, left to right: lands, sorceries, instants, Equipment, other artifacts, enchantments, planeswalkers, others, creatures. */
+const handRank = c => { const t = c.type.split(' // ')[0]; if (isLand(c)) return 0; if (/\bCreature\b/.test(t)) return 9;
+  return [/\bSorcery\b/, /\bInstant\b/, /\bEquipment\b/, /\bArtifact\b/, /\bEnchantment\b/, /\bPlaneswalker\b/].findIndex(r => r.test(t)) + 1 || 8; };
+const sortHand = h => h.sort((a, b) => handRank(a) - handRank(b) || a.mv - b.mv || a.name.localeCompare(b.name));
 function deal(d, mulls){
   const X = mullCtx(d); const lib = shuffle(X.pool);
-  MULL[d.id] = {X, lib: lib.slice(7), hand: lib.slice(0, 7), mulls, sel: new Set(), draws: [], mine: 0, onPlay: store.get('onPlay', true)};
+  MULL[d.id] = {X, lib: lib.slice(7), hand: sortHand(lib.slice(0, 7)), mulls, sel: new Set(), draws: [], mine: 0, onPlay: store.get('onPlay', true)};
 }
 const toBottom = (d, M) => d.format === 'Commander' ? Math.max(0, M.mulls - 1) : M.mulls;
 const pending = (d, M) => toBottom(d, M) - M.done;
