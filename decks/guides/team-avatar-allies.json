@@ -1,4 +1,18 @@
 {
+ "rating": {
+  "verdict": "A fun Ally synergy deck for casual Standard. Strong when it chains Allies, but removal on its engines slows it down a lot.",
+  "strengths": [
+   "Each Ally triggers the others for counters, life and cards",
+   "Aang and Appa give evasive finishers",
+   "Flash creatures and airbend add tricks"
+  ],
+  "weaknesses": [
+   "Removal on South Pole Voyager or Avatar Enthusiasts stalls the engine",
+   "Mono-white has few answers to big threats",
+   "Untested against top Standard decks"
+  ],
+  "rated": "2026-11-25"
+ },
  "wins": "Every Ally that enters triggers the others: Avatar Enthusiasts grow, South Pole Voyager gains life and draws. Go wide, then fly over with Aang, Appa and Yip Yip!",
  "plan": [
   [

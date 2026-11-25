@@ -1,4 +1,18 @@
 {
+ "rating": {
+  "verdict": "An easy-to-play token deck. The individual cards are weak (Owlbear, Giant Growth), so it's best against other casual decks.",
+  "strengths": [
+   "Lots of bodies and Intangible Virtue makes them real",
+   "Fliers from Midnight Haunting and Chapel Geist",
+   "Resilient to one-for-one removal"
+  ],
+  "weaknesses": [
+   "Weak to board wipes",
+   "Low card quality",
+   "Slow against focused aggro"
+  ],
+  "rated": "2026-11-25"
+ },
  "wins": "Make tokens every turn with spirits and saprolings; Intangible Virtue and Sporecrown Thallid turn them into a real army.",
  "plan": [
   [

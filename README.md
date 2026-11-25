@@ -11,28 +11,28 @@ are © Wizards of the Coast. This is an unofficial fan page.
 
 ## Decks
 
-| Deck | Format | Tags | File |
-|---|---|---|---|
-| [Starfleet Bridge Crew](https://mkolakowski.github.io/deck-library/#starfleet-bridge-crew) | Standard | mytodayforever | [.dck](decks/starfleet-bridge-crew.dck) |
-| [Section 31 Tactical Command](https://mkolakowski.github.io/deck-library/#section-31-tactical-command) | Standard | mytodayforever | [.dck](decks/section-31-tactical-command.dck) |
-| [Worf's Away Team](https://mkolakowski.github.io/deck-library/#worf-s-away-team) | Commander | mytodayforever | [.dck](decks/worf-s-away-team.dck) |
-| [Abaddon's Black Legion](https://mkolakowski.github.io/deck-library/#abaddon-s-black-legion) | Commander | mytodayforever | [.dck](decks/abaddon-s-black-legion.dck) |
-| [The Doctor's TARDIS Crew](https://mkolakowski.github.io/deck-library/#the-doctor-s-tardis-crew) | Commander | mytodayforever | [.dck](decks/the-doctor-s-tardis-crew.dck) |
-| [Living End](https://mkolakowski.github.io/deck-library/#living-end) | Modern | mytodayforever | [.dck](decks/living-end.dck) |
-| [Hammer Time](https://mkolakowski.github.io/deck-library/#hammer-time) | Modern | mytodayforever | [.dck](decks/hammer-time.dck) |
-| [Fleet Command](https://mkolakowski.github.io/deck-library/#fleet-command) | Modern | mytodayforever | [.dck](decks/fleet-command.dck) |
-| [Cryptid Sightings](https://mkolakowski.github.io/deck-library/#cryptid-sightings) | Modern | mytodayforever | [.dck](decks/cryptid-sightings.dck) |
-| [DS9: Defend the Station](https://mkolakowski.github.io/deck-library/#ds9-defend-the-station) | Modern | mytodayforever | [.dck](decks/ds9-defend-the-station.dck) |
-| [LOTR: Ride of the Rohirrim](https://mkolakowski.github.io/deck-library/#lotr-ride-of-the-rohirrim) | Modern | mytodayforever | [.dck](decks/lotr-ride-of-the-rohirrim.dck) |
-| [Gryffindor Courage](https://mkolakowski.github.io/deck-library/#gryffindor-courage) | Modern | terrafirma | [.dck](decks/gryffindor-courage.dck) |
-| [Leo's Squad (TMNT)](https://mkolakowski.github.io/deck-library/#leos-squad-tmnt) | Standard | terrafirma | [.dck](decks/leos-squad-tmnt.dck) |
-| [Pyromancer's Inferno](https://mkolakowski.github.io/deck-library/#pyromancers-inferno) | Modern | terrafirma | [.dck](decks/pyromancers-inferno.dck) |
-| [Team Avatar Allies](https://mkolakowski.github.io/deck-library/#team-avatar-allies) | Standard | terrafirma | [.dck](decks/team-avatar-allies.dck) |
-| [Whispering Hollow](https://mkolakowski.github.io/deck-library/#whispering-hollow) | Modern | terrafirma | [.dck](decks/whispering-hollow.dck) |
-| [Call of the Deep Dark](https://mkolakowski.github.io/deck-library/#call-of-the-deep-dark) | Modern | terrafirma | [.dck](decks/call-of-the-deep-dark.dck) |
-| [For the Horde](https://mkolakowski.github.io/deck-library/#for-the-horde) | Modern | terrafirma | [.dck](decks/for-the-horde.dck) |
-| [Scholomance Necromancers](https://mkolakowski.github.io/deck-library/#scholomance-necromancers) | Modern | terrafirma | [.dck](decks/scholomance-necromancers.dck) |
-| [Forest Friends Starter](https://mkolakowski.github.io/deck-library/#forest-friends-starter) | Modern | terrafirma | [.dck](decks/forest-friends-starter.dck) |
+| Deck | Format | Power | Tags | File |
+|---|---|---|---|---|
+| [Starfleet Bridge Crew](https://mkolakowski.github.io/deck-library/#starfleet-bridge-crew) | Standard | 3/5 Solid | mytodayforever | [.dck](decks/starfleet-bridge-crew.dck) |
+| [Section 31 Tactical Command](https://mkolakowski.github.io/deck-library/#section-31-tactical-command) | Standard | 3/5 Solid | mytodayforever | [.dck](decks/section-31-tactical-command.dck) |
+| [Worf's Away Team](https://mkolakowski.github.io/deck-library/#worf-s-away-team) | Commander | 3/5 Solid | mytodayforever | [.dck](decks/worf-s-away-team.dck) |
+| [Abaddon's Black Legion](https://mkolakowski.github.io/deck-library/#abaddon-s-black-legion) | Commander | 3/5 Solid | mytodayforever | [.dck](decks/abaddon-s-black-legion.dck) |
+| [The Doctor's TARDIS Crew](https://mkolakowski.github.io/deck-library/#the-doctor-s-tardis-crew) | Commander | 2/5 Casual | mytodayforever | [.dck](decks/the-doctor-s-tardis-crew.dck) |
+| [Living End](https://mkolakowski.github.io/deck-library/#living-end) | Modern | 4/5 Competitive | mytodayforever | [.dck](decks/living-end.dck) |
+| [Hammer Time](https://mkolakowski.github.io/deck-library/#hammer-time) | Modern | 4/5 Competitive | mytodayforever | [.dck](decks/hammer-time.dck) |
+| [Fleet Command](https://mkolakowski.github.io/deck-library/#fleet-command) | Modern | 5/5 Top tier | mytodayforever | [.dck](decks/fleet-command.dck) |
+| [Cryptid Sightings](https://mkolakowski.github.io/deck-library/#cryptid-sightings) | Modern | 3/5 Solid | mytodayforever | [.dck](decks/cryptid-sightings.dck) |
+| [DS9: Defend the Station](https://mkolakowski.github.io/deck-library/#ds9-defend-the-station) | Modern | 2/5 Casual | mytodayforever | [.dck](decks/ds9-defend-the-station.dck) |
+| [LOTR: Ride of the Rohirrim](https://mkolakowski.github.io/deck-library/#lotr-ride-of-the-rohirrim) | Modern | 2/5 Casual | mytodayforever | [.dck](decks/lotr-ride-of-the-rohirrim.dck) |
+| [Gryffindor Courage](https://mkolakowski.github.io/deck-library/#gryffindor-courage) | Modern | 2/5 Casual | terrafirma | [.dck](decks/gryffindor-courage.dck) |
+| [Leo's Squad (TMNT)](https://mkolakowski.github.io/deck-library/#leos-squad-tmnt) | Standard | 2/5 Casual | terrafirma | [.dck](decks/leos-squad-tmnt.dck) |
+| [Pyromancer's Inferno](https://mkolakowski.github.io/deck-library/#pyromancers-inferno) | Modern | 2/5 Casual | terrafirma | [.dck](decks/pyromancers-inferno.dck) |
+| [Team Avatar Allies](https://mkolakowski.github.io/deck-library/#team-avatar-allies) | Standard | 2/5 Casual | terrafirma | [.dck](decks/team-avatar-allies.dck) |
+| [Whispering Hollow](https://mkolakowski.github.io/deck-library/#whispering-hollow) | Modern | 2/5 Casual | terrafirma | [.dck](decks/whispering-hollow.dck) |
+| [Call of the Deep Dark](https://mkolakowski.github.io/deck-library/#call-of-the-deep-dark) | Modern | 2/5 Casual | terrafirma | [.dck](decks/call-of-the-deep-dark.dck) |
+| [For the Horde](https://mkolakowski.github.io/deck-library/#for-the-horde) | Modern | 2/5 Casual | terrafirma | [.dck](decks/for-the-horde.dck) |
+| [Scholomance Necromancers](https://mkolakowski.github.io/deck-library/#scholomance-necromancers) | Modern | 2/5 Casual | terrafirma | [.dck](decks/scholomance-necromancers.dck) |
+| [Forest Friends Starter](https://mkolakowski.github.io/deck-library/#forest-friends-starter) | Modern | 1/5 Starter | terrafirma | [.dck](decks/forest-friends-starter.dck) |
 
 ## Publishing with GitHub Pages
 

@@ -1,4 +1,18 @@
 {
+ "rating": {
+  "verdict": "A good budget spells deck: Bolt, Monastery Swiftspear and Guttersnipe hit hard, but the creatures are fragile and the deck runs out of gas against tuned decks.",
+  "strengths": [
+   "Lots of cheap burn that also triggers its creatures",
+   "Can win quickly from an empty board with Guttersnipe and Thermo-Alchemist",
+   "Mono-red mana is consistent"
+  ],
+  "weaknesses": [
+   "Payoff creatures die to any removal",
+   "Runs out of cards in long games",
+   "Lifegain decks are a big problem"
+  ],
+  "rated": "2026-11-25"
+ },
  "wins": "Cast cheap burn every turn: each spell deals damage and also makes an Elemental token, untaps Thermo-Alchemist or triggers Guttersnipe, so the opponent burns from both sides.",
  "plan": [
   [

@@ -1,4 +1,18 @@
 {
+ "rating": {
+  "verdict": "A flavorful mono-white Turtles deck. Sneak gives it surprising instant-speed swings, but it hasn't been tested against today's top Standard decks.",
+  "strengths": [
+   "Sneak creates surprise attacks the opponent can't plan for",
+   "Goes wide and grows the team with counters",
+   "Mono-color mana is consistent"
+  ],
+  "weaknesses": [
+   "Mono-white lacks card draw and flexible removal",
+   "Weak to sweepers",
+   "Untested against top Standard decks"
+  ],
+  "rated": "2026-11-25"
+ },
  "wins": "Build a wide board of Mutants and Ninjas, then use Sneak to slip Leonardos and Ninja Turtle tokens into combat at instant speed for a big alpha strike.",
  "plan": [
   [

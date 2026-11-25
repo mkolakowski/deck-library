@@ -1,4 +1,18 @@
 {
+ "rating": {
+  "verdict": "Classic mono-black midrange with good core cards like Vampire Nighthawk and Ravenous Chupacabra. Fine for casual play, slow for competitive.",
+  "strengths": [
+   "Lots of removal plus removal-on-a-body",
+   "Nightmare and Dread Shade become huge with Swamps",
+   "Mono-black mana is consistent"
+  ],
+  "weaknesses": [
+   "Doom Blade can't hit black creatures",
+   "Few ways to recover from falling behind early",
+   "Outclassed by tuned Modern decks"
+  ],
+  "rated": "2026-11-25"
+ },
  "wins": "Trade efficiently with deathtouch creatures and removal, refill your hand, then take over with Nightmare and Vampire Nighthawk in the air.",
  "plan": [
   [

@@ -1,4 +1,18 @@
 {
+ "rating": {
+  "verdict": "Strong individual cards (Psychic Frog, Nethergoyf, Thoughtseize, Fatal Push) in a homebrew Sultai shell. Competitive at FNM, but slower and clunkier than the tuned Dimir midrange lists in the 2026 metagame.",
+  "strengths": [
+   "Excellent cheap interaction: Thoughtseize, Fatal Push, Counterspell",
+   "Psychic Frog and the goyfs grow into big threats",
+   "Plays a good long game"
+  ],
+  "weaknesses": [
+   "Four-mana creatures (Chupacabra, Troll) are clunky in Modern",
+   "Three-color mana costs life from fetches and shocks",
+   "Can lose races to fast combo and aggro"
+  ],
+  "rated": "2026-11-25"
+ },
  "wins": "Sultai midrange: cheap cryptids that keep growing, backed by discard, removal and counterspells. Grind the opponent out, then finish with Troll or the Loch Ness serpent.",
  "plan": [
   [

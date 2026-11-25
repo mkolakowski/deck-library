@@ -6,6 +6,7 @@
     "pitch": "Boros Starfleet officers: go wide, hit total power 8, swing.",
     "file": "starfleet-bridge-crew.dck",
     "colors": "WR",
+    "power": 3,
     "face": {
       "set": "TRK",
       "num": "7"
@@ -23,6 +24,7 @@
     "pitch": "Orzhov midrange: answers for every kind of threat, Picard and ships to close.",
     "file": "section-31-tactical-command.dck",
     "colors": "WUB",
+    "power": 3,
     "face": {
       "set": "TRK",
       "num": "126"
@@ -40,6 +42,7 @@
     "pitch": "Worf, Son of Mogh pumps Officers; draw a second card each turn to make more.",
     "file": "worf-s-away-team.dck",
     "colors": "WR",
+    "power": 3,
     "face": {
       "set": "TRC",
       "num": "109"
@@ -57,6 +60,7 @@
     "pitch": "Chaos Space Marines: hit first, then cascade into Daemon Primarchs.",
     "file": "abaddon-s-black-legion.dck",
     "colors": "UBR",
+    "power": 3,
     "face": {
       "set": "40K",
       "num": "2"
@@ -74,6 +78,7 @@
     "pitch": "The Fourth Doctor and Sarah Jane: cast historic spells off the top, ten Doctors aboard.",
     "file": "the-doctor-s-tardis-crew.dck",
     "colors": "WUG",
+    "power": 2,
     "face": {
       "set": "WHO",
       "num": "2"
@@ -91,6 +96,7 @@
     "pitch": "Cycle creatures into the graveyard, cascade into Living End, swap boards.",
     "file": "living-end.dck",
     "colors": "UBRG",
+    "power": 4,
     "face": {
       "set": "TSP",
       "num": "115"
@@ -108,6 +114,7 @@
     "pitch": "Cheat Colossus Hammer onto a tiny creature and win in one swing.",
     "file": "hammer-time.dck",
     "colors": "WU",
+    "power": 4,
     "face": {
       "set": "M20",
       "num": "223"
@@ -125,6 +132,7 @@
     "pitch": "Affinity: cheap artifacts launch drones, arm the Cannoneer and fire munitions.",
     "file": "fleet-command.dck",
     "colors": "UR",
+    "power": 5,
     "face": {
       "set": "EOE",
       "num": "349"
@@ -142,6 +150,7 @@
     "pitch": "Sultai midrange: Psychic Frog, Lhurgoyfs, a Chupacabra and the Loch Ness serpent.",
     "file": "cryptid-sightings.dck",
     "colors": "UBG",
+    "power": 3,
     "face": {
       "set": "ELD",
       "num": "195"
@@ -159,6 +168,7 @@
     "pitch": "Boros station defense: burn and phasers hold the line while Picard, Worf and Kira lead the counterattack.",
     "file": "ds9-defend-the-station.dck",
     "colors": "WUR",
+    "power": 2,
     "face": {
       "set": "TRK",
       "num": "477"
@@ -176,6 +186,7 @@
     "pitch": "Boros cavalry: Rohan's riders charge in waves while Théoden, Éomer and Éowyn lead the charge.",
     "file": "lotr-ride-of-the-rohirrim.dck",
     "colors": "WR",
+    "power": 2,
     "face": {
       "set": "LTR",
       "num": "684"
@@ -193,6 +204,7 @@
     "pitch": "Boros lifegain aggro: lions, hawks and clerics gain life to grow Ajani's Pridemate while Bolt and Helix clear the way.",
     "file": "gryffindor-courage.dck",
     "colors": "WR",
+    "power": 2,
     "face": {
       "set": "WAR",
       "num": "4"
@@ -210,6 +222,7 @@
     "pitch": "Mono-white Ninja Turtles: go wide with Mutants and Ninjas, then sneak Leonardos into the attack for big swings.",
     "file": "leos-squad-tmnt.dck",
     "colors": "W",
+    "power": 2,
     "face": {
       "set": "TMT",
       "num": "16"
@@ -227,6 +240,7 @@
     "pitch": "Mono-red spells: every burn spell also makes a token, untaps Thermo-Alchemist or fires Guttersnipe.",
     "file": "pyromancers-inferno.dck",
     "colors": "R",
+    "power": 2,
     "face": {
       "set": "M14",
       "num": "163"
@@ -244,6 +258,7 @@
     "pitch": "Mono-white Allies: each new Ally grows the team, gains life and draws cards until Aang and Appa fly over.",
     "file": "team-avatar-allies.dck",
     "colors": "W",
+    "power": 2,
     "face": {
       "set": "TLA",
       "num": "4"
@@ -261,6 +276,7 @@
     "pitch": "Selesnya tokens: spirits and saprolings multiply, and Intangible Virtue makes every token a threat.",
     "file": "whispering-hollow.dck",
     "colors": "GW",
+    "power": 2,
     "face": {
       "set": "ISD",
       "num": "7"
@@ -278,6 +294,7 @@
     "pitch": "Mono-black midrange: deathtouch blockers and removal grind the opponent down until Nightmare takes over.",
     "file": "call-of-the-deep-dark.dck",
     "colors": "B",
+    "power": 2,
     "face": {
       "set": "ORI",
       "num": "282"
@@ -295,6 +312,7 @@
     "pitch": "Mono-red goblins: flood the board with hasty goblin tokens, pump them with Goblin Chieftain and swarm.",
     "file": "for-the-horde.dck",
     "colors": "R",
+    "power": 2,
     "face": {
       "set": "M12",
       "num": "138"
@@ -312,6 +330,7 @@
     "pitch": "Mono-black zombies: an undying horde that returns from the graveyard, led by zombie lords and Grave Titan.",
     "file": "scholomance-necromancers.dck",
     "colors": "B",
+    "power": 2,
     "face": {
       "set": "M12",
       "num": "98"
@@ -329,6 +348,7 @@
     "pitch": "Mono-green beginner stompy: ramp with elves, play bigger creatures each turn and win fights with pump spells.",
     "file": "forest-friends-starter.dck",
     "colors": "G",
+    "power": 1,
     "face": {
       "set": "M21",
       "num": "176"

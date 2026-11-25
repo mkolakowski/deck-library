@@ -1,4 +1,18 @@
 {
+ "rating": {
+  "verdict": "A proven Modern deck that can win on turn 2 by equipping Colossus Hammer for free. It still posts league 5-0s and Challenge top 8s in 2026, though it's less popular than the format's top decks.",
+  "strengths": [
+   "Turn-2 kills: Puresteel Paladin or Battlefield Improvisation equips Colossus Hammer for free",
+   "Stoneforge Mystic and Urza's Saga find the Hammer",
+   "Inkmoth Nexus gives a second, infect-based way to win"
+  ],
+  "weaknesses": [
+   "Instant-speed removal in response to the equip wastes a whole turn",
+   "Artifact hate (Force of Vigor, Haywire Mite) hurts",
+   "Draws without a creature-plus-Hammer pair are slow"
+  ],
+  "rated": "2026-11-25"
+ },
  "wins": "Put Colossus Hammer (+10/+10) on a cheap creature without paying its 8-mana equip cost, and win in one or two swings.",
  "plan": [
   [

@@ -74,6 +74,10 @@ def main():
             errors.append(f'{tag}: id must be lowercase letters, digits and hyphens')
         if d.get('format') not in FORMATS:
             errors.append(f'{tag}: format must be one of {sorted(FORMATS)}')
+        if 'power' not in d:
+            warnings.append(f'{tag}: no power rating (1-5)')
+        if 'power' in d and d['power'] not in (1, 2, 3, 4, 5):
+            errors.append(f'{tag}: power must be a whole number from 1 to 5')
         tags = d.get('tags', [])
         if not isinstance(tags, list) or not all(isinstance(t, str) and re.fullmatch(r'[a-z0-9-]+', t) for t in tags):
             errors.append(f'{tag}: tags must be a list of lowercase words (letters, digits, hyphens)')

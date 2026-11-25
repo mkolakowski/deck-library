@@ -1,4 +1,18 @@
 {
+ "rating": {
+  "verdict": "A real Modern archetype: Living End sits in the format's upper tiers through 2026 and regularly goes 5-0 in Magic Online leagues. Cascade into Living End wins games out of nowhere, but graveyard hate is its weakness.",
+  "strengths": [
+   "Explosive turn-3 Living End off Shardless Agent or Violent Outburst",
+   "Force of Negation and Subtlety protect the key turn",
+   "Very strong against creature decks"
+  ],
+  "weaknesses": [
+   "Graveyard hate (Leyline of the Void, Relic, exile effects) can shut it down",
+   "Counterspells and discard can stop the Living End itself",
+   "Not much of a plan B if Living End is answered"
+  ],
+  "rated": "2026-11-25"
+ },
  "wins": "Fill your graveyard with big cycling creatures, then cascade into Living End: your creatures return, theirs die. Attack with the new army.",
  "plan": [
   [

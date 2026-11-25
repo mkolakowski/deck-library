@@ -1,4 +1,18 @@
 {
+ "rating": {
+  "verdict": "A fast goblin swarm that can steal games. The goblins are low quality and there's little card draw, so tuned decks will stop it.",
+  "strengths": [
+   "Lots of tokens quickly",
+   "Goblin Chieftain gives the team haste and +1/+1",
+   "Burn finishes games"
+  ],
+  "weaknesses": [
+   "Weak to sweepers",
+   "Runs out of cards",
+   "Small creatures get outclassed"
+  ],
+  "rated": "2026-11-25"
+ },
  "wins": "Goblins everywhere: token makers flood the board, Goblin Chieftain gives them all haste and +1/+1, and they swarm before the opponent stabilizes.",
  "plan": [
   [

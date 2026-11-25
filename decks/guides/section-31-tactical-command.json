@@ -1,4 +1,18 @@
 {
+ "rating": {
+  "verdict": "Solid midrange with plenty of removal and a real sideboard. Good enough for FNM, but slower and less tuned than the top Standard decks.",
+  "strengths": [
+   "Deep removal suite answers most threats",
+   "Picard, Officer tokens and ships win the long game",
+   "Sideboard covers aggro, control and artifacts"
+  ],
+  "weaknesses": [
+   "Can fall behind against fast, wide aggro",
+   "Few ways to close a game quickly",
+   "Unproven at the competitive level"
+  ],
+  "rated": "2026-11-25"
+ },
  "wins": "Midrange: trade your removal for their best threats, then win the long game with Captain Picard, his Officer tokens and your ships.",
  "plan": [
   [

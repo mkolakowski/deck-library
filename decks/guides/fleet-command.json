@@ -1,4 +1,18 @@
 {
+ "rating": {
+  "verdict": "Built on one of Modern's top decks in late 2026: Affinity regularly fills a big share of Magic Online league 5-0s. Fast, resilient and hard to block, with Kappa Cannoneer and Pinnacle Emissary as standout threats.",
+  "strengths": [
+   "Very fast starts from 0–1 mana artifacts and Urza's Saga",
+   "Kappa Cannoneer is hard to block and hard to remove",
+   "Metallic Rebuke and Sink into Stupor give cheap interaction"
+  ],
+  "weaknesses": [
+   "Artifact hate (Force of Vigor, Wear/Tear, Damping Sphere) is everywhere",
+   "Sweepers like Engineered Explosives can wipe a board of cheap artifacts",
+   "Hands need the right mix of lands and artifacts"
+  ],
+  "rated": "2026-11-25"
+ },
  "wins": "Affinity: flood the board with 0–1 mana artifacts, launch Drone fighters with Pinnacle Emissary, and attack with an unblockable, ever-growing Kappa Cannoneer.",
  "plan": [
   [

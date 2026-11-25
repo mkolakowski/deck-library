@@ -1,4 +1,18 @@
 {
+ "rating": {
+  "verdict": "Recursive zombie tribal with lords and Grave Titan. Resilient at the kitchen table, but slow by Modern standards.",
+  "strengths": [
+   "Zombies keep coming back from the graveyard",
+   "Lords (Death Baron, Cemetery Reaper) make every zombie a threat",
+   "Grave Titan is a powerful finisher"
+  ],
+  "weaknesses": [
+   "Graveyard hate shuts down the recursion",
+   "Slow starts",
+   "Doom Blade can't hit black creatures"
+  ],
+  "rated": "2026-11-25"
+ },
  "wins": "A zombie horde that keeps coming back: lords pump the team, the graveyard is a second hand, and Grave Titan ends it.",
  "plan": [
   [

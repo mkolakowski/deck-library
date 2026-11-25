@@ -1,4 +1,19 @@
 {
+ "rating": {
+  "verdict": "A well-upgraded Warrior and Starfleet tribal deck that's strong at a typical casual table. It has no Game Changers, so it fits Bracket 2 (Core), though Herald's Horn, Door of Destinies and Skullclamp push it toward the top of that bracket.",
+  "strengths": [
+   "Tribal payoffs (Herald's Horn, Door of Destinies, Shared Animosity) snowball fast",
+   "Skullclamp and Howling Mine keep the hand full",
+   "Cheap, efficient removal: Swords to Plowshares, Path to Exile"
+  ],
+  "weaknesses": [
+   "Board wipes reset the whole plan",
+   "Wins only through combat",
+   "No tutors or fast mana for Bracket 4 tables"
+  ],
+  "rated": "2026-11-25",
+  "bracket": 2
+ },
  "wins": "Worf pumps every Officer and makes a new one each time you draw a second card in a turn (\"seek out\"). Flood the board with Officers, then swing with anthems.",
  "plan": [
   [

@@ -38,6 +38,7 @@ card data and images live from the Scryfall API, so there is no build step and n
      "pitch": "One sentence on how the deck wins.",
      "file": "kebab-case-id.dck",
      "colors": "WR",
+     "power": 3,
      "face": {"set": "TRK", "num": "7"},
      "tags": ["mytodayforever"],
      "added": "YYYY-MM-DD",
@@ -47,10 +48,14 @@ card data and images live from the Scryfall API, so there is no build step and n
    `colors` is the deck's color identity in WUBRG order. `face` is the printing whose art shows on the deck's box:
    the commander, or the deck's signature card. `tags` are lowercase words (letters, digits, hyphens) that group decks
    on the library page; each tag gets a filter chip. Current tags: `mytodayforever` (the original decks) and `terrafirma`.
-   Ask which tag a new deck belongs under if the request doesn't say. When a deck changes, update its `.dck` and its `updated` date.
+   Ask which tag a new deck belongs under if the request doesn't say. `power` rates the deck within its own format:
+   1 Starter, 2 Casual, 3 Solid (FNM / upper casual), 4 Competitive (posts results), 5 Top tier (a current format staple).
+   Judge it against recent results found on the web, not from memory. When a deck changes, update its `.dck` and its `updated` date.
 5. **Write the play guide** at `decks/guides/<id>.json`, shown on the deck page under "How to play":
    ```json
    {
+     "rating": {"verdict": "Is it good, and against what?", "strengths": ["..."], "weaknesses": ["..."],
+                "bracket": 2, "rated": "YYYY-MM-DD"},
      "wins": "One or two sentences on how the deck wins.",
      "plan": [["Turns 1–2", "What to do"], ["Turn 3", "..."], ["Win", "..."]],
      "keys": [["Exact Card Name", "Why it matters"]],
@@ -60,10 +65,11 @@ card data and images live from the Scryfall API, so there is no build step and n
    }
    ```
    Names in `keys` become click-to-zoom links when they match a card in the deck (a short name before a comma,
-   like "Captain Jean-Luc Picard", is fine). `sideboard` only for decks that have one. Update the guide when the
+   like "Captain Jean-Luc Picard", is fine). `rating` shows on the deck page under "Is it good?"; `bracket` (Commander only) follows the official Commander
+   Brackets: 1–2 have no Game Changers, 3 allows up to three. Re-rate when the list or the format changes. `sideboard` only for decks that have one. Update the guide when the
    list changes.
 6. **Add the deck to the README table:** a row linking the title to `https://mkolakowski.github.io/deck-library/#<id>`,
-   with its format, tags and a link to the `.dck`.
+   with its format, power, tags and a link to the `.dck`.
 7. **Validate:** `python tools/validate.py --playmat <path to playmat checkout>` must report 0 errors.
 8. **Commit and push to `main`.** GitHub Pages publishes within a minute or two.
 

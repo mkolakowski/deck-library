@@ -1,4 +1,18 @@
 {
+ "rating": {
+  "verdict": "Simple, solid kitchen-table aggro. Lightning Bolt and Lightning Helix are real Modern cards, but most creatures are core-set level, so expect to lose to tuned decks.",
+  "strengths": [
+   "Cheap creatures and lifegain synergy with Ajani's Pridemate",
+   "Bolt and Helix double as removal and reach",
+   "Very easy to play"
+  ],
+  "weaknesses": [
+   "Small creatures get outclassed quickly",
+   "Little card draw",
+   "Weak to board wipes"
+  ],
+  "rated": "2026-11-25"
+ },
  "wins": "Cheap creatures attack early; every bit of life you gain grows Ajani's Pridemate, and burn finishes the job.",
  "plan": [
   [

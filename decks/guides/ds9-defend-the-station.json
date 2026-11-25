@@ -1,4 +1,18 @@
 {
+ "rating": {
+  "verdict": "A fun Star Trek theme deck. In Modern it's well behind real aggro decks like Boros Energy, so treat it as a casual deck.",
+  "strengths": [
+   "Burn gives reach to close games",
+   "Officer synergies reward a wide board",
+   "Easy to pilot"
+  ],
+  "weaknesses": [
+   "Card quality is low for Modern",
+   "Too slow against combo decks",
+   "Sweepers and cheap removal blunt it"
+  ],
+  "rated": "2026-11-25"
+ },
  "wins": "Burn and phasers hold the line early, then a wide crew of Starfleet officers reaches 8 total power and counterattacks with stacked attack triggers.",
  "plan": [
   [

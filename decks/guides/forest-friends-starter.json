@@ -1,4 +1,18 @@
 {
+ "rating": {
+  "verdict": "A teaching deck: simple creatures and pump spells make the basics of combat clear. It isn't meant to beat tuned decks.",
+  "strengths": [
+   "Very easy to learn",
+   "Bigger creatures each turn teach the curve",
+   "Pump spells show how instants work in combat"
+  ],
+  "weaknesses": [
+   "Mostly vanilla creatures",
+   "No card draw",
+   "Loses to any focused deck"
+  ],
+  "rated": "2026-11-25"
+ },
  "wins": "A simple green deck for learning: ramp with Llanowar Elves, play a bigger creature each turn, and win every fight with pump spells and Rabid Bite.",
  "plan": [
   [

@@ -1,4 +1,18 @@
 {
+ "rating": {
+  "verdict": "A focused Starfleet aggro deck that can win at a casual Standard night. Kirk and Picard are strong rares, but the deck hasn't proven itself in tournaments, where Landfall and Boros Pixie lead the 2026 World Championship metagame.",
+  "strengths": [
+   "Fast, wide starts with cheap officers",
+   "Lots of “power 8” payoffs that snowball once the board is set",
+   "Captain James T. Kirk is one of the most-played Star Trek cards in competitive Standard"
+  ],
+  "weaknesses": [
+   "Board wipes and cheap blockers stall the plan",
+   "Little card draw to rebuild after trades",
+   "Untested against the top Standard decks"
+  ],
+  "rated": "2026-11-25"
+ },
  "wins": "Go wide with cheap Starfleet officers, reach 8 total power, and swing every turn while \"power 8\" triggers pile up.",
  "plan": [
   [

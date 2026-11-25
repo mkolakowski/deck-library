@@ -1,4 +1,19 @@
 {
+ "rating": {
+  "verdict": "A charming theme deck. The Doctors and their companions build value, but the plan is slower and more fragile than most decks at the table. Bracket 2 (Core), no Game Changers.",
+  "strengths": [
+   "Plenty of ramp and card selection",
+   "Sagas and Doctors generate steady value",
+   "Good removal and Fractured Identity for big swings"
+  ],
+  "weaknesses": [
+   "Few ways to actually close a game",
+   "Relies on legendary creatures that die to removal",
+   "Slow in a four-player race"
+  ],
+  "rated": "2026-11-25",
+  "bracket": 2
+ },
  "wins": "The Fourth Doctor lets you play a historic card (legendary, artifact or Saga) off the top of your library each turn. Almost the whole deck is historic, so you out-card everyone, then pump your legendary crew and attack.",
  "plan": [
   [

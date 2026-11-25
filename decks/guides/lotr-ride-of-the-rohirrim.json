@@ -1,4 +1,18 @@
 {
+ "rating": {
+  "verdict": "A flavorful Rohan cavalry deck that's great for casual games. Modern's competitive aggro decks are much faster and stronger.",
+  "strengths": [
+   "Théoden's double strike makes combat swingy",
+   "Éomer's extra combat can end games",
+   "Consistent two-color mana"
+  ],
+  "weaknesses": [
+   "Card quality is low for Modern",
+   "Folds to cheap removal on Théoden",
+   "Slow against combo"
+  ],
+  "rated": "2026-11-25"
+ },
  "wins": "Boros cavalry: cheap Knights and Humans attack in waves, Théoden hands out double strike, and Éomer turns a lost legend into an extra combat.",
  "plan": [
   [

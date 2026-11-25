@@ -1,4 +1,19 @@
 {
+ "rating": {
+  "verdict": "Cascading into big Chaos demons is powerful and fun at casual tables. No Game Changers puts it in Bracket 2 (Core); three colors and a high curve make it slower than tuned decks.",
+  "strengths": [
+   "Abaddon's cascade turns every big spell into two",
+   "Huge flying threats and strong board wipes (Blasphemous Act)",
+   "Good mana rocks to reach the top end"
+  ],
+  "weaknesses": [
+   "Slow starts and a top-heavy curve",
+   "Light on card draw when cascades miss",
+   "Weak to counterspells on its key turns"
+  ],
+  "rated": "2026-11-25",
+  "bracket": 2
+ },
  "wins": "Damage opponents first, then cast spells: Abaddon gives cascade to spells with mana value up to the life opponents lost that turn, so every big spell brings a free one.",
  "plan": [
   [
