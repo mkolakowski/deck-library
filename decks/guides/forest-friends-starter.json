@@ -1,0 +1,41 @@
+{
+ "wins": "A simple green deck for learning: ramp with Llanowar Elves, play a bigger creature each turn, and win every fight with pump spells and Rabid Bite.",
+ "plan": [
+  [
+   "Turn 1",
+   "Llanowar Elves: an extra mana every turn after."
+  ],
+  [
+   "Turns 2–4",
+   "Elvish Visionary (draws), Grizzly Bears, Centaur Courser, Giant Spider. Attack when your creatures are bigger."
+  ],
+  [
+   "Turn 5+",
+   "Colossal Dreadmaw (6/6 trample). Use Giant Growth and Titanic Growth to win combats, Rabid Bite to remove blockers."
+  ]
+ ],
+ "keys": [
+  [
+   "Llanowar Elves",
+   "Turn-1 ramp: lets you cast a 3-drop on turn 2."
+  ],
+  [
+   "Colossal Dreadmaw",
+   "6/6 trample: the big finisher."
+  ],
+  [
+   "Rabid Bite",
+   "Your creature deals damage to theirs, one-sided: green’s removal."
+  ],
+  [
+   "Ambush Viper",
+   "Flash and deathtouch: a surprise blocker that kills anything."
+  ]
+ ],
+ "tips": [
+  "Pump spells are instants: use them after blockers are declared.",
+  "Giant Spider has reach and blocks flying creatures.",
+  "Rabid Bite works best after a pump spell makes your creature bigger."
+ ],
+ "mulligan": "Keep 2–4 Forests with Llanowar Elves or two creatures."
+}

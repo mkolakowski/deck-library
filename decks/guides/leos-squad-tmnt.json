@@ -1,0 +1,47 @@
+{
+ "wins": "Build a wide board of Mutants and Ninjas, then use Sneak to slip Leonardos and Ninja Turtle tokens into combat at instant speed for a big alpha strike.",
+ "plan": [
+  [
+   "Turns 1–2",
+   "Featherbrained Filcher, Action News Crew, Leonardo (Cutting Edge or Big Brother), April O'Neil, Lita."
+  ],
+  [
+   "Turns 3–4",
+   "Agent Bishop and Mighty Mutanimals add counters; East Wind Avatar and High-Flying Ace attack in the air. Remove blockers with Dimensional Exile or Uneasy Alliance."
+  ],
+  [
+   "Big turn",
+   "Attack, then during declare blockers return an unblocked creature to sneak in Leonardo, Leader in Blue (+2/+0 to your team) or The Last Ronin's Technique (three attacking tokens)."
+  ],
+  [
+   "Late",
+   "Sally Pride makes a 2/2 for each of your nontoken creatures and adds counters every attack."
+  ]
+ ],
+ "keys": [
+  [
+   "Leonardo, Leader in Blue",
+   "Sneaked in, he gives your whole team +2/+0 for the turn."
+  ],
+  [
+   "The Last Ronin's Technique",
+   "Three 1/1 tokens; with Sneak they enter tapped and attacking."
+  ],
+  [
+   "Sally Pride, Lioness Leader",
+   "A token for each nontoken creature you control, then counters on every attack."
+  ],
+  [
+   "Leader's Talent",
+   "A +1/+1 counter on an attacker every attack, levelling into lifegain and team-wide counters."
+  ]
+ ],
+ "tips": [
+  "Sneak: cast the card for its sneak cost during the declare blockers step by returning one of your unblocked attackers to your hand. Recast the returned creature later.",
+  "Return a cheap or \"enters\"-value creature (Mighty Mutanimals, April O'Neil) to sneak, so you get its trigger again next turn.",
+  "Grounded for Life costs 3 less against a tapped creature: use it after they attack.",
+  "Action News Crew can be channeled late for a counter on every creature and a card.",
+  "Jennika can plainscycle for 2 when you need a land."
+ ],
+ "mulligan": "Keep 2–4 Plains with two or more creatures that cost 1–2."
+}

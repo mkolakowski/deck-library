@@ -1,0 +1,42 @@
+{
+ "wins": "Trade efficiently with deathtouch creatures and removal, refill your hand, then take over with Nightmare and Vampire Nighthawk in the air.",
+ "plan": [
+  [
+   "Turns 1–2",
+   "Typhoid Rats (deathtouch blocker), Walking Corpse; Mind Rot their hand."
+  ],
+  [
+   "Turns 3–4",
+   "Vampire Nighthawk, Phyrexian Rager (a card), Ravenous Chupacabra (destroys a creature). Doom Blade or Murder the rest."
+  ],
+  [
+   "Late",
+   "Gravedigger brings back your best creature; Nightmare and Dread Shade grow with your Swamps."
+  ]
+ ],
+ "keys": [
+  [
+   "Nightmare",
+   "A flier whose power and toughness equal your Swamps: often 6/6 or bigger."
+  ],
+  [
+   "Dread Shade",
+   "Pump it with black mana: B: +1/+1. A huge late-game threat."
+  ],
+  [
+   "Vampire Nighthawk",
+   "Flying, deathtouch, lifelink: great on offense and defense."
+  ],
+  [
+   "Ravenous Chupacabra",
+   "Removal stapled to a creature."
+  ]
+ ],
+ "tips": [
+  "Doom Blade can’t hit black creatures; use Murder on those.",
+  "Typhoid Rats trade with anything: they make attacking into you painful.",
+  "Sign in Blood draws two (or makes the opponent lose 2 to finish them).",
+  "Keep Swamps coming: every one grows Nightmare and powers Dread Shade."
+ ],
+ "mulligan": "Keep 3–4 Swamps with a cheap creature or removal spell."
+}

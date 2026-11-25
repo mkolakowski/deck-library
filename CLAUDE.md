@@ -11,6 +11,9 @@ card data and images live from the Scryfall API, so there is no build step and n
 - `decks/<id>.dck`: the deck itself, in XMage's .dck format.
 - `decks/guides/<id>.json`: the deck's "How to play" notes.
 - `tools/validate.py`: deck-rule and printing checks. Run it before every commit.
+- `tools/import_list.py`: turns a plain list (`4 Lightning Bolt`, or `4x ...`, `SB:` / `Sideboard` sections) into a
+  `.dck` with Playmat printings: `python tools/import_list.py list.txt --playmat <playmat> --name "Title" [--prefer SET] -o decks/<id>.dck`.
+  It picks the preferred set, else the newest released regular printing. Review its choices (swap in themed art) afterwards.
 
 ## Adding a deck
 
@@ -36,12 +39,15 @@ card data and images live from the Scryfall API, so there is no build step and n
      "file": "kebab-case-id.dck",
      "colors": "WR",
      "face": {"set": "TRK", "num": "7"},
+     "tags": ["mytodayforever"],
      "added": "YYYY-MM-DD",
      "updated": "YYYY-MM-DD"
    }
    ```
    `colors` is the deck's color identity in WUBRG order. `face` is the printing whose art shows on the deck's box:
-   the commander, or the deck's signature card. When a deck changes, update its `.dck` and its `updated` date.
+   the commander, or the deck's signature card. `tags` are lowercase words (letters, digits, hyphens) that group decks
+   on the library page; each tag gets a filter chip. Current tags: `mytodayforever` (the original decks) and `terrafirma`.
+   Ask which tag a new deck belongs under if the request doesn't say. When a deck changes, update its `.dck` and its `updated` date.
 5. **Write the play guide** at `decks/guides/<id>.json`, shown on the deck page under "How to play":
    ```json
    {

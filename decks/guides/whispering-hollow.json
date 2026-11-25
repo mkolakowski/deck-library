@@ -1,0 +1,41 @@
+{
+ "wins": "Make tokens every turn with spirits and saprolings; Intangible Virtue and Sporecrown Thallid turn them into a real army.",
+ "plan": [
+  [
+   "Turns 1–2",
+   "Doomed Traveler, Tukatongue Thallid, Yavimaya Sapherd: bodies that leave more bodies behind."
+  ],
+  [
+   "Turns 3–4",
+   "Intangible Virtue (+1/+1 and vigilance for tokens), Sporecrown Thallid (Saprolings and Fungi +1/+1), Chapel Geist in the air."
+  ],
+  [
+   "Finish",
+   "Midnight Haunting at the end of the opponent’s turn for two fliers, then swing with everything."
+  ]
+ ],
+ "keys": [
+  [
+   "Intangible Virtue",
+   "Every token gets +1/+1 and vigilance: the deck’s engine."
+  ],
+  [
+   "Sporecrown Thallid",
+   "Lord for Saprolings and Fungi."
+  ],
+  [
+   "Midnight Haunting",
+   "Instant: two 1/1 flying Spirits at the end of the opponent’s turn."
+  ],
+  [
+   "Journey to Nowhere",
+   "Exiles their best creature."
+  ]
+ ],
+ "tips": [
+  "Doomed Traveler and Tukatongue Thallid leave a token when they die: trade them freely.",
+  "Owlbear draws a card when it enters.",
+  "Giant Growth wins a combat or saves a creature from damage-based removal."
+ ],
+ "mulligan": "Keep hands with both colors (or a way to them), 2–4 lands and two cheap creatures."
+}

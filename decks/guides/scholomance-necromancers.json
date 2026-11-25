@@ -1,0 +1,41 @@
+{
+ "wins": "A zombie horde that keeps coming back: lords pump the team, the graveyard is a second hand, and Grave Titan ends it.",
+ "plan": [
+  [
+   "Turns 1–2",
+   "Diregraf Ghoul and Gravecrawler start the horde."
+  ],
+  [
+   "Turns 3–4",
+   "Cemetery Reaper (zombie lord) and Death Baron (+1/+1 and deathtouch to other zombies); Moan of the Unhallowed adds two zombies."
+  ],
+  [
+   "Late",
+   "Grave Titan makes zombies on entering and attacking. Flashback Moan, Gravedigger and Raise Dead rebuild after removal."
+  ]
+ ],
+ "keys": [
+  [
+   "Cemetery Reaper",
+   "Other Zombies +1/+1, and it turns creature cards in graveyards into new zombies."
+  ],
+  [
+   "Death Baron",
+   "Other Zombies get +1/+1 and deathtouch: every block becomes a trade."
+  ],
+  [
+   "Grave Titan",
+   "6/6 deathtouch that makes two 2/2 zombies on entering and on every attack."
+  ],
+  [
+   "Moan of the Unhallowed",
+   "Two zombies now and two more with flashback later."
+  ]
+ ],
+ "tips": [
+  "Gravecrawler can be recast from your graveyard while you control another zombie.",
+  "Cemetery Reaper can eat creatures from the opponent’s graveyard too.",
+  "Doom Blade can’t hit black creatures: save Murder for those."
+ ],
+ "mulligan": "Keep 3–4 Swamps with cheap zombies."
+}

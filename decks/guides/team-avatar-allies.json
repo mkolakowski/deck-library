@@ -1,0 +1,43 @@
+{
+ "wins": "Every Ally that enters triggers the others: Avatar Enthusiasts grow, South Pole Voyager gains life and draws. Go wide, then fly over with Aang, Appa and Yip Yip!",
+ "plan": [
+  [
+   "Turns 1–2",
+   "Earth Kingdom Protectors, Momo, South Pole Voyager, Invasion Reinforcements (flash, two bodies)."
+  ],
+  [
+   "Turns 3–4",
+   "Avatar Enthusiasts and Kyoshi Warriors grow the team; Earth Kingdom Jailer exiles a 3+ mana threat; Suki pumps all your creatures."
+  ],
+  [
+   "Finish",
+   "Aang and Appa in the air, Yip Yip! gives an Ally +2/+2 and flying, United Front makes X Allies and pumps everything."
+  ]
+ ],
+ "keys": [
+  [
+   "South Pole Voyager",
+   "Gain 1 life on each Ally entering; the second trigger in a turn draws a card."
+  ],
+  [
+   "Avatar Enthusiasts",
+   "A +1/+1 counter every time another Ally enters."
+  ],
+  [
+   "Suki, Courageous Rescuer",
+   "+1/+0 to your other creatures, and a new Ally whenever a permanent of yours leaves during your turn."
+  ],
+  [
+   "United Front",
+   "Late-game finisher: X tokens and a counter on every creature."
+  ]
+ ],
+ "tips": [
+  "Play two Allies in one turn when you can: Voyager draws on its second trigger.",
+  "Invasion Reinforcements has flash: cast it at the end of the opponent’s turn or as a surprise blocker.",
+  "Earth Kingdom Protectors sacrifices to make another Ally indestructible: save your best creature from removal.",
+  "Airbend (Aang, Appa) exiles a permanent; its owner can recast it for 2. Use it to reset an opponent’s threat or reuse your own enters triggers.",
+  "Razor Rings only hits an attacking or blocking creature."
+ ],
+ "mulligan": "Keep 2–4 Plains with two or more cheap Allies."
+}

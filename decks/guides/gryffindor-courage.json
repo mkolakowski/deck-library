@@ -1,0 +1,41 @@
+{
+ "wins": "Cheap creatures attack early; every bit of life you gain grows Ajani's Pridemate, and burn finishes the job.",
+ "plan": [
+  [
+   "Turns 1–2",
+   "Savannah Lions, Healer's Hawk, Ajani's Pridemate. Bolt a blocker if needed."
+  ],
+  [
+   "Turns 3–4",
+   "Inspiring Cleric gains 4 (a Pridemate counter), Glorious Anthem pumps the team, Raise the Alarm adds bodies."
+  ],
+  [
+   "Finish",
+   "Serra Angel in the air, Lightning Helix and Bolt to the face for the last points."
+  ]
+ ],
+ "keys": [
+  [
+   "Ajani's Pridemate",
+   "A +1/+1 counter every time you gain life: Hawk, Cleric, Helix and Moment of Heroism all grow it."
+  ],
+  [
+   "Glorious Anthem",
+   "+1/+1 to every creature: your small creatures become real threats."
+  ],
+  [
+   "Lightning Helix",
+   "3 damage and 3 life: removal or reach, and a Pridemate trigger."
+  ],
+  [
+   "Moment of Heroism",
+   "+2/+2 and lifelink in combat: wins a fight and gains life."
+  ]
+ ],
+ "tips": [
+  "Gain life before combat when you can, so Pridemate attacks bigger.",
+  "Pacifism handles one big blocker for good.",
+  "Burn is flexible: early it clears blockers, late it goes to the opponent’s face."
+ ],
+ "mulligan": "Keep 2–4 lands with at least two creatures that cost 1–2."
+}

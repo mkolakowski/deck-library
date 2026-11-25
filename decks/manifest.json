@@ -11,7 +11,10 @@
       "num": "42"
     },
     "added": "2026-11-18",
-    "updated": "2026-11-18"
+    "updated": "2026-11-18",
+    "tags": [
+      "mytodayforever"
+    ]
   },
   {
     "id": "section-31-tactical-command",
@@ -25,7 +28,10 @@
       "num": "126"
     },
     "added": "2026-11-23",
-    "updated": "2026-11-23"
+    "updated": "2026-11-23",
+    "tags": [
+      "mytodayforever"
+    ]
   },
   {
     "id": "worf-s-away-team",
@@ -39,7 +45,10 @@
       "num": "109"
     },
     "added": "2026-11-18",
-    "updated": "2026-11-18"
+    "updated": "2026-11-18",
+    "tags": [
+      "mytodayforever"
+    ]
   },
   {
     "id": "abaddon-s-black-legion",
@@ -53,7 +62,10 @@
       "num": "2"
     },
     "added": "2026-11-21",
-    "updated": "2026-11-21"
+    "updated": "2026-11-21",
+    "tags": [
+      "mytodayforever"
+    ]
   },
   {
     "id": "the-doctor-s-tardis-crew",
@@ -67,7 +79,10 @@
       "num": "2"
     },
     "added": "2026-11-24",
-    "updated": "2026-11-24"
+    "updated": "2026-11-24",
+    "tags": [
+      "mytodayforever"
+    ]
   },
   {
     "id": "living-end",
@@ -81,7 +96,10 @@
       "num": "216"
     },
     "added": "2026-11-21",
-    "updated": "2026-11-21"
+    "updated": "2026-11-21",
+    "tags": [
+      "mytodayforever"
+    ]
   },
   {
     "id": "hammer-time",
@@ -95,7 +113,10 @@
       "num": "270"
     },
     "added": "2026-11-21",
-    "updated": "2026-11-21"
+    "updated": "2026-11-21",
+    "tags": [
+      "mytodayforever"
+    ]
   },
   {
     "id": "fleet-command",
@@ -109,7 +130,10 @@
       "num": "43"
     },
     "added": "2026-11-23",
-    "updated": "2026-11-23"
+    "updated": "2026-11-23",
+    "tags": [
+      "mytodayforever"
+    ]
   },
   {
     "id": "cryptid-sightings",
@@ -123,7 +147,10 @@
       "num": "111"
     },
     "added": "2026-11-24",
-    "updated": "2026-11-24"
+    "updated": "2026-11-24",
+    "tags": [
+      "mytodayforever"
+    ]
   },
   {
     "id": "ds9-defend-the-station",
@@ -137,7 +164,10 @@
       "num": "497"
     },
     "added": "2026-11-25",
-    "updated": "2026-11-25"
+    "updated": "2026-11-25",
+    "tags": [
+      "mytodayforever"
+    ]
   },
   {
     "id": "lotr-ride-of-the-rohirrim",
@@ -150,6 +180,162 @@
       "set": "LTR",
       "num": "684"
     },
+    "added": "2026-11-25",
+    "updated": "2026-11-25",
+    "tags": [
+      "mytodayforever"
+    ]
+  },
+  {
+    "id": "gryffindor-courage",
+    "title": "Gryffindor Courage",
+    "format": "Modern",
+    "pitch": "Boros lifegain aggro: lions, hawks and clerics gain life to grow Ajani's Pridemate while Bolt and Helix clear the way.",
+    "file": "gryffindor-courage.dck",
+    "colors": "WR",
+    "face": {
+      "set": "WAR",
+      "num": "4"
+    },
+    "tags": [
+      "terrafirma"
+    ],
+    "added": "2026-11-25",
+    "updated": "2026-11-25"
+  },
+  {
+    "id": "leos-squad-tmnt",
+    "title": "Leo's Squad (TMNT)",
+    "format": "Standard",
+    "pitch": "Mono-white Ninja Turtles: go wide with Mutants and Ninjas, then sneak Leonardos into the attack for big swings.",
+    "file": "leos-squad-tmnt.dck",
+    "colors": "W",
+    "face": {
+      "set": "TMT",
+      "num": "16"
+    },
+    "tags": [
+      "terrafirma"
+    ],
+    "added": "2026-11-25",
+    "updated": "2026-11-25"
+  },
+  {
+    "id": "pyromancers-inferno",
+    "title": "Pyromancer's Inferno",
+    "format": "Modern",
+    "pitch": "Mono-red spells: every burn spell also makes a token, untaps Thermo-Alchemist or fires Guttersnipe.",
+    "file": "pyromancers-inferno.dck",
+    "colors": "R",
+    "face": {
+      "set": "M14",
+      "num": "163"
+    },
+    "tags": [
+      "terrafirma"
+    ],
+    "added": "2026-11-25",
+    "updated": "2026-11-25"
+  },
+  {
+    "id": "team-avatar-allies",
+    "title": "Team Avatar Allies",
+    "format": "Standard",
+    "pitch": "Mono-white Allies: each new Ally grows the team, gains life and draws cards until Aang and Appa fly over.",
+    "file": "team-avatar-allies.dck",
+    "colors": "W",
+    "face": {
+      "set": "TLA",
+      "num": "4"
+    },
+    "tags": [
+      "terrafirma"
+    ],
+    "added": "2026-11-25",
+    "updated": "2026-11-25"
+  },
+  {
+    "id": "whispering-hollow",
+    "title": "Whispering Hollow",
+    "format": "Modern",
+    "pitch": "Selesnya tokens: spirits and saprolings multiply, and Intangible Virtue makes every token a threat.",
+    "file": "whispering-hollow.dck",
+    "colors": "GW",
+    "face": {
+      "set": "ISD",
+      "num": "7"
+    },
+    "tags": [
+      "terrafirma"
+    ],
+    "added": "2026-11-25",
+    "updated": "2026-11-25"
+  },
+  {
+    "id": "call-of-the-deep-dark",
+    "title": "Call of the Deep Dark",
+    "format": "Modern",
+    "pitch": "Mono-black midrange: deathtouch blockers and removal grind the opponent down until Nightmare takes over.",
+    "file": "call-of-the-deep-dark.dck",
+    "colors": "B",
+    "face": {
+      "set": "ORI",
+      "num": "282"
+    },
+    "tags": [
+      "terrafirma"
+    ],
+    "added": "2026-11-25",
+    "updated": "2026-11-25"
+  },
+  {
+    "id": "for-the-horde",
+    "title": "For the Horde",
+    "format": "Modern",
+    "pitch": "Mono-red goblins: flood the board with hasty goblin tokens, pump them with Goblin Chieftain and swarm.",
+    "file": "for-the-horde.dck",
+    "colors": "R",
+    "face": {
+      "set": "M12",
+      "num": "138"
+    },
+    "tags": [
+      "terrafirma"
+    ],
+    "added": "2026-11-25",
+    "updated": "2026-11-25"
+  },
+  {
+    "id": "scholomance-necromancers",
+    "title": "Scholomance Necromancers",
+    "format": "Modern",
+    "pitch": "Mono-black zombies: an undying horde that returns from the graveyard, led by zombie lords and Grave Titan.",
+    "file": "scholomance-necromancers.dck",
+    "colors": "B",
+    "face": {
+      "set": "M12",
+      "num": "98"
+    },
+    "tags": [
+      "terrafirma"
+    ],
+    "added": "2026-11-25",
+    "updated": "2026-11-25"
+  },
+  {
+    "id": "forest-friends-starter",
+    "title": "Forest Friends Starter",
+    "format": "Modern",
+    "pitch": "Mono-green beginner stompy: ramp with elves, play bigger creatures each turn and win fights with pump spells.",
+    "file": "forest-friends-starter.dck",
+    "colors": "G",
+    "face": {
+      "set": "M21",
+      "num": "176"
+    },
+    "tags": [
+      "terrafirma"
+    ],
     "added": "2026-11-25",
     "updated": "2026-11-25"
   }

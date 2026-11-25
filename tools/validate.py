@@ -74,6 +74,9 @@ def main():
             errors.append(f'{tag}: id must be lowercase letters, digits and hyphens')
         if d.get('format') not in FORMATS:
             errors.append(f'{tag}: format must be one of {sorted(FORMATS)}')
+        tags = d.get('tags', [])
+        if not isinstance(tags, list) or not all(isinstance(t, str) and re.fullmatch(r'[a-z0-9-]+', t) for t in tags):
+            errors.append(f'{tag}: tags must be a list of lowercase words (letters, digits, hyphens)')
         if not re.fullmatch(r'[WUBRG]*', d.get('colors', '')):
             errors.append(f'{tag}: colors must use only W U B R G')
         path = os.path.join(ROOT, 'decks', d.get('file', ''))

@@ -1,0 +1,41 @@
+{
+ "wins": "Goblins everywhere: token makers flood the board, Goblin Chieftain gives them all haste and +1/+1, and they swarm before the opponent stabilizes.",
+ "plan": [
+  [
+   "Turns 1–2",
+   "Raging Goblin attacks immediately; Goblin Instigator makes two goblins."
+  ],
+  [
+   "Turns 3–4",
+   "Krenko’s Command and Hordeling Outburst add more goblins; Goblin Chieftain makes them all hasty and bigger. Borderland Marauder hits for 3 on attack."
+  ],
+  [
+   "Finish",
+   "Keldon Raider and Shivan Dragon close it out; Bolt and Searing Spear burn the last points."
+  ]
+ ],
+ "keys": [
+  [
+   "Goblin Chieftain",
+   "Other Goblins get +1/+1 and haste: cast it, then attack with everything."
+  ],
+  [
+   "Hordeling Outburst",
+   "Three 1/1 Goblins for 3 mana."
+  ],
+  [
+   "Brute Force",
+   "Instant +3/+3: win a combat or push extra damage through."
+  ],
+  [
+   "Shivan Dragon",
+   "Firebreathing flier: dump spare mana into it."
+  ]
+ ],
+ "tips": [
+  "Cast token makers before Chieftain when you can, so more goblins get the bonus.",
+  "Use burn on blockers early, the opponent’s face late.",
+  "Keldon Raider loots when it enters: discard extra lands late."
+ ],
+ "mulligan": "Keep 2–4 Mountains with cheap goblins or token makers."
+}

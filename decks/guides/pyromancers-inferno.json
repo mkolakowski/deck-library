@@ -1,0 +1,42 @@
+{
+ "wins": "Cast cheap burn every turn: each spell deals damage and also makes an Elemental token, untaps Thermo-Alchemist or triggers Guttersnipe, so the opponent burns from both sides.",
+ "plan": [
+  [
+   "Turn 1",
+   "Monastery Swiftspear (haste, gets bigger with each spell) or Lava Spike."
+  ],
+  [
+   "Turns 2–3",
+   "Young Pyromancer or Thermo-Alchemist, then keep casting burn: Shock, Bolt, Play with Fire."
+  ],
+  [
+   "Turns 4–6",
+   "Guttersnipe turns every spell into 2 extra damage. Inferno Titan finishes the game."
+  ]
+ ],
+ "keys": [
+  [
+   "Young Pyromancer",
+   "A 1/1 Elemental token for every instant or sorcery you cast."
+  ],
+  [
+   "Thermo-Alchemist",
+   "Taps to deal 1 to each opponent and untaps whenever you cast an instant or sorcery."
+  ],
+  [
+   "Guttersnipe",
+   "2 damage to each opponent for every instant or sorcery."
+  ],
+  [
+   "Inferno Titan",
+   "3 damage split among targets when it enters and every time it attacks."
+  ]
+ ],
+ "tips": [
+  "Play the payoff creature first, then the spells, so each spell triggers it.",
+  "Use burn on blockers early and on the opponent’s face late.",
+  "Tormenting Voice discards an extra land to draw two cards.",
+  "Lava Spike only hits players: save it for face damage."
+ ],
+ "mulligan": "Keep 2–3 Mountains with a 1–2 mana creature and burn. This deck runs well on few lands."
+}

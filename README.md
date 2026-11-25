@@ -9,19 +9,28 @@ are © Wizards of the Coast. This is an unofficial fan page.
 
 ## Decks
 
-| Deck | Format |
-|---|---|
-| Starfleet Bridge Crew | Standard |
-| Section 31 Tactical Command | Standard |
-| Worf's Away Team | Commander |
-| Abaddon's Black Legion | Commander |
-| The Doctor's TARDIS Crew | Commander |
-| Living End | Modern |
-| Hammer Time | Modern |
-| Fleet Command | Modern |
-| Cryptid Sightings | Modern |
-| DS9: Defend the Station | Modern |
-| LOTR: Ride of the Rohirrim | Modern |
+| Deck | Format | Tags |
+|---|---|---|
+| Starfleet Bridge Crew | Standard | mytodayforever |
+| Section 31 Tactical Command | Standard | mytodayforever |
+| Worf's Away Team | Commander | mytodayforever |
+| Abaddon's Black Legion | Commander | mytodayforever |
+| The Doctor's TARDIS Crew | Commander | mytodayforever |
+| Living End | Modern | mytodayforever |
+| Hammer Time | Modern | mytodayforever |
+| Fleet Command | Modern | mytodayforever |
+| Cryptid Sightings | Modern | mytodayforever |
+| DS9: Defend the Station | Modern | mytodayforever |
+| LOTR: Ride of the Rohirrim | Modern | mytodayforever |
+| Gryffindor Courage | Modern | terrafirma |
+| Leo's Squad (TMNT) | Standard | terrafirma |
+| Pyromancer's Inferno | Modern | terrafirma |
+| Team Avatar Allies | Standard | terrafirma |
+| Whispering Hollow | Modern | terrafirma |
+| Call of the Deep Dark | Modern | terrafirma |
+| For the Horde | Modern | terrafirma |
+| Scholomance Necromancers | Modern | terrafirma |
+| Forest Friends Starter | Modern | terrafirma |
 
 ## Publishing with GitHub Pages
 

@@ -52,7 +52,11 @@ button,select,input{font:16px Inter,sans-serif}
 .box p{margin:0;color:var(--soft);font-size:14px;line-height:1.4}
 .box .ft{display:flex;gap:8px;flex-wrap:wrap;justify-content:space-between;align-items:center;margin-top:auto;padding-top:6px;font-size:13px;color:var(--soft)}
 .fmt{display:inline-block;font:600 14px "Barlow Condensed",sans-serif;background:var(--felt);color:var(--on-felt);padding:2px 10px;border-radius:99px}
-.lid .fmt{background:rgba(0,0,0,.55)}.box .lid::after{content:'';position:absolute;inset:0;background:linear-gradient(transparent 40%,rgba(0,0,0,.35))}.box .lid .fmt{z-index:1}
+.lid .fmt{background:rgba(0,0,0,.55)}
+.tag{display:inline-block;font:600 13px "Barlow Condensed",sans-serif;border:1px solid var(--line);color:var(--soft);background:transparent;padding:1px 9px;border-radius:99px;margin-left:6px}
+button.tag{cursor:pointer;min-height:0}button.tag:hover{color:var(--ink);border-color:var(--ink)}
+.tagrow{margin:4px 0 0}.tagrow .tag{margin:0 6px 0 0}
+.tools.tags .chip{font-size:14px;min-height:38px}.box .lid::after{content:'';position:absolute;inset:0;background:linear-gradient(transparent 40%,rgba(0,0,0,.35))}.box .lid .fmt{z-index:1}
 .back{display:inline-flex;align-items:center;gap:6px;text-decoration:none;font-weight:600;font-size:15px;margin-bottom:14px;min-height:44px}
 .head{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:24px;align-items:start}
 .head h2{margin:8px 0 0;font-size:clamp(30px,4vw,44px);line-height:1.05;font-weight:700}
@@ -157,7 +161,9 @@ const FORMATS = ['Standard', 'Pioneer', 'Modern', 'Legacy', 'Vintage', 'Commande
 const TYPES = ['Creature', 'Planeswalker', 'Battle', 'Instant', 'Sorcery', 'Artifact', 'Enchantment', 'Land'];
 const store = {get(k, d){ try { return JSON.parse(localStorage.getItem('decklib.' + k)) ?? d; } catch(e){ return d; } }, set(k, v){ try { localStorage.setItem('decklib.' + k, JSON.stringify(v)); } catch(e){} }};
 let INDEX = [], DCK = {}, CACHE = {}, SHOWN = [], ZI = -1;
-const lib = Object.assign({fmt: 'All', q: '', sort: 'updated'}, store.get('lib', {}));
+const lib = Object.assign({fmt: 'All', tag: 'All', q: '', sort: 'updated'}, store.get('lib', {}));
+const tagsOf = d => Array.isArray(d.tags) ? d.tags : [];
+const tagPills = d => tagsOf(d).map(t => `<span class="tag">#${esc(t)}</span>`).join('');
 const st = {view: store.get('view', 'gallery'), size: store.get('size', 'M'), group: store.get('group', 'type'), sec: 'All', q: '', sort: {key: 'mv', dir: 1}};
 function toast(m){ const t = $('#toast'); t.textContent = m; t.classList.add('on'); clearTimeout(toast.h); toast.h = setTimeout(() => t.classList.remove('on'), 2200); }
 
@@ -244,11 +250,14 @@ const counts = d => { const c = DCK[d.id] ? parseDck(DCK[d.id], d.format) : []; 
 function renderLibrary(){
   fillJump('library'); document.title = 'Deck Library';
   const fmts = ['All', ...FORMATS.filter(f => INDEX.some(d => d.format === f))];
+  const tags = [...new Set(INDEX.flatMap(tagsOf))].sort();
+  if (lib.tag !== 'All' && !tags.includes(lib.tag)) lib.tag = 'All';
   const q = lib.q.trim().toLowerCase();
-  const list = INDEX.filter(d => (lib.fmt === 'All' || d.format === lib.fmt) && (!q || (d.title + ' ' + d.pitch).toLowerCase().includes(q)))
+  const list = INDEX.filter(d => (lib.fmt === 'All' || d.format === lib.fmt) && (lib.tag === 'All' || tagsOf(d).includes(lib.tag)) && (!q || (d.title + ' ' + d.pitch + ' ' + tagsOf(d).join(' ')).toLowerCase().includes(q)))
     .sort(lib.sort === 'name' ? (a, b) => a.title.localeCompare(b.title) : lib.sort === 'format' ? (a, b) => a.format.localeCompare(b.format) || a.title.localeCompare(b.title) : (a, b) => b[lib.sort].localeCompare(a[lib.sort]) || a.title.localeCompare(b.title));
   $('#main').innerHTML = `
   <div class="tools">${fmts.map(f => `<button class="chip" data-fmt="${esc(f)}" aria-pressed="${lib.fmt === f}">${esc(f)} ${f === 'All' ? INDEX.length : INDEX.filter(d => d.format === f).length}</button>`).join('')}</div>
+  ${tags.length ? `<div class="tools tags">${['All', ...tags].map(t => `<button class="chip" data-tag="${esc(t)}" aria-pressed="${lib.tag === t}">${t === 'All' ? 'All tags' : '#' + esc(t)} ${t === 'All' ? INDEX.length : INDEX.filter(d => tagsOf(d).includes(t)).length}</button>`).join('')}</div>` : ''}
   <div class="tools">
     <input type="search" id="lq" placeholder="Search decks and themes" value="${esc(lib.q)}" aria-label="Search decks">
     <select id="lsort" aria-label="Sort decks">${[['updated', 'Recently updated'], ['added', 'Newest'], ['name', 'Name'], ['format', 'Format']].map(([k, l]) => `<option value="${k}" ${lib.sort === k ? 'selected' : ''}>${l}</option>`).join('')}</select>
@@ -256,9 +265,9 @@ function renderLibrary(){
   <div class="count">${list.length} of ${INDEX.length} decks</div>
   ${list.length ? `<div class="shelf">${list.map(d => { const n = counts(d); const f = d.face && SCRY[key(d.face.set, d.face.num)]; const img = f ? safeImg(f.img) : '';
     return `<a class="box" href="#${esc(d.id)}"><div class="lid" style="background:${lidBg(d.colors)}">${img ? `<img src="${esc(img)}" alt="" loading="lazy">` : ''}<span class="fmt">${esc(d.format)}</span></div>
-      <div class="in"><b>${esc(d.title)}</b><p>${esc(d.pitch)}</p>
+      <div class="in"><b>${esc(d.title)}</b>${tagsOf(d).length ? `<div class="tagrow">${tagPills(d)}</div>` : ''}<p>${esc(d.pitch)}</p>
       <div class="ft"><span class="pips">${colorPips(d.colors)}</span><span>${n.main ? `${n.main}${n.side ? ' + ' + n.side : ''} cards · ` : ''}${esc(fmtDate(d.updated))}</span></div></div></a>`; }).join('')}</div>`
-    : '<div class="empty">No decks match. Clear the search or pick another format.</div>'}`;
+    : '<div class="empty">No decks match. Clear the search or pick another format or tag.</div>'}`;
 }
 
 /* ---------- deck page ---------- */
@@ -349,7 +358,7 @@ async function renderDeck(id){
   $('#main').innerHTML = `
   <a class="back" href="#library">← All decks</a>
   <section class="head"><div>
-    <span class="fmt">${esc(d.format)}</span>
+    <span class="fmt">${esc(d.format)}</span>${tagsOf(d).map(t => `<button class="tag" data-gotag="${esc(t)}" title="Show all #${esc(t)} decks">#${esc(t)}</button>`).join('')}
     <h2>${esc(d.title)}</h2><p class="pitch">${esc(d.pitch)}</p>
     <div class="stats">
       <div><b>${s.total}</b><span>${d.format === 'Commander' ? 'cards incl. commander' : 'main deck'}</span></div>
@@ -409,6 +418,8 @@ document.addEventListener('click', async e => {
   if (t.id === 'zprev') return zoomTo(ZI - 1); if (t.id === 'znext') return zoomTo(ZI + 1); if (t.id === 'zx') return zoomClose();
   if (t.dataset.size){ st.size = t.dataset.size; store.set('size', st.size); document.querySelectorAll('[data-size]').forEach(x => { if (x.tagName === 'BUTTON') x.setAttribute('aria-pressed', x.dataset.size === st.size); else x.dataset.size = st.size; }); return; }
   if (t.dataset.fmt){ lib.fmt = t.dataset.fmt; store.set('lib', lib); renderLibrary(); }
+  else if (t.dataset.tag){ lib.tag = t.dataset.tag; store.set('lib', lib); renderLibrary(); }
+  else if (t.dataset.gotag){ lib.tag = t.dataset.gotag; lib.fmt = 'All'; store.set('lib', lib); location.hash = '#library'; }
   else if (t.dataset.v){ st.view = t.dataset.v; store.set('view', st.view); renderDeck(route()); }
   else if (t.id === 'dir'){ st.sort.dir *= -1; renderDeck(route()); }
   else if (t.tagName === 'TH'){ const k = t.dataset.k; st.sort = {key: k, dir: st.sort.key === k ? -st.sort.dir : 1}; renderDeck(route()); }
