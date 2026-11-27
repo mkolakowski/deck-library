@@ -1,0 +1,92 @@
+{
+ "rating": {
+  "verdict": "It looks like a joke (no real lands at all), but Belcher is a real Modern deck that keeps going 5-0 in Magic Online leagues through 2026. When it works it wins on turn 2 or 3; when the opponent has the right hate card it just loses.",
+  "strengths": [
+   "Can win on turn 2 with Goblin Charbelcher",
+   "Ignores creature combat entirely",
+   "Stormscale Scion gives a second, completely different way to win"
+  ],
+  "weaknesses": [
+   "Artifact hate (Force of Vigor, Haywire Mite, Meltdown) stops Belcher",
+   "Counterspells and discard on the key turn",
+   "Very swingy: some hands do nothing"
+  ],
+  "rated": "2026-11-26"
+ },
+ "wins": "Goblin Charbelcher reveals cards until it hits a land, and this deck has no land cards in the library. Every card in your deck counts as damage, so one activation deals 20 or more.",
+ "plan": [
+  [
+   "Turn 1",
+   "Play a spell-land (Valakut Awakening, Spikefield Hazard…) as a land, or Ruby Medallion with a ritual. Strike It Rich makes a Treasure."
+  ],
+  [
+   "Turn 2–3",
+   "Chain rituals into Irencrag Feat (seven red mana), then cast Goblin Charbelcher (4) and activate it (3) in the same turn."
+  ],
+  [
+   "Plan B",
+   "Rituals into Stormscale Scion with a big storm count: a flight of 5/5 Dragons, given haste by sacrificing Bitter Reunion."
+  ],
+  [
+   "Win",
+   "Point Charbelcher at the opponent: damage equals the cards left in your library."
+  ]
+ ],
+ "keys": [
+  [
+   "Goblin Charbelcher",
+   "{3}, tap: reveal until a land; damage equals the nonland cards revealed. With no lands in the library, that's your whole deck."
+  ],
+  [
+   "Irencrag Feat",
+   "Seven red mana: exactly Belcher (4) plus its activation (3). Only one more spell is allowed that turn, and the activation isn't a spell."
+  ],
+  [
+   "Ruby Medallion",
+   "Red spells cost {1} less, so the rituals make more mana than they cost."
+  ],
+  [
+   "Stormscale Scion",
+   "Storm makes a copy for each spell cast before it this turn; copies are 5/5 flying Dragons thanks to each other."
+  ],
+  [
+   "Valakut Awakening",
+   "Bottom bad cards to draw new ones, or play it as a land."
+  ]
+ ],
+ "tips": [
+  "The double-faced spells only count as lands on the battlefield. In your library they are instants and sorceries, so Charbelcher reveals straight past them.",
+  "If you have played several spell-lands, Charbelcher still deals damage equal to the cards remaining in your library: count before you go for it.",
+  "Ruby Medallion doesn't reduce Goblin Charbelcher or its activation: they're colorless.",
+  "Cast Irencrag Feat last: after it you get only one more spell, so it should be Charbelcher (or Stormscale Scion).",
+  "Manamorphose and Strike It Rich are free storm count for Stormscale Scion.",
+  "Bitter Reunion: discard Goblin Charbelcher's extras or a spent spell-land to draw two; later sacrifice it for haste."
+ ],
+ "mulligan": "Keep hands with a mana source (spell-land, Ruby Medallion or Strike It Rich), rituals, and either Charbelcher or a way to dig for it. Mulligan hands that can't do anything by turn 3.",
+ "sideboard": [
+  [
+   "Combo decks",
+   "Chalice of the Void"
+  ],
+  [
+   "Counterspells",
+   "Guttural Response"
+  ],
+  [
+   "Affinity and artifacts",
+   "Meltdown"
+  ],
+  [
+   "Small creature aggro",
+   "Pyroclasm"
+  ],
+  [
+   "Planeswalkers and artifacts",
+   "Vexing Bauble"
+  ],
+  [
+   "Blood Moon plan",
+   "Extra Blood Moon and a Mountain"
+  ]
+ ]
+}

@@ -416,10 +416,12 @@ function body(d){
    London mulligan (the first one is free in Commander), a heuristic hand rating, the viewer's own star rating,
    and per-deck stats kept in localStorage under decklib.mull.<id>. */
 const MULL = {};
-const isLand = c => c.main === 'Land';
+/* Modal double-faced cards with a land back (Shatterskull Smashing // Shatterskull, the Hammer Pass) count as lands in a hand. */
+const mdfcLand = c => c.main !== 'Land' && /\/\/\s*Land\b/.test(c.type);
+const isLand = c => c.main === 'Land' || mdfcLand(c);
 const BASIC = {Plains: 'W', Island: 'U', Swamp: 'B', Mountain: 'R', Forest: 'G'};
 function makes(c){
-  const out = new Set(); Object.entries(BASIC).forEach(([t, k]) => { if (new RegExp('\\b' + t + '\\b').test(c.type)) out.add(k); });
+  const out = new Set(); if (mdfcLand(c)) { (c.colors || '').split('').forEach(k => out.add(k)); return out; } Object.entries(BASIC).forEach(([t, k]) => { if (new RegExp('\\b' + t + '\\b').test(c.type)) out.add(k); });
   if (/\bany (one )?colou?r\b/i.test(c.text)) 'WUBRG'.split('').forEach(k => out.add(k));
   (c.text.match(/\bAdd [^.·]*/g) || []).forEach(s => (s.match(/\{([WUBRG])\}/g) || []).forEach(m => out.add(m[1])));
   return out;

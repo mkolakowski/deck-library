@@ -448,5 +448,23 @@
     ],
     "added": "2026-11-26",
     "updated": "2026-11-26"
+  },
+  {
+    "id": "who-needs-lands",
+    "title": "Who Needs Lands?",
+    "format": "Modern",
+    "pitch": "Mono-red Belcher with zero real lands: rituals into Goblin Charbelcher, which reveals your entire land-free library for 20+ damage on turn 2.",
+    "file": "who-needs-lands.dck",
+    "colors": "R",
+    "power": 4,
+    "face": {
+      "set": "BRR",
+      "num": "81"
+    },
+    "tags": [
+      "mytodayforever"
+    ],
+    "added": "2026-11-26",
+    "updated": "2026-11-26"
   }
 ]
