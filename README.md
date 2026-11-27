@@ -37,6 +37,7 @@ are © Wizards of the Coast. This is an unofficial fan page.
 | [The Restricted Section](https://mkolakowski.github.io/deck-library/#the-restricted-section) | Modern | 3/5 Solid | flowerbear | [.dck](decks/the-restricted-section.dck) |
 | [Jam Session](https://mkolakowski.github.io/deck-library/#jam-session) | Modern | 4/5 Competitive | flowerbear | [.dck](decks/jam-session.dck) |
 | [Things That Go Bump](https://mkolakowski.github.io/deck-library/#things-that-go-bump) | Modern | 3/5 Solid | flowerbear | [.dck](decks/things-that-go-bump.dck) |
+| [Rainbow Stables](https://mkolakowski.github.io/deck-library/#rainbow-stables) | Modern | 2/5 Casual | mytodayforever | [.dck](decks/rainbow-stables.dck) |
 
 ## Publishing with GitHub Pages
 

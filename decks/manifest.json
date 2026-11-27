@@ -430,5 +430,23 @@
     ],
     "added": "2026-11-26",
     "updated": "2026-11-26"
+  },
+  {
+    "id": "rainbow-stables",
+    "title": "Rainbow Stables",
+    "format": "Modern",
+    "pitch": "Selesnya ponies: lifelink unicorns and pegasi gain life every turn, and Crested Sunmare turns it into a herd of 5/5 Horses.",
+    "file": "rainbow-stables.dck",
+    "colors": "GW",
+    "power": 2,
+    "face": {
+      "set": "OTJ",
+      "num": "364"
+    },
+    "tags": [
+      "mytodayforever"
+    ],
+    "added": "2026-11-26",
+    "updated": "2026-11-26"
   }
 ]

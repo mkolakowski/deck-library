@@ -1,0 +1,84 @@
+{
+ "rating": {
+  "verdict": "A sweet, colorful pony deck for casual Modern nights. Lifelink ponies feed Celestial Unicorn and Crested Sunmare's 5/5 Horse tokens, but the creatures are mostly Standard-level commons and rares, so it's well behind Modern's tuned decks.",
+  "strengths": [
+   "Lots of lifelink keeps you alive against aggro",
+   "Every life gain grows Celestial Unicorn and makes Crested Sunmare tokens",
+   "Good-Fortune Unicorn turns each new pony into a bigger one"
+  ],
+  "weaknesses": [
+   "Slow against Modern's fast combo decks",
+   "Sweepers wipe out a board of mid-size creatures",
+   "Little card draw"
+  ],
+  "rated": "2026-11-26"
+ },
+ "wins": "Build a herd of lifelink ponies, gain life every turn, and let Crested Sunmare turn each turn you gained life into a fresh 5/5 indestructible Horse.",
+ "plan": [
+  [
+   "Turn 2",
+   "Seraphic Steed or Sungrace Pegasus: both have lifelink, so your attacks gain life from turn 3."
+  ],
+  [
+   "Turn 3",
+   "Celestial Unicorn or Good-Fortune Unicorn; Splendor Mare adds more lifelink. Path to Exile their best blocker."
+  ],
+  [
+   "Turns 4–5",
+   "Inspiring Unicorn pumps the team on attack; Bill the Pony's Food is extra life. Crested Sunmare lands."
+  ],
+  [
+   "Win",
+   "Gain life each turn for a new 5/5 Horse, saddle Seraphic Steed for Angels, and swing with the herd."
+  ]
+ ],
+ "keys": [
+  [
+   "Crested Sunmare",
+   "At each end step you gained life, make a 5/5 Horse. Other Horses (tokens, Bill, Guardian Sunmare) are indestructible."
+  ],
+  [
+   "Celestial Unicorn",
+   "+1/+1 counter every time you gain life."
+  ],
+  [
+   "Good-Fortune Unicorn",
+   "Every other creature (and token) you play enters with a +1/+1 counter."
+  ],
+  [
+   "Seraphic Steed",
+   "First strike and lifelink for two; saddled, it makes a 3/3 flying Angel each attack."
+  ],
+  [
+   "Guardian Sunmare",
+   "Saddled attacks fetch any permanent with mana value 3 or less from your library onto the battlefield."
+  ]
+ ],
+ "tips": [
+  "Saddle (Seraphic Steed 4, Guardian Sunmare 4): tap other creatures with total power 4 or more at sorcery speed; the Mount then attacks saddled.",
+  "Crested Sunmare checks at each end step, yours and the opponent's: gaining life on their turn (lifelink blockers, Food) also makes a Horse.",
+  "Bill the Pony's Food: {2}, tap, sacrifice: gain 3 life. That triggers Celestial Unicorn and Crested Sunmare. Or sacrifice one so a creature deals damage equal to its toughness.",
+  "Shepherd of the Clouds returns a dead card with mana value 3 or less straight to the battlefield if you control a Mount.",
+  "Regal Bunnicorn counts all your nonland permanents, including Food and tokens.",
+  "Cycle Splendor Mare for {1}{W} to put a lifelink counter on your biggest creature."
+ ],
+ "mulligan": "Keep 2–4 lands with both colors (or a Windswept Heath) and at least one two-drop pony.",
+ "sideboard": [
+  [
+   "Graveyard decks",
+   "Scavenging Ooze, Rest in Peace"
+  ],
+  [
+   "Affinity and Hammer Time",
+   "Stony Silence, Force of Vigor"
+  ],
+  [
+   "Red burn and aggro",
+   "Kor Firewalker"
+  ],
+  [
+   "Combo and storm",
+   "Thalia, Guardian of Thraben, Damping Sphere"
+  ]
+ ]
+}
