@@ -1,0 +1,65 @@
+{
+  "rating": {
+    "verdict": "A straightforward, beginner-friendly creature deck that plays like a strong preconstructed deck. It has no Game Changers, tutors or combos, so it fits Bracket 2 (Core). It beats slow decks by attacking early and loses to repeated board wipes.",
+    "strengths": [
+      "Simple plan: cast humans, attack every turn",
+      "Théoden turns each new human into a double strike threat",
+      "Plenty of token makers to rebuild after trades"
+    ],
+    "weaknesses": [
+      "Board wipes undo a lot of work",
+      "Little card draw outside Quarrel's End, Errand-Rider and Mentor of the Meek",
+      "Flyers can block all day"
+    ],
+    "bracket": 2,
+    "rated": "2026-11-27"
+  },
+  "wins": "Fill the board with humans and tokens, then swing. Every human that enters gives a creature double strike, and anthems like Beregond of the Guard, Erkenbrand and Shared Animosity make the final attack lethal.",
+  "plan": [
+    [
+      "Turns 1–2",
+      "Play a land each turn, then a 1- or 2-drop human (Champion of the Parish, Thraben Inspector) or a mana rock like Sol Ring or Arcane Signet."
+    ],
+    [
+      "Turn 3",
+      "Cast Théoden. From now on, each human you cast gives a creature double strike: point it at your biggest attacker."
+    ],
+    [
+      "Turns 4–6",
+      "Add token makers (Riders of Rohan, Forth Eorlingas!, Rally at the Hornburg, Adeline) and anthems. Attack the player with the fewest blockers."
+    ],
+    [
+      "Win",
+      "Cast a human before combat to hand out double strike, then swing with everything. Unbreakable Formation or Boros Charm keeps your team alive through a counterattack."
+    ]
+  ],
+  "keys": [
+    [
+      "Theoden, King of Rohan",
+      "Whenever he or another human enters, target creature gains double strike until end of turn."
+    ],
+    [
+      "Adeline, Resplendent Cathar",
+      "Makes a human token for each opponent every time you attack, which also triggers Théoden."
+    ],
+    [
+      "Riders of Rohan",
+      "Two 2/2 hasty trample knights at once, so two double strike triggers."
+    ],
+    [
+      "Forth Eorlingas!",
+      "As many hasty 2/2 knights as you can pay for, and it can make you the monarch."
+    ],
+    [
+      "Herald's Horn",
+      "Name Human: your humans cost 1 less, and it can hand you an extra creature each turn."
+    ]
+  ],
+  "tips": [
+    "Cast humans before combat, not after: double strike only lasts until end of turn.",
+    "Name \"Human\" for Herald's Horn and Path of Ancestry.",
+    "Commander games start at 40 life. Spread damage so no one player feels they must stop you first.",
+    "Each time Théoden returns from the command zone he costs 2 more. Protect him with Lightning Greaves or Swiftfoot Boots."
+  ],
+  "mulligan": "Keep 3–4 lands with both colors, plus two cheap creatures or a mana rock. Mulligan hands with only 1 land or only 6-drops."
+}

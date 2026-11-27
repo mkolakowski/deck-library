@@ -1,0 +1,65 @@
+{
+  "rating": {
+    "verdict": "An instant-speed control deck: most of the skill is knowing when to counter, when to flash in a threat and when to pass. That makes it an intermediate deck. No Game Changers or two-card combos, so it fits Bracket 2 (Core).",
+    "strengths": [
+      "Counterspells and bounce answer almost anything once",
+      "Wan Shi Tong scales with your mana and draws cards",
+      "Plays on opponents' turns, so board wipes rarely catch much"
+    ],
+    "weaknesses": [
+      "Mono-blue has no hard removal for enchantments",
+      "Slow clock: games can run long",
+      "Several opponents casting threats at once can overload the counters"
+    ],
+    "bracket": 2,
+    "rated": "2026-11-27"
+  },
+  "wins": "Hold mana up every turn. Counter the scariest spell, flash in creatures at the end of an opponent's turn, and keep drawing. Wan Shi Tong grows and draws more every time an opponent searches their library, and Frost Titan or Hullbreaker Horror closes the game.",
+  "plan": [
+    [
+      "Turns 1–3",
+      "Land drops, cheap card selection (Brainstorm, Ponder, Preordain) and a mana rock. From turn 2, keep Counterspell or Memory Lapse mana open."
+    ],
+    [
+      "Turns 4–6",
+      "Pass with mana open. At the end of the last opponent's turn, flash in Wan Shi Tong for as many counters as you can afford, or a flash creature like Brazen Borrower or Vendilion Clique."
+    ],
+    [
+      "Late game",
+      "Field of Ruin and Ghost Quarter make opponents search, which grows Wan Shi Tong and draws you cards. Vedalken Orrery lets you cast everything at instant speed."
+    ],
+    [
+      "Win",
+      "Attack with flyers, protect them with counterspells, and use Hullbreaker Horror or Frost Titan to lock out blockers."
+    ]
+  ],
+  "keys": [
+    [
+      "Wan Shi Tong, Librarian",
+      "Flash, flying, vigilance; enters with X +1/+1 counters and draws half X. Whenever an opponent searches their library, he grows and you draw."
+    ],
+    [
+      "Field of Ruin",
+      "Destroys a nonbasic land, and each player searches for a basic: that's a Wan Shi Tong trigger per opponent."
+    ],
+    [
+      "Hullbreaker Horror",
+      "Can't be countered, and every spell you cast lets you bounce a spell or permanent."
+    ],
+    [
+      "Vedalken Orrery",
+      "Cast every spell at instant speed."
+    ],
+    [
+      "Cryptic Command",
+      "Counter plus bounce or draw, all at instant speed."
+    ]
+  ],
+  "tips": [
+    "Commander tax only raises the base cost, so if Wan Shi Tong dies you can still recast him with a small X, or wait and make him huge.",
+    "Only searches by opponents trigger Wan Shi Tong. Ghost Quarter and Field of Ruin give them a search when you use them.",
+    "Counter what threatens you, not everything: the other players will deal with some threats themselves.",
+    "Mystic Sanctuary returns a used instant or sorcery to the top of your library."
+  ],
+  "mulligan": "Keep 3–4 lands with a cheap draw spell or counterspell. Mulligan hands with no blue sources or nothing to do before turn 4."
+}

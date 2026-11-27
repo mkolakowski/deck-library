@@ -39,6 +39,12 @@ are © Wizards of the Coast. This is an unofficial fan page.
 | [Things That Go Bump](https://mkolakowski.github.io/deck-library/#things-that-go-bump) | Modern | 3/5 Solid | flowerbear | [.dck](decks/things-that-go-bump.dck) |
 | [Rainbow Stables](https://mkolakowski.github.io/deck-library/#rainbow-stables) | Modern | 2/5 Casual | mytodayforever | [.dck](decks/rainbow-stables.dck) |
 | [Who Needs Lands?](https://mkolakowski.github.io/deck-library/#who-needs-lands) | Modern | 4/5 Competitive | mytodayforever | [.dck](decks/who-needs-lands.dck) |
+| [Riders of Rohan](https://mkolakowski.github.io/deck-library/#riders-of-rohan) | Commander | 2/5 Casual | mytodayforever | [.dck](decks/riders-of-rohan.dck) |
+| [Resistance Is Futile](https://mkolakowski.github.io/deck-library/#resistance-is-futile) | Commander | 3/5 Solid | mytodayforever | [.dck](decks/resistance-is-futile.dck) |
+| [Kyoshi Warriors](https://mkolakowski.github.io/deck-library/#kyoshi-warriors) | Commander | 2/5 Casual | terrafirma | [.dck](decks/kyoshi-warriors.dck) |
+| [Scholomance Night Class](https://mkolakowski.github.io/deck-library/#scholomance-night-class) | Commander | 3/5 Solid | terrafirma | [.dck](decks/scholomance-night-class.dck) |
+| [Moonlit Roost](https://mkolakowski.github.io/deck-library/#moonlit-roost) | Commander | 2/5 Casual | flowerbear | [.dck](decks/moonlit-roost.dck) |
+| [The Spirit Library](https://mkolakowski.github.io/deck-library/#the-spirit-library) | Commander | 3/5 Solid | flowerbear | [.dck](decks/the-spirit-library.dck) |
 
 ## Publishing with GitHub Pages
 

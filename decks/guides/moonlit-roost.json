@@ -1,0 +1,65 @@
+{
+  "rating": {
+    "verdict": "A friendly lifegain-and-drain deck that's easy to learn: attack with flyers, gain life, and watch the triggers add up. No Game Changers, tutors or combos, so it fits Bracket 2 (Core).",
+    "strengths": [
+      "Lots of flyers that are hard to block",
+      "Lifegain keeps you safe against aggressive decks",
+      "Each life gained or lost triggers drains and pumps (Lunar Convocation, Starseer Mentor, Moonstone Harbinger)"
+    ],
+    "weaknesses": [
+      "Many small creatures: board wipes hurt",
+      "Slow to close against decks with big lifegain of their own",
+      "Few ways to deal with an opponent's combo"
+    ],
+    "bracket": 2,
+    "rated": "2026-11-27"
+  },
+  "wins": "Fly over with bats. Every bat attack gains life with Zoraline out, and that lifegain fuels drains: Lunar Convocation, Bastion of Remembrance and Starseer Mentor chip opponents down while Ajani's Pridemate and Essence Channeler grow.",
+  "plan": [
+    [
+      "Turns 1–2",
+      "A cheap lifelinker or lifegain creature: Ruin-Lurker Bat, Soul Warden, Starscape Cleric, Deep-Cavern Bat."
+    ],
+    [
+      "Turn 3",
+      "Cast Zoraline. She attacks in the air with vigilance; pay WB and 2 life to bring back a cheap permanent from your graveyard."
+    ],
+    [
+      "Turns 4–6",
+      "More flyers and payoffs: Moonrise Cleric, Star Charter, Lunar Convocation, Glidedive Duo."
+    ],
+    [
+      "Win",
+      "Attack with the flock every turn. Starseer Mentor and Sunscorch Regent close the game while the drains finish whoever is low."
+    ]
+  ],
+  "keys": [
+    [
+      "Zoraline, Cosmos Caller",
+      "Flying, vigilance; you gain 1 life whenever a bat attacks, and she can return a permanent with mana value 3 or less from your graveyard."
+    ],
+    [
+      "Lunar Convocation",
+      "If you gained life this turn, each opponent loses 1 at your end step."
+    ],
+    [
+      "Starseer Mentor",
+      "At your end step, if you gained or lost life, an opponent loses 3 unless they sacrifice or discard."
+    ],
+    [
+      "Moonstone Harbinger",
+      "Gaining or losing life on your turn gives all your bats +1/+0 and deathtouch."
+    ],
+    [
+      "Ajani's Pridemate",
+      "Grows every time you gain life."
+    ]
+  ],
+  "tips": [
+    "Zoraline's ability costs WB and 2 life, and paying life also counts as \"lost life this turn\" for Star Charter, Starlit Soothsayer and Starseer Mentor.",
+    "Soul Warden and Soul's Attendant trigger on every creature entering, including your opponents'.",
+    "Bats aren't the only flyers here: angels and birds attack in the air too, but only bats trigger Zoraline's lifegain.",
+    "Sun Titan and Zoraline can bring back cheap creatures that died."
+  ],
+  "mulligan": "Keep 3 lands with both colors and a 1- or 2-drop. Hands with Lunar Convocation and early creatures are great."
+}

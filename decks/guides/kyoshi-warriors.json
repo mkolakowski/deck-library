@@ -1,0 +1,65 @@
+{
+  "rating": {
+    "verdict": "An easy-to-pilot go-wide deck: cast creatures, attack, repeat. With no Game Changers, tutors or combos it fits Bracket 2 (Core) and plays well against other preconstructed-level decks.",
+    "strengths": [
+      "Suki makes a new attacking Ally every combat and grows with your board",
+      "Lots of anthems (Allied Teamwork, White Lotus Reinforcements, Intangible Virtue)",
+      "Overrun ends games out of nowhere"
+    ],
+    "weaknesses": [
+      "Board wipes are the big danger: hold back a creature or two",
+      "Small creatures struggle against big blockers",
+      "Most removal is fight or exile-based, so few answers to enchantments"
+    ],
+    "bracket": 2,
+    "rated": "2026-11-27"
+  },
+  "wins": "Go wide with Allies and tokens. Suki's power equals the number of creatures you control and she brings a fresh 1/1 Ally into every attack, so the bigger the team, the harder she hits. Finish with Overrun or Appa, the Vigilant.",
+  "plan": [
+    [
+      "Turns 1–2",
+      "Mana elves (Llanowar Elves, Elvish Mystic) or cheap Allies like Momo and Invasion Reinforcements."
+    ],
+    [
+      "Turns 3–4",
+      "Cast Suki. Add anthems and token makers: Allied Teamwork, Kyoshi Warriors, United Front."
+    ],
+    [
+      "Every turn after",
+      "Attack with Suki each turn: she makes a new Ally tapped and attacking. Earth King's Lieutenant and Avatar Enthusiasts grow as Allies join."
+    ],
+    [
+      "Win",
+      "Overrun, Appa, the Vigilant or Champion of Lambholt lets the whole team through for the final swing."
+    ]
+  ],
+  "keys": [
+    [
+      "Suki, Kyoshi Warrior",
+      "Power equal to the number of creatures you control; makes a 1/1 Ally token attacking alongside her each time she attacks."
+    ],
+    [
+      "Appa, the Vigilant",
+      "Each Ally that enters gives your team +1/+1, flying and vigilance until end of turn."
+    ],
+    [
+      "Allied Teamwork",
+      "An Ally token now and +1/+1 for every Ally."
+    ],
+    [
+      "Anointed Procession",
+      "Doubles every token you make, including Suki's."
+    ],
+    [
+      "Champion of Lambholt",
+      "Grows with each creature you add and stops small blockers from blocking."
+    ]
+  ],
+  "tips": [
+    "Tokens made by Suki, United Front and Kyoshi Warriors are Allies, so they trigger Ally abilities.",
+    "Keep one or two creatures in hand if an opponent has been holding cards: board wipes are the main way this deck loses.",
+    "Heroic Intervention saves your team from a wipe. Keep 2 mana open for it when you can.",
+    "Each time Suki returns from the command zone she costs 2 more."
+  ],
+  "mulligan": "Keep 3 lands (or 2 lands and a mana elf) with a couple of 2- or 3-drops. Mulligan hands with no plays before turn 4."
+}

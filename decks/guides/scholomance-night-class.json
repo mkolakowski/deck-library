@@ -1,0 +1,65 @@
+{
+  "rating": {
+    "verdict": "A grindy zombie engine with sacrifice timing and graveyard recursion, which makes it an intermediate deck. It has no Game Changers or two-card combos, so it fits Bracket 2 (Core); a well-sequenced game can push into the top of that bracket.",
+    "strengths": [
+      "Wilhelt replaces dying zombies and draws a card every end step",
+      "Seven zombie lords and anthems make even 2/2 tokens dangerous",
+      "Resilient to removal: Gravecrawler, Relentless Dead and Unbreathing Horde keep coming back"
+    ],
+    "weaknesses": [
+      "Graveyard hate (Bojuka Bog, Rest in Peace) blunts the recursion",
+      "Exile-based removal on Wilhelt slows the engine",
+      "Few answers to enchantments and artifacts"
+    ],
+    "bracket": 2,
+    "rated": "2026-11-27"
+  },
+  "wins": "Keep the horde churning: Wilhelt makes a 2/2 decayed zombie whenever another (non-decayed) zombie dies and lets you sacrifice one at end of turn to draw. Death triggers from Diregraf Captain and Vengeful Dead drain the table while lords pump the attackers.",
+  "plan": [
+    [
+      "Turns 1–3",
+      "Cheap zombies (Cryptbreaker, Champion of the Perished, Undead Augur) and a mana rock. Bladestitched Skaab or Diregraf Captain on 3."
+    ],
+    [
+      "Turn 4",
+      "Cast Wilhelt. At your end step, sacrifice a decayed token (it can't block anyway) to draw a card."
+    ],
+    [
+      "Turns 5–7",
+      "Add lords (Death Baron, Lord of the Accursed, Cemetery Reaper) and engines like Endless Ranks of the Dead or Graveborn Muse. Trade creatures freely: each death makes a new zombie."
+    ],
+    [
+      "Win",
+      "Swing with a pumped horde. Hordewing Skaab gives everyone flying, and Army of the Damned or Diregraf Horde floods the board for a final attack."
+    ]
+  ],
+  "keys": [
+    [
+      "Wilhelt, the Rotcleaver",
+      "Another zombie dies (non-decayed) → a 2/2 decayed zombie. End step: sacrifice a zombie to draw."
+    ],
+    [
+      "Diregraf Captain",
+      "Lord with deathtouch; each zombie that dies drains an opponent for 1."
+    ],
+    [
+      "Undead Augur",
+      "Draws a card whenever a zombie dies."
+    ],
+    [
+      "Endless Ranks of the Dead",
+      "Free zombie tokens every upkeep."
+    ],
+    [
+      "Hordewing Skaab",
+      "All your zombies fly, and combat damage lets you loot."
+    ]
+  ],
+  "tips": [
+    "Decayed tokens can't block and are sacrificed after they attack. Feed them to Wilhelt's end step trigger or Carrion Feeder.",
+    "Wilhelt only replaces zombies that didn't have decayed, so sacrifice real zombies to Viscera Seer when you want a token back.",
+    "Gravecrawler can be recast from your graveyard while you control a zombie.",
+    "Noxious Ghoul gives all non-zombie creatures -1/-1 whenever a zombie enters: a slow-motion board wipe for your opponents."
+  ],
+  "mulligan": "Keep 3 lands with both colors and two cheap zombies or a rock. A turn-2 Undead Augur or Cryptbreaker is a strong start."
+}

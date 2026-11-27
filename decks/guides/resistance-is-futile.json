@@ -1,0 +1,65 @@
+{
+  "rating": {
+    "verdict": "A synergy-heavy Borg artifact deck that rewards planning combat and sacrifice timing, which is why it's an intermediate pick. It has no Game Changers or two-card combos, so it fits Bracket 2 (Core), toward the top of that bracket thanks to Skullclamp and one-sided wipes.",
+    "strengths": [
+      "Every connecting artifact creature makes another drone with Locutus out",
+      "Battle of Wolf 359 and Join the Collective clear the table while your drones survive",
+      "Skullclamp and the Co-Option Adjutant / Hive Mind Coprocessor draw engine refill your hand"
+    ],
+    "weaknesses": [
+      "Artifact removal and sweepers like Vandalblast hurt badly",
+      "Tokens are 1/1s: needs anthems or evasion to connect",
+      "Three colors mean the odd awkward mana draw"
+    ],
+    "bracket": 2,
+    "rated": "2026-11-27"
+  },
+  "wins": "Get artifact creatures through for combat damage: with Locutus out, each one that connects makes a new 1/1 Borg drone. Grow the Collective with Tempered Steel, Locutus, the One Who Speaks and Assault Drone, then give it evasion with One, Borg Evolved or Organic Avulsion Unit.",
+  "plan": [
+    [
+      "Turns 1–3",
+      "Cheap drones (Assembly Specialist, Tenacious Drone, Vexing Drone) and mana rocks. Skullclamp early is a great start."
+    ],
+    [
+      "Turn 4",
+      "Cast Locutus of Borg. Attack with anything that can get through; each hit makes another drone."
+    ],
+    [
+      "Turns 5–7",
+      "Add combat-damage rewards (Co-Option Adjutant draws, Supplementation Node grows) and an evasion piece. Use Battle of Wolf 359 when opponents' boards are bigger than yours: it kills their nonartifact creatures, not yours."
+    ],
+    [
+      "Win",
+      "One, Borg Evolved or Primary Unimatrix Adjunct turns the swarm into double strikers. Swing wide and assimilate the table."
+    ]
+  ],
+  "keys": [
+    [
+      "Locutus of Borg",
+      "Lifelink, and every artifact creature you control makes a Borg drone when it deals combat damage to a player."
+    ],
+    [
+      "One, Borg Evolved",
+      "Gives all your artifact creatures flying, double strike, vigilance, menace, lifelink and ward 2."
+    ],
+    [
+      "Battle of Wolf 359",
+      "All nonartifact creatures get -X/-X, where X is your artifact creature count: a one-sided wipe."
+    ],
+    [
+      "Hugh, First of Many",
+      "Replicate on every artifact spell: copy drones for 2U each."
+    ],
+    [
+      "Skullclamp",
+      "Equip a 1/1 drone: it dies and you draw two cards."
+    ]
+  ],
+  "tips": [
+    "Every Borg in this deck is an artifact creature, so they all get Locutus's ability and your anthems.",
+    "Join the Collective destroys all creatures, then gives you a drone for each nonartifact creature destroyed. Your artifact creatures die too, so cast it when you're behind.",
+    "Reclamation Specialist and Automated Warfare System turn spare drones into cards.",
+    "Hold Counterspell or Swan Song for the board wipe aimed at your artifacts."
+  ],
+  "mulligan": "Keep 3 lands (ideally two colors) plus a mana rock or two cheap drones. Skullclamp in the opening hand is a keep."
+}

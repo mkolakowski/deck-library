@@ -466,5 +466,113 @@
     ],
     "added": "2026-11-26",
     "updated": "2026-11-26"
+  },
+  {
+    "id": "riders-of-rohan",
+    "title": "Riders of Rohan",
+    "format": "Commander",
+    "pitch": "Beginner-friendly Boros humans: each human that joins the charge gives one of Théoden's riders double strike, and anthems make the whole host hit hard.",
+    "file": "riders-of-rohan.dck",
+    "colors": "WR",
+    "power": 2,
+    "face": {
+      "set": "LTR",
+      "num": "233"
+    },
+    "tags": [
+      "mytodayforever"
+    ],
+    "added": "2026-11-27",
+    "updated": "2026-11-27"
+  },
+  {
+    "id": "resistance-is-futile",
+    "title": "Resistance Is Futile",
+    "format": "Commander",
+    "pitch": "Intermediate Esper Borg: Locutus turns every hit by an artifact creature into another drone, and One, Borg Evolved gives the Collective flying and double strike.",
+    "file": "resistance-is-futile.dck",
+    "colors": "WUB",
+    "power": 3,
+    "face": {
+      "set": "TRC",
+      "num": "97"
+    },
+    "tags": [
+      "mytodayforever"
+    ],
+    "added": "2026-11-27",
+    "updated": "2026-11-27"
+  },
+  {
+    "id": "kyoshi-warriors",
+    "title": "Kyoshi Warriors",
+    "format": "Commander",
+    "pitch": "Beginner-friendly Selesnya Allies: Suki brings a new Ally to every attack and hits as hard as your team is big, while Appa and the anthems lift the squad.",
+    "file": "kyoshi-warriors.dck",
+    "colors": "WG",
+    "power": 2,
+    "face": {
+      "set": "TLA",
+      "num": "243"
+    },
+    "tags": [
+      "terrafirma"
+    ],
+    "added": "2026-11-27",
+    "updated": "2026-11-27"
+  },
+  {
+    "id": "scholomance-night-class",
+    "title": "Scholomance Night Class",
+    "format": "Commander",
+    "pitch": "Intermediate Dimir zombies: Wilhelt raises a fresh zombie whenever one falls, sacrifices the leftovers to draw cards, and the lords turn the horde lethal.",
+    "file": "scholomance-night-class.dck",
+    "colors": "UB",
+    "power": 3,
+    "face": {
+      "set": "MIC",
+      "num": "2"
+    },
+    "tags": [
+      "terrafirma"
+    ],
+    "added": "2026-11-27",
+    "updated": "2026-11-27"
+  },
+  {
+    "id": "moonlit-roost",
+    "title": "Moonlit Roost",
+    "format": "Commander",
+    "pitch": "Beginner-friendly Orzhov bats: a flock of lifelinking night flyers gains life on every attack, and each life change drains the table.",
+    "file": "moonlit-roost.dck",
+    "colors": "WB",
+    "power": 2,
+    "face": {
+      "set": "BLB",
+      "num": "242"
+    },
+    "tags": [
+      "flowerbear"
+    ],
+    "added": "2026-11-27",
+    "updated": "2026-11-27"
+  },
+  {
+    "id": "the-spirit-library",
+    "title": "The Spirit Library",
+    "format": "Commander",
+    "pitch": "Intermediate mono-blue flash: hold up counterspells and flash creatures, cast Wan Shi Tong at instant speed as big as you can afford, and draw your way past every threat.",
+    "file": "the-spirit-library.dck",
+    "colors": "U",
+    "power": 3,
+    "face": {
+      "set": "TLA",
+      "num": "78"
+    },
+    "tags": [
+      "flowerbear"
+    ],
+    "added": "2026-11-27",
+    "updated": "2026-11-27"
   }
 ]
