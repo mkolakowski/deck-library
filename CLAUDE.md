@@ -47,7 +47,7 @@ card data and images live from the Scryfall API, so there is no build step and n
    ```
    `colors` is the deck's color identity in WUBRG order. `face` is the printing whose art shows on the deck's box:
    the commander, or the deck's signature card. `tags` are lowercase words (letters, digits, hyphens) that group decks
-   on the library page; each tag gets a filter chip. Current tags: `mytodayforever` (the original decks) and `terrafirma`.
+   on the library page; each tag gets a filter chip. Current tags: `mytodayforever` (the original decks), `terrafirma` and `flowerbear`.
    Ask which tag a new deck belongs under if the request doesn't say. `power` rates the deck within its own format:
    1 Starter, 2 Casual, 3 Solid (FNM / upper casual), 4 Competitive (posts results), 5 Top tier (a current format staple).
    Judge it against recent results found on the web, not from memory. When a deck changes, update its `.dck` and its `updated` date.

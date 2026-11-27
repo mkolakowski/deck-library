@@ -1,0 +1,82 @@
+{
+ "rating": {
+  "verdict": "Built on Izzet Prowess, one of Modern's top decks in 2026 that keeps winning leagues and events. Two Harmonic Prodigy replace Stormchaser's Talent for theme, a small cost; it's still a competitive deck.",
+  "strengths": [
+   "Very fast: wins on turn 4 or earlier",
+   "Cheap and free spells (Mutagenic Growth, Mishra's Bauble) make huge prowess turns",
+   "Harmonic Prodigy makes Slickshot Show-Off get +4/+0 per spell"
+  ],
+  "weaknesses": [
+   "Low life total from fetches, shocks and Phyrexian mana",
+   "Cheap blockers and lifegain slow it down",
+   "Graveyard hate weakens Dragon's Rage Channeler"
+  ],
+  "rated": "2026-11-26"
+ },
+ "wins": "Play a cheap creature, then chain cheap spells: each one grows your attackers through prowess and Slickshot Show-Off, so a single combat can deal 10 or more.",
+ "plan": [
+  [
+   "Turn 1",
+   "Monastery Swiftspear (haste) or Dragon's Rage Channeler; Mishra's Bauble and Preordain fill the graveyard."
+  ],
+  [
+   "Turn 2",
+   "Slickshot Show-Off (flying, haste) or Cori-Steel Cutter; attack and cast spells after blockers."
+  ],
+  [
+   "Turn 3",
+   "Two spells in a turn make a Monk token from Cori-Steel Cutter. Harmonic Prodigy doubles Slickshot's bonus."
+  ],
+  [
+   "Finish",
+   "Burn the last points with Lightning Bolt and Lava Dart."
+  ]
+ ],
+ "keys": [
+  [
+   "Slickshot Show-Off",
+   "Flying haste; +2/+0 for each noncreature spell, doubled with Harmonic Prodigy."
+  ],
+  [
+   "Harmonic Prodigy",
+   "Abilities of your other Wizards trigger twice: Slickshot Show-Off is a Wizard."
+  ],
+  [
+   "Cori-Steel Cutter",
+   "Your second spell each turn makes a 1/1 prowess Monk; equip it for +1/+1, trample and haste."
+  ],
+  [
+   "Dragon's Rage Channeler",
+   "Surveils on every spell and becomes a 3/3 flyer with delirium."
+  ],
+  [
+   "Mutagenic Growth",
+   "Free +2/+2 (pay 2 life): a free prowess trigger and combat trick."
+  ]
+ ],
+ "tips": [
+  "Cast spells after blockers are declared so the opponent can't block around your pump.",
+  "Lava Dart's flashback sacrifices a Mountain (Steam Vents counts): two pings and two prowess triggers from one card.",
+  "Harmonic Prodigy doesn't double Swiftspear or DRC's prowess, only Wizards and Shamans.",
+  "Watch your life total against aggro: fetch, shock and Mutagenic Growth all cost life."
+ ],
+ "mulligan": "Keep 1–3 lands with a one- or two-drop creature and a few spells. Hands with no creature are usually a mulligan.",
+ "sideboard": [
+  [
+   "Graveyard decks",
+   "Consign to Memory, Surgical Extraction, Tormod's Crypt"
+  ],
+  [
+   "Affinity and Hammer Time",
+   "Meltdown"
+  ],
+  [
+   "Big creatures",
+   "Unholy Heat, Into the Flood Maw"
+  ],
+  [
+   "Combo and control",
+   "Spell Pierce, Spell Snare"
+  ]
+ ]
+}

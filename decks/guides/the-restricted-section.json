@@ -1,0 +1,83 @@
+{
+ "rating": {
+  "verdict": "Built on Azorius Control, which keeps posting Magic Online league 5-0s through late 2026. The theme picks (Wan Shi Tong instead of some interaction) are untested, so treat it as a strong FNM deck rather than a tuned list.",
+  "strengths": [
+   "Narset plus Day's Undoing is a lopsided seven-card refill",
+   "Teferi and Orim's Chant shut opponents out of their own turn",
+   "Solitude and Supreme Verdict answer creature decks"
+  ],
+  "weaknesses": [
+   "Fast combo can win before the lock is set up",
+   "Few win conditions: games take a while",
+   "Hard to pilot: the lock pieces need careful sequencing"
+  ],
+  "rated": "2026-11-26"
+ },
+ "wins": "Lock the opponent out of their own spells with Teferi and Orim's Chant on Isochron Scepter, starve them with Narset, refill with Day's Undoing, then win with Wan Shi Tong, Solitude or Hall of Storm Giants.",
+ "plan": [
+  [
+   "Turns 1–2",
+   "Prismatic Ending, Spell Snare or Counterspell early threats. Islandcycle Lórien Revealed if you need a land."
+  ],
+  [
+   "Turns 3–4",
+   "Narset or Teferi. Isochron Scepter with Orim's Chant imprinted starts the lock. Supreme Verdict a wide board."
+  ],
+  [
+   "Midgame",
+   "Day's Undoing while Narset is out: you draw seven, they draw one."
+  ],
+  [
+   "Win",
+   "Flash in a big Wan Shi Tong, attack with Solitude, or animate Hall of Storm Giants."
+  ]
+ ],
+ "keys": [
+  [
+   "Narset, Parter of Veils",
+   "Opponents can't draw more than one card each turn, and her −2 digs for spells."
+  ],
+  [
+   "Day's Undoing",
+   "Everyone shuffles and draws seven; with Narset out the opponent only draws one."
+  ],
+  [
+   "Teferi, Time Raveler",
+   "Opponents can only cast spells at sorcery speed, and his +1 lets you cast sorceries any time."
+  ],
+  [
+   "Isochron Scepter",
+   "Imprint Orim's Chant and copy it every turn: the opponent can't cast spells, and with {W} more, can't attack either."
+  ],
+  [
+   "Wan Shi Tong, Librarian",
+   "Flash flyer that grows and draws whenever the opponent searches their library (every fetchland)."
+  ]
+ ],
+ "tips": [
+  "Day's Undoing ends the turn if it's your turn. Use Teferi's +1 to cast it on the opponent's end step instead.",
+  "Copy Orim's Chant from Isochron Scepter during the opponent's upkeep. You can pay the {W} kicker on the copy so creatures can't attack.",
+  "Solitude can be evoked for free by exiling a white card: instant-speed removal.",
+  "Wan Shi Tong: cast for X at the end of the opponent's turn; X=4 is a 5/5 flyer that draws two.",
+  "With Narset out, activate Geier Reach Sanitarium on the opponent's turn after their draw step: they can't draw, but they still discard."
+ ],
+ "mulligan": "Keep 3–4 lands with an early answer (Prismatic Ending, Counterspell, Orim's Chant) and a planeswalker or card draw.",
+ "sideboard": [
+  [
+   "Combo",
+   "Mystical Dispute, Dovin's Veto, Subtlety"
+  ],
+  [
+   "Graveyard decks",
+   "Consign to Memory, Surgical Extraction"
+  ],
+  [
+   "Red aggro",
+   "Celestial Purge"
+  ],
+  [
+   "Storm and spell combo",
+   "High Noon"
+  ]
+ ]
+}

@@ -1,0 +1,83 @@
+{
+ "rating": {
+  "verdict": "Bant Spirits is a real Modern archetype that still posts league 5-0s in 2026, though it sits below the top decks. Flash creatures and Spell Queller make it a tricky tempo deck that rewards practice.",
+  "strengths": [
+   "Flash threats with Rattlechains and Aether Vial dodge sorcery-speed removal",
+   "Two Spirit lords make every creature a real threat",
+   "Spell Queller and Skyclave Apparition interact while adding to the board"
+  ],
+  "weaknesses": [
+   "Board wipes and cheap sweepers hurt",
+   "Hands without lords are slow",
+   "Weak to fast combo that ignores creatures"
+  ],
+  "rated": "2026-11-26"
+ },
+ "wins": "Flash in Spirits at the end of the opponent's turn, pump them with Supreme Phantom and Drogskol Captain, and fly over while Spell Queller and Mausoleum Wanderer stop their key spells.",
+ "plan": [
+  [
+   "Turn 1",
+   "Aether Vial, Noble Hierarch or Mausoleum Wanderer."
+  ],
+  [
+   "Turn 2",
+   "Supreme Phantom or Rattlechains at the end of the opponent's turn."
+  ],
+  [
+   "Turn 3",
+   "Drogskol Captain, Spell Queller or Skyclave Apparition; Collected Company at instant speed."
+  ],
+  [
+   "Finish",
+   "Swarm the skies with lord-pumped, hexproof flyers."
+  ]
+ ],
+ "keys": [
+  [
+   "Supreme Phantom",
+   "Other Spirits get +1/+1."
+  ],
+  [
+   "Drogskol Captain",
+   "Other Spirits get +1/+1 and hexproof."
+  ],
+  [
+   "Spell Queller",
+   "Flash: exile a spell with mana value 4 or less until Queller leaves."
+  ],
+  [
+   "Rattlechains",
+   "All your Spirits can be cast at instant speed, and it can give one hexproof."
+  ],
+  [
+   "Collected Company",
+   "Two creatures from the top six, at instant speed."
+  ]
+ ],
+ "tips": [
+  "Cavern of Souls naming Spirit makes your Spirits uncounterable.",
+  "Mausoleum Wanderer grows when another Spirit enters; sacrifice it to counter an instant or sorcery unless they pay X.",
+  "Aether Vial puts creatures in at instant speed and can't be countered.",
+  "Spell Queller's exiled spell comes back free if Queller leaves, so protect it with Drogskol Captain's hexproof.",
+  "White Orchid Phantom destroys a nonbasic land: aim it at Urza's Saga, Tron lands or utility lands."
+ ],
+ "mulligan": "Keep 2–4 lands with a one- or two-drop Spirit, Aether Vial or Noble Hierarch, and ideally a lord.",
+ "sideboard": [
+  [
+   "Combo",
+   "Mystical Dispute, High Noon"
+  ],
+  [
+   "Graveyard decks",
+   "Consign to Memory"
+  ],
+  [
+   "Affinity and Hammer Time",
+   "Kataki, War's Wage, Prismatic Ending"
+  ],
+  [
+   "Aggro",
+   "Path to Exile"
+  ]
+ ]
+}

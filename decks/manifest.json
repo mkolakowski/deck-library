@@ -358,5 +358,77 @@
     ],
     "added": "2026-11-25",
     "updated": "2026-11-25"
+  },
+  {
+    "id": "night-owls",
+    "title": "Night Owls",
+    "format": "Modern",
+    "pitch": "Orzhov night flyers: Owlin and Bats gain and lose life every turn, and each life change drains the opponent or pumps the flock.",
+    "file": "night-owls.dck",
+    "colors": "WB",
+    "power": 2,
+    "face": {
+      "set": "STX",
+      "num": "210"
+    },
+    "tags": [
+      "flowerbear"
+    ],
+    "added": "2026-11-26",
+    "updated": "2026-11-26"
+  },
+  {
+    "id": "the-restricted-section",
+    "title": "The Restricted Section",
+    "format": "Modern",
+    "pitch": "Azorius library control: Narset keeps opponents to one card a turn, Day's Undoing refills your hand, and Wan Shi Tong, Librarian guards the stacks.",
+    "file": "the-restricted-section.dck",
+    "colors": "WU",
+    "power": 3,
+    "face": {
+      "set": "TLA",
+      "num": "320"
+    },
+    "tags": [
+      "flowerbear"
+    ],
+    "added": "2026-11-26",
+    "updated": "2026-11-26"
+  },
+  {
+    "id": "jam-session",
+    "title": "Jam Session",
+    "format": "Modern",
+    "pitch": "Izzet prowess improv: cheap spells riff off each other, Harmonic Prodigy doubles Slickshot Show-Off's solos, and burn closes the set.",
+    "file": "jam-session.dck",
+    "colors": "UR",
+    "power": 4,
+    "face": {
+      "set": "MH2",
+      "num": "352"
+    },
+    "tags": [
+      "flowerbear"
+    ],
+    "added": "2026-11-26",
+    "updated": "2026-11-26"
+  },
+  {
+    "id": "things-that-go-bump",
+    "title": "Things That Go Bump",
+    "format": "Modern",
+    "pitch": "Bant Spirits: flash in phantoms and apparitions with Aether Vial and Collected Company, pump them with ghostly lords and haunt the skies.",
+    "file": "things-that-go-bump.dck",
+    "colors": "WUG",
+    "power": 3,
+    "face": {
+      "set": "M19",
+      "num": "76"
+    },
+    "tags": [
+      "flowerbear"
+    ],
+    "added": "2026-11-26",
+    "updated": "2026-11-26"
   }
 ]

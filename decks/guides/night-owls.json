@@ -1,0 +1,87 @@
+{
+ "rating": {
+  "verdict": "A fun, flavorful Orzhov flyers deck built mostly from Bloomburrow's Bat cards plus Owlin. It's good at a casual Modern night, but the creatures are Standard-level and well behind Modern's top decks.",
+  "strengths": [
+   "Lots of cheap evasive creatures",
+   "Every life gain or loss triggers drains, counters or pumps",
+   "Pain lands, fetches and shocks turn your own life loss into an advantage"
+  ],
+  "weaknesses": [
+   "Small creatures die to cheap sweepers and burn",
+   "Low raw card quality for Modern",
+   "Few ways to come back once behind"
+  ],
+  "rated": "2026-11-26"
+ },
+ "wins": "Fly over with Bats and Owls. Every time you gain or lose life your creatures grow, gain deathtouch or drain the opponent, so the damage adds up from the air.",
+ "plan": [
+  [
+   "Turn 1",
+   "Ruin-Lurker Bat, or a pain land / fetch so Essence Channeler flies later."
+  ],
+  [
+   "Turns 2–3",
+   "Starscape Cleric, Lifecreed Duo, Essence Channeler, Moonrise Cleric. Fatal Push anything that blocks in the air."
+  ],
+  [
+   "Turns 3–4",
+   "Zoraline and Moonstone Harbinger: attack with every Bat, gain life and make the team deathtouch."
+  ],
+  [
+   "Finish",
+   "Starseer Mentor taxes the opponent every end step; Owlin Shieldmage is a hard-to-target closer."
+  ]
+ ],
+ "keys": [
+  [
+   "Zoraline, Cosmos Caller",
+   "Each attacking Bat gains you life, and she can bring back a dead 3-drop for {W}{B} and 2 life."
+  ],
+  [
+   "Starscape Cleric",
+   "Each time you gain life, each opponent loses 1. With Moonrise Cleric and Ruin-Lurker Bat that is a drain every combat."
+  ],
+  [
+   "Moonstone Harbinger",
+   "Gaining or losing life on your turn gives all your Bats +1/+0 and deathtouch."
+  ],
+  [
+   "Starseer Mentor",
+   "If your life changed this turn, the opponent loses 3 or gives up a card or permanent every end step."
+  ],
+  [
+   "Owlin Shieldmage",
+   "3/3 flyer with ward: pay 3 life, so removal costs the opponent."
+  ]
+ ],
+ "tips": [
+  "Caves of Koilos, Silent Clearing, Marsh Flats and shock lands make you lose life: that alone turns on Essence Channeler's flying, Moonstone Harbinger and Starseer Mentor.",
+  "Starscape Cleric can't block; keep it attacking.",
+  "Offspring: pay the extra cost on Starscape Cleric ({2}{B}) to also get a 1/1 copy that drains too.",
+  "Owlin Historian gets +1/+1 whenever cards leave your graveyard, like Zoraline's return.",
+  "Kaya's Guile: pick two modes; edict plus 4 life is a strong default, graveyard exile in the sideboard games."
+ ],
+ "mulligan": "Keep 2–4 lands with both colors (or a fetch / Caves) and at least two creatures that cost 1–2.",
+ "sideboard": [
+  [
+   "Combo and control",
+   "Thoughtseize"
+  ],
+  [
+   "Graveyard decks",
+   "Rest in Peace"
+  ],
+  [
+   "Affinity and Hammer Time",
+   "Stony Silence, Damping Sphere"
+  ],
+  [
+   "Aggro",
+   "Vampire Nighthawk, Path to Exile"
+  ],
+  [
+   "Red decks",
+   "Celestial Purge"
+  ]
+ ]
+}

@@ -33,6 +33,10 @@ are © Wizards of the Coast. This is an unofficial fan page.
 | [For the Horde](https://mkolakowski.github.io/deck-library/#for-the-horde) | Modern | 2/5 Casual | terrafirma | [.dck](decks/for-the-horde.dck) |
 | [Scholomance Necromancers](https://mkolakowski.github.io/deck-library/#scholomance-necromancers) | Modern | 2/5 Casual | terrafirma | [.dck](decks/scholomance-necromancers.dck) |
 | [Forest Friends Starter](https://mkolakowski.github.io/deck-library/#forest-friends-starter) | Modern | 1/5 Starter | terrafirma | [.dck](decks/forest-friends-starter.dck) |
+| [Night Owls](https://mkolakowski.github.io/deck-library/#night-owls) | Modern | 2/5 Casual | flowerbear | [.dck](decks/night-owls.dck) |
+| [The Restricted Section](https://mkolakowski.github.io/deck-library/#the-restricted-section) | Modern | 3/5 Solid | flowerbear | [.dck](decks/the-restricted-section.dck) |
+| [Jam Session](https://mkolakowski.github.io/deck-library/#jam-session) | Modern | 4/5 Competitive | flowerbear | [.dck](decks/jam-session.dck) |
+| [Things That Go Bump](https://mkolakowski.github.io/deck-library/#things-that-go-bump) | Modern | 3/5 Solid | flowerbear | [.dck](decks/things-that-go-bump.dck) |
 
 ## Publishing with GitHub Pages
 
